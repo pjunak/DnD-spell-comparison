@@ -42,12 +42,9 @@ def cureWounds(lvl):
                     newRollSet[key+roll] = 1
         rollSet = newRollSet
 
-    print(rollSet)
-
     for key in rollSet.keys():
         rollSet[key] = rollSet[key] / 8**lvl
-
-    print(rollSet)
+        
     return rollSet
 
 
@@ -61,13 +58,14 @@ for lvl in range (1,10):
 
 fig, ax = plt.subplots()
 fig.suptitle(f"Probability of Healing Touch value by levels with +{MODIFIER} modifier")
-fig.supxlabel("X = total value of dices + modifier")
+fig.supxlabel("X = sum of rolls + modifier")
 fig.supylabel("Y = chance of occurance")
 
 for lvl in range (0,9):
     x, y = zip(*levels[lvl+1].items())
-    ax.plot(x, (y))
+    ax.plot(x, y, label=lvl+1)
     ax.yaxis.set_major_formatter(mtick.PercentFormatter(xmax = 1, decimals=1, symbol = '%', is_latex = False))
+    ax.legend(title='Spell levels')
 
 
 
