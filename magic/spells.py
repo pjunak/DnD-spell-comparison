@@ -64,3 +64,25 @@ scorchingRay = {
     "use_modifier": True,
     "valueName": "Damage"
 }
+
+chainLightning = {
+    "name": "Chain Lightning",
+    "base_level": 6,
+    "start_rolls": 10,
+    "initial_dice_value": 8,
+    "additional_dice_value": 8,
+    "add_rolls": 2,
+    "use_modifier": True,
+    "valueName": "Damage"
+}
+
+coneOfCold = {
+    "name": "Cone of Cold",
+    "base_level": 5,
+    "start_rolls": 12,
+    "initial_dice_value": 6,
+    "additional_dice_value": 6,
+    "add_rolls": 1,
+    "use_modifier": True,
+    "valueName": "Damage"
+}

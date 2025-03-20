@@ -10,16 +10,15 @@ from magic import spells as spells_data
 from magic import cantrips as cantrips_data
 import calculations
 
-settings = {
-    "modifier": 0
-}
+settings = {"modifier": 0}
 
 def ordinal(n):
     return str(n) + {1: 'st', 2: 'nd', 3: 'rd'}.get(4 if 10 <= n % 100 < 20 else n % 10, "th")
 
-def list_spells():
+def list_spells(spell_type=None):
     all_spells = {}
-    for mod in (spells_data, cantrips_data):
+    mods = [spells_data, cantrips_data] if spell_type is None else ([spells_data] if spell_type == "spell" else [cantrips_data])
+    for mod in mods:
         for k, v in mod.__dict__.items():
             if not k.startswith('__') and isinstance(v, dict):
                 all_spells[k] = v
@@ -47,7 +46,7 @@ def main_loop():
         print("\n--- Main Menu ---")
         print(f"Modifier: {settings['modifier']} (press M to change)")
         print("  S - Show a single spell")
-        print("  C - Compare spells")
+        print("  C - Compare spells/cantrips")
         print("  X - Exit")
         action = input("Choice: ").strip().lower()
         if action == "x":
@@ -77,14 +76,20 @@ def main_loop():
             from plotting import plot_spell
             plot_spell(params, mod, spell_full_name, valueName)
         elif action == "c":
-            spells_dict = list_spells()
-            print("Enter spells to compare separated by commas (e.g., 1,3) (B to go back, X to exit):")
+            print("Compare which type? (S)pells or (C)antrips?")
+            type_choice = input("Choice (S/C): ").strip().lower()
+            if type_choice not in ["s", "c"]:
+                print("Invalid selection.")
+                continue
+            spell_type = "spell" if type_choice == "s" else "cantrip"
+            spells_dict = list_spells(spell_type)
+            print("Enter spells to compare separated by spaces (e.g., '1 3') (B to go back, X to exit):")
             selection = input("Spell numbers: ").strip().lower()
             if selection in ["x", "b"]:
                 if selection == "x":
                     break
                 continue
-            indices = [s.strip() for s in selection.split(",") if s.strip()]
+            indices = selection.split()
             if len(indices) not in [2, 3]:
                 print("Select exactly 2 or 3 spells for comparison.")
                 continue
