@@ -1,5 +1,5 @@
 
-# Plotting D&D 5e spells for comparing probability of certain outcomes by levels.
+# Plotting D&D 5e spell plotting
 
 This project lets you visualize the probability distributions of D&D spells and cantrips as a function of spell (or effective) level. It supports comparing multiple spells or cantrips on the same graph.
 
