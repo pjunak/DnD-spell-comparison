@@ -36,24 +36,6 @@ This project lets you visualize the probability distributions of D&D spells and 
 - Spells and cantrips are defined in separate modules under `magic/`.
 - Only works for most standard spells, spells with multiple damaging effects are yet to be implemented.
 
-## Project Structure
-
-```
-dnd-spell-values-plotting/
-│
-├── __main__.py                # Program entry, CLI for selecting plots.
-├── calculations.py            # Probability distribution calculations.
-├── dices.py                   # Dice combination functions.
-│
-├── magic/
-│   ├── spells.py              # Spell definitions.
-│   └── cantrips.py            # Cantrip definitions.
-│
-├── plotting.py                # Plotting functions for spells.
-│
-└── README.md                  # Project overview.
-```
-
 ## Requirements
 
 - Python 3.x
