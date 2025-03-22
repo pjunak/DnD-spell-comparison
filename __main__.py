@@ -6,8 +6,7 @@ import random
 import matplotlib.pyplot as plt
 import math
 import numpy as np
-from magic import spells as spells_data
-from magic import cantrips as cantrips_data
+import db
 import calculations
 
 settings = {
@@ -18,38 +17,46 @@ def ordinal(n):
     return str(n) + {1: 'st', 2: 'nd', 3: 'rd'}.get(4 if 10 <= n % 100 < 20 else n % 10, "th")
 
 def list_spells():
-    all_spells = {}
-    for mod in (spells_data, cantrips_data):
-        for k, v in mod.__dict__.items():
-            if not k.startswith('__') and isinstance(v, dict):
-                all_spells[k] = v
-    sorted_spells = sorted(all_spells.items(), key=lambda x: x[1].get("name", x[0]).lower())
-    for idx, (key, data) in enumerate(sorted_spells, start=1):
-        print(f"{idx}. {data.get('name', key)}")
-    return {str(i): (key, data) for i, (key, data) in enumerate(sorted_spells, start=1)}
+    spells = db.load_spells()
+    sorted_spells = sorted(spells, key=lambda s: s.get("name", "").lower())
+    spell_entries = []
+    for i, spell in enumerate(sorted_spells, start=1):
+        entry = f"{i}. {spell.get('name','Unknown')}"
+        spell_entries.append(entry)
+    # Determine maximum width for each column.
+    col_count = 5
+    col_width = max(len(entry) for entry in spell_entries) + 4
+    # Print table rows.
+    total = len(spell_entries)
+    print("\nAvailable Spells:")
+    for row in range(0, total, col_count):
+        row_items = spell_entries[row:row+col_count]
+        print("".join(item.ljust(col_width) for item in row_items))
+    return {str(i): spell for i, spell in enumerate(sorted_spells, start=1)}
 
 def change_modifier():
     while True:
-        new_mod = input("Enter new spellcasting modifier (integer) (B to go back, X to exit): ").strip().lower()
+        new_mod = input("Enter new modifier (integer) (B to go back, X to exit): ").strip().lower()
         if new_mod == "b":
             return
         if new_mod == "x":
             exit("Exiting...")
         try:
             settings["modifier"] = int(new_mod)
-            print(f"Modifier changed to {settings['modifier']}.")
+            print(f"Modifier set to {settings['modifier']}.")
             return
         except ValueError:
             print("Invalid input.")
 
 def main_loop():
     while True:
-        print("\n--- Main Menu ---")
-        print(f"Modifier: {settings['modifier']} (press M to change)")
-        print("  S - Show a single spell")
-        print("  C - Compare spells")
-        print("  X - Exit")
-        action = input("Choice: ").strip().lower()
+        print("\n===================================")
+        print(f" Current modifier: {settings['modifier']}")
+        print(" S - Show a single spell")
+        print(" C - Compare spells")
+        print(" M - Change modifier")
+        print(" X - Exit")
+        action = input("Your choice: ").strip().lower()
         if action == "x":
             break
         if action == "m":
@@ -57,36 +64,35 @@ def main_loop():
             continue
         if action == "s":
             spells_dict = list_spells()
-            choice = input("Select a spell by number (B to go back, X to exit): ").strip().lower()
+            choice = input("\nSelect a spell by number (B to go back, X to exit): ").strip().lower()
             if choice in ["x", "b"]:
                 if choice == "x":
                     break
                 continue
             if choice not in spells_dict:
                 choice = "1"
-            spell_key, params = spells_dict[choice]
-            spell_full_name = params.get("name", spell_key)
-            print(f"You selected: {spell_full_name}")
-            base_level = params.get("base_level", 1)
-            if base_level == 0:
-                print(f"{spell_full_name} (cantrip) will be plotted for effective levels 1-4.")
+            spell = spells_dict[choice]
+            spell_full_name = spell.get("name", "Unknown")
+            print(f"\nYou selected: {spell_full_name}")
+            lvl = spell.get("level", 1)
+            if lvl == 0:
+                print(f"{spell_full_name} (cantrip) will be plotted for levels 1-4.")
             else:
-                print(f"{spell_full_name} will be plotted for spell levels {base_level}-9.")
+                print(f"{spell_full_name} will be plotted for spell levels {lvl}-9.")
             mod = settings["modifier"]
-            valueName = params.get("valueName", "Value")
             from plotting import plot_spell
-            plot_spell(params, mod, spell_full_name, valueName)
+            plot_spell(spell, mod, spell_full_name)
         elif action == "c":
             spells_dict = list_spells()
-            print("Enter spells to compare separated by commas (e.g., 1,3) (B to go back, X to exit):")
-            selection = input("Spell numbers: ").strip().lower()
+            prompt = "\nEnter spell numbers to compare (separated by spaces) (B to go back, X to exit): "
+            selection = input(prompt).strip().lower()
             if selection in ["x", "b"]:
                 if selection == "x":
                     break
                 continue
-            indices = [s.strip() for s in selection.split(",") if s.strip()]
+            indices = selection.split()
             if len(indices) not in [2, 3]:
-                print("Select exactly 2 or 3 spells for comparison.")
+                print("Please select exactly 2 or 3 spells for comparison.")
                 continue
             selected_spells = []
             for idx in indices:
@@ -100,7 +106,7 @@ def main_loop():
             from plotting import compare_spells
             compare_spells(selected_spells, mod)
         else:
-            print("Invalid action. Choose S, C, M or X.")
+            print("Invalid option. Please choose S, C, M or X.")
 
 if __name__ == "__main__":
     main_loop()
