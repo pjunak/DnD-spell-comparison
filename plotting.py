@@ -133,7 +133,7 @@ def plot_spell(spell, mod, spell_full_name):
         annot.set_visible(True)
         fig.canvas.draw_idle()
     fig.canvas.mpl_connect("motion_notify_event", update_annotation)
-    plt.show()
+    return fig
 
 def compare_spells(selected_spells, mod):
     from matplotlib.lines import Line2D
@@ -317,4 +317,4 @@ def compare_spells(selected_spells, mod):
         annot.set_visible(True)
         fig.canvas.draw_idle()
     fig.canvas.mpl_connect("motion_notify_event", update_annotation)
-    plt.show()
+    return fig
