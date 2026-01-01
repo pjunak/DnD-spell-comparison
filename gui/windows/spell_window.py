@@ -1,0 +1,223 @@
+"""Spell Window for browsing and viewing spells."""
+
+from __future__ import annotations
+
+from typing import List, Mapping, Optional
+
+from PySide6.QtCore import Qt, Signal
+from PySide6.QtWidgets import (
+    QHBoxLayout,
+    QLabel,
+    QSplitter,
+    QTextBrowser,
+    QVBoxLayout,
+    QWidget,
+    QComboBox,
+    QPushButton,
+    QButtonGroup,
+    QCheckBox
+)
+
+from services.compendium import Compendium
+from gui.widgets.compendium_spells_table import SpellsTableView
+from gui.utils.compendium_formatting import render_markdown_with_links
+from gui.utils.stat_blocks import render_spell_stat_block
+from ..resources import get_app_icon
+from ..widgets import FramelessWindow
+
+class SpellWindow(FramelessWindow):
+    """Standalone window for browsing Spells."""
+    
+    _SCHOOLS = [
+        "All Schools", "Abjuration", "Conjuration", "Divination", 
+        "Enchantment", "Evocation", "Illusion", "Necromancy", "Transmutation"
+    ]
+
+    def __init__(self, parent: QWidget | None = None) -> None:
+        super().__init__(parent)
+        self.setWindowTitle("Spell Browser")
+        self.setWindowIcon(get_app_icon())
+        self.setAttribute(Qt.WidgetAttribute.WA_DeleteOnClose, True)
+        self.resize(1300, 800)
+
+        self._compendium: Compendium | None = None
+        self._spells: List[dict] = []
+
+        central = QWidget(self)
+        root = QVBoxLayout(central)
+        root.setContentsMargins(16, 16, 16, 16)
+        root.setSpacing(10)
+
+        # --- Title Bar ---
+        title_label = QLabel("Spell Browser")
+        title_label.setStyleSheet("font-size: 18px; font-weight: bold; color: #ecf0f1;")
+        self.set_title_bar_center_widget(title_label)
+
+        # --- Main Layout ---
+        split = QSplitter(Qt.Orientation.Horizontal)
+        root.addWidget(split, 1)
+
+        # Left Pane: Filters + Table
+        left_widget = QWidget()
+        left_layout = QVBoxLayout(left_widget)
+        left_layout.setContentsMargins(0, 0, 0, 0)
+        left_layout.setSpacing(8)
+
+        # -- Filter Toolbar --
+        filter_widget = QWidget()
+        filter_layout = QHBoxLayout(filter_widget)
+        filter_layout.setContentsMargins(0, 0, 0, 0)
+        filter_layout.setSpacing(8)
+        
+        # Level Buttons
+        self._level_buttons = QButtonGroup(self)
+        self._level_buttons.setExclusive(False)
+        for i in range(10):
+            label = str(i)
+            btn = QPushButton(label)
+            btn.setCheckable(True)
+            btn.setFixedWidth(30)
+            btn.setToolTip(f"Level {i}")
+            btn.toggled.connect(self._apply_filters)
+            self._level_buttons.addButton(btn, i)
+            filter_layout.addWidget(btn)
+
+        # School Buttons
+        self._school_group = QButtonGroup(self)
+        self._school_group.setExclusive(False)
+        
+        # School Colors (approximate 5e standard colors)
+        school_colors = {
+            "Abjuration": "#3498DB",    # Blue
+            "Conjuration": "#E67E22",   # Orange
+            "Divination": "#BDC3C7",    # Silver/Grey
+            "Enchantment": "#E91E63",   # Pink/Magenta
+            "Evocation": "#E74C3C",     # Red
+            "Illusion": "#9B59B6",      # Purple
+            "Necromancy": "#2ECC71",    # Green (often associated with acid/poison/undead glow) - or Black
+            "Transmutation": "#F1C40F"  # Gold
+        }
+
+        # Header label for schools? Or just list them.
+        # Let's add them directly.
+        # Note: "All Schools" is implicit if none selected? Or explicit button?
+        # User asked for buttons "like for levels". Levels are multiple selection.
+        # So multiple school selection makes sense.
+        
+        for school, color in school_colors.items():
+            # Use 3 letter abbreviation
+            btn = QPushButton(school[:3]) 
+            btn.setCheckable(True)
+            btn.setToolTip(school)
+            # Style: Color background when checked, colored border when unchecked?
+            # Or always colored but brighter when checked?
+            # Let's do a simple style sheet injection per button.
+            
+            # Base style
+            btn.setStyleSheet(f"""
+                QPushButton {{
+                    background-color: transparent;
+                    border: 2px solid {color};
+                    color: {color};
+                    border-radius: 4px;
+                    padding: 4px 8px;
+                    font-weight: bold;
+                }}
+                QPushButton:checked {{
+                    background-color: {color};
+                    color: white;
+                }}
+                QPushButton:hover {{
+                    background-color: {color}40; /* 25% opacity */
+                }}
+            """)
+            
+            btn.toggled.connect(self._apply_filters)
+            self._school_group.addButton(btn)
+            filter_layout.addWidget(btn)
+        
+        filter_layout.addStretch()
+        left_layout.addWidget(filter_widget)
+
+        # -- Table --
+        self._table = SpellsTableView()
+        self._table.selectionModel().selectionChanged.connect(self._on_selection_changed)
+        left_layout.addWidget(self._table)
+
+        split.addWidget(left_widget)
+
+        # Right Pane: Details
+        right_widget = QWidget()
+        right_layout = QVBoxLayout(right_widget)
+        right_layout.setContentsMargins(0, 0, 0, 0)
+
+        self._details = QTextBrowser()
+        self._details.setOpenExternalLinks(False)
+        self._details.setPlaceholderText("Select a spell to view details.")
+        right_layout.addWidget(self._details)
+
+        split.addWidget(right_widget)
+        split.setStretchFactor(0, 2)
+        split.setStretchFactor(1, 1)
+
+        self.setCentralWidget(central)
+        self._load_data()
+
+    def _load_data(self):
+        try:
+            self._compendium = Compendium.load()
+            # The table widget might expect rows or payload. 
+            # Looking at source, SpellsTableView has set_spells(spells) or similar? 
+            # Checked source previously: it has `set_spells` if it inherits from generic table, or we just pass the full list.
+            # Actually, let's just use use apply_filters logic which seems to handle it if we look at CompendiumWindow usage.
+            # CompendiumWindow usage: self._spells_table.apply_filters(level_ints, schools, query)
+            # But we also need to load the data into it first.
+            # CompendiumWindow had: self._spells_table.set_spells(spells) ? 
+            # No, looking at previous views - SpellsTableView was instantiated with compendium?
+            # Creating CompendiumWindow: self._spells_table = CompendiumSpellsTable(self._compendium) ?
+            # Wait, SpellsTableView usage in CompendiumWindow was removed.
+            # Let's check SpellsTableView implementation quickly if needed.
+            
+            raw = self._compendium.records("spells")
+            self._spells = [dict(r) for r in raw if isinstance(r, Mapping) and r.get("name")]
+            self._table.set_spells(self._spells)
+            self._apply_filters()
+            
+        except Exception as e:
+            self._details.setText(f"Error loading spells: {e}")
+
+    def _apply_filters(self):
+        # Gather levels
+        levels = []
+        for btn in self._level_buttons.buttons():
+            if btn.isChecked():
+                levels.append(int(btn.text()))
+                
+        # Gather school
+        schools = []
+        for btn in self._school_group.buttons():
+            if btn.isChecked():
+                # We used abbreviation for text, so use tooltip for full name
+                schools.append(btn.toolTip())
+            
+        # Search text (todo: add search bar if needed, logic supported)
+        query = ""
+        
+        self._table.apply_filters(levels if levels else [], schools, query)
+
+    def _on_selection_changed(self):
+        payload = self._table.get_selected_spell()
+        if not payload:
+            self._details.clear()
+            return
+            
+        # Render
+        md = render_spell_stat_block(payload)
+        
+        def _resolve_id(rid: str) -> str:
+            if self._compendium:
+                return self._compendium.display_for_id(rid)
+            return rid
+
+        html = render_markdown_with_links(md, label_for_id=_resolve_id)
+        self._details.setHtml(html)

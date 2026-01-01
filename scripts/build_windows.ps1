@@ -7,8 +7,6 @@ Set-StrictMode -Version Latest
 $root = (Resolve-Path (Join-Path $PSScriptRoot ".."))
 Set-Location $root
 
-$dbPath = Join-Path $root "database\spellBook.db"
-$backupPath = "$dbPath.prebuild"
 $pyinstaller = if ($env:PYINSTALLER -and $env:PYINSTALLER.Trim()) { $env:PYINSTALLER } else { "pyinstaller" }
 $buildDir = Join-Path $root "build"
 $finalDir = Join-Path $buildDir "SpellGraphix"
@@ -19,13 +17,6 @@ $tempWork = Join-Path $buildDir ".pyi-work"
 function Write-Log {
     param([string]$Message)
     Write-Host "[build-windows] $Message"
-}
-
-function Restore-Database {
-    if (Test-Path $backupPath) {
-        Write-Log "Restoring original database"
-        Move-Item -Force -LiteralPath $backupPath -Destination $dbPath
-    }
 }
 
 function Remove-TempArtifacts {
@@ -67,12 +58,6 @@ try {
         throw "pyinstaller is required but was not found in PATH."
     }
 
-    if (Test-Path $dbPath) {
-        Write-Log "Preparing empty database"
-        Copy-Item -LiteralPath $dbPath -Destination $backupPath -Force
-        Remove-Item -LiteralPath $dbPath -Force
-    }
-
     Write-Log "Running PyInstaller"
     & $pyinstaller --clean --noconfirm --distpath $tempDist --workpath $tempWork SpellGraphix.spec
 
@@ -105,6 +90,5 @@ finally {
     if ($buildSucceeded -and (Test-Path $finalBackup)) {
         Remove-Item -Recurse -Force -LiteralPath $finalBackup -ErrorAction SilentlyContinue
     }
-    Restore-Database
     Remove-TempArtifacts
 }

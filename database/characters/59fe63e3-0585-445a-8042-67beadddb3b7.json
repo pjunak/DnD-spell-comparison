@@ -1,0 +1,148 @@
+{
+  "id": "59fe63e3-0585-445a-8042-67beadddb3b7",
+  "sheet": {
+    "identity": {
+      "name": "Gram",
+      "ancestry": "",
+      "ancestry_subtype": "",
+      "background": "Soldier",
+      "background_choices": {
+        "ability_choices": [
+          "CON",
+          "WIS"
+        ],
+        "skill_choices": [],
+        "tool_choices": [
+          "Gaming set"
+        ],
+        "language_choices": [],
+        "feat_choice": "Tavern Brawler"
+      },
+      "player": "",
+      "alignment": "",
+      "experience": 0,
+      "classes": [
+        {
+          "name": "Wizard",
+          "level": 8,
+          "subclass": "School of Evocation"
+        }
+      ],
+      "level_cap": 8,
+      "ability_generation": "point_buy",
+      "asi_choices": {
+        "4": "asi:INT,CON",
+        "8": "feat:Magic Initiate"
+      }
+    },
+    "abilities": {
+      "STR": {
+        "score": 10,
+        "modifier": null,
+        "save_proficient": false,
+        "save_bonus": 0
+      },
+      "DEX": {
+        "score": 11,
+        "modifier": null,
+        "save_proficient": false,
+        "save_bonus": 0
+      },
+      "CON": {
+        "score": 14,
+        "modifier": null,
+        "save_proficient": false,
+        "save_bonus": 0
+      },
+      "INT": {
+        "score": 15,
+        "modifier": null,
+        "save_proficient": false,
+        "save_bonus": 0
+      },
+      "WIS": {
+        "score": 9,
+        "modifier": null,
+        "save_proficient": false,
+        "save_bonus": 0
+      },
+      "CHA": {
+        "score": 13,
+        "modifier": null,
+        "save_proficient": false,
+        "save_bonus": 0
+      }
+    },
+    "combat": {
+      "armor_class": 10,
+      "initiative_bonus": 0,
+      "speed_ft": 30,
+      "max_hp": 50,
+      "current_hp": 50,
+      "temp_hp": 0,
+      "hit_dice": "",
+      "death_save_successes": 0,
+      "death_save_failures": 0
+    },
+    "proficiencies": {
+      "proficiency_bonus": 3,
+      "armor": [],
+      "weapons": [],
+      "tools": [],
+      "languages": [],
+      "skills": {}
+    },
+    "equipment": [],
+    "features": [],
+    "resources": [],
+    "spellcasting": {
+      "spellcasting_ability": "INT",
+      "attack_bonus": 6,
+      "save_dc": 14,
+      "known_spells": [],
+      "spell_sources": [],
+      "slot_schedule": {
+        "long_rest": {
+          "1": 4,
+          "2": 3,
+          "3": 3,
+          "4": 2
+        },
+        "short_rest": {}
+      },
+      "slot_state": {
+        "long_rest": {
+          "1": 4,
+          "2": 3,
+          "3": 3,
+          "4": 2
+        },
+        "short_rest": {}
+      },
+      "spell_slots": {
+        "1": 4,
+        "2": 3,
+        "3": 3,
+        "4": 2
+      },
+      "prepared_spells": []
+    },
+    "feature_options": {},
+    "class_options": {},
+    "notes": {}
+  },
+  "modifiers": {
+    "Boon: Blessing of the Archmage": false,
+    "Feat: Elemental Adept": false,
+    "Feat: Resilient (Constitution)": false,
+    "Feat: Spell Sniper": false,
+    "Feat: War Caster": false,
+    "Agonizing Blast": false,
+    "Flame Mastery": false,
+    "Grasp of Hadar": false,
+    "Metamagic: Empowered Spell": false,
+    "Metamagic: Quickened Spell": false,
+    "Repelling Blast": false,
+    "Storm Channeling": false
+  }
+}

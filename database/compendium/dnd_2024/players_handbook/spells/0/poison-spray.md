@@ -1,0 +1,31 @@
+---
+name: Poison Spray
+type: spell
+level: 0
+school: Necromancy
+ritual: false
+casting_time: Action
+range: 30 feet
+components:
+- V
+- S
+material: ''
+duration: Instantaneous
+concentration: false
+classes: []
+id: spell:poison-spray
+---
+
+*Necromancy Cantrip (Artificer, Druid, Sorcerer, Warlock, Wizard)*
+
+**Casting Time:** Action
+
+**Range:** 30 feet
+
+**Components:** V, S
+
+**Duration:** Instantaneous
+
+You spray toxic mist at a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d12 Poison damage.
+
+**Cantrip Upgrade.** The damage increases by 1d12 when you reach levels 5 (2d12), 11 (3d12), and 17 (4d12).

@@ -2,10 +2,16 @@
 
 
 a = Analysis(
-    ['gui.py'],
+    ['__main__.py'],
     pathex=[],
     binaries=[],
-    datas=[('database', 'database')],
+    datas=[
+        ('Assets', 'Assets'),
+        ('gui/resources', 'gui/resources'),
+        ('character_sheet', 'character_sheet'),
+        ('database/compendium', 'database/compendium'),
+        ('database/characters', 'database/characters'),
+    ],
     hiddenimports=['PySide6.QtSvg'],
     hookspath=[],
     hooksconfig={},
@@ -23,13 +29,14 @@ exe = EXE(
     a.datas,
     [],
     name='SpellGraphix',
+    icon='Assets/app-icon.ico',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
     upx=True,
     upx_exclude=[],
     runtime_tmpdir=None,
-    console=False,
+    console=False, # Set to True if debugging
     disable_windowed_traceback=False,
     argv_emulation=False,
     target_arch=None,

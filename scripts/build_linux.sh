@@ -2,8 +2,6 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-DB_PATH="$ROOT_DIR/database/spellBook.db"
-DB_BACKUP="$ROOT_DIR/database/spellBook.db.prebuild"
 PYINSTALLER_BIN="${PYINSTALLER:-pyinstaller}"
 BUILD_DIR="$ROOT_DIR/build"
 FINAL_DIR="$BUILD_DIR/SpellGraphix"
@@ -13,13 +11,6 @@ TEMP_WORK="$BUILD_DIR/.pyi-work"
 
 log() {
   echo "[build-linux] $*"
-}
-
-restore_database() {
-  if [[ -f "$DB_BACKUP" ]]; then
-    log "Restoring original database"
-    mv -f "$DB_BACKUP" "$DB_PATH"
-  fi
 }
 
 cleanup_artifacts() {
@@ -39,7 +30,6 @@ cleanup() {
   if [[ $status -eq 0 ]]; then
     rm -rf "$FINAL_BACKUP"
   fi
-  restore_database
   cleanup_artifacts
   exit $status
 }
@@ -60,12 +50,6 @@ if [[ -e "$FINAL_DIR" ]]; then
   log "Backing up previous build artifact"
   rm -rf "$FINAL_BACKUP"
   mv "$FINAL_DIR" "$FINAL_BACKUP"
-fi
-
-log "Preparing empty database"
-if [[ -f "$DB_PATH" ]]; then
-  cp "$DB_PATH" "$DB_BACKUP"
-  rm -f "$DB_PATH"
 fi
 
 log "Running PyInstaller"

@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "spellgraphix"
+version = "0.0.0"
+description = "Personal D&D 2024 compendium + character + spell math toolkit"
+requires-python = ">=3.10"
+
+# Keep dependencies managed primarily via requirements.txt for this personal project.
+# This list exists so `pip install -e .` works reliably.
+dependencies = [
+  "PySide6>=6.6",
+  "matplotlib",
+  "numpy",
+]
+
+[project.scripts]
+spellgraphix = "gui.app:main"
+
+[tool.setuptools]
+package-dir = {"" = "."}
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = [
+  "spell_graphs",
+  "spell_graphs.*",
+  "character_sheet",
+  "character_sheet.*",
+  "core",
+  "core.*",
+  "database",
+  "database.*",
+  "gui",
+  "gui.*",
+  "services",
+  "services.*",
+]

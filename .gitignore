@@ -1,4 +1,3 @@
-spellbook.json
 *.db
 build/
 # Byte-compiled / optimized / DLL files
@@ -72,3 +71,16 @@ docs/_build/
 
 # PyBuilder
 target/
+# User requested exclusions (testing, data gathering, sources)
+tests/
+sources/
+scripts/*.py
+scripts/legacy_etl/
+.pytest_cache/
+
+# Build artifacts
+spellgraphix.egg-info/
+build/
+dist/
+*.spec
+TODO.txt
