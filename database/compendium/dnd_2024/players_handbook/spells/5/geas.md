@@ -11,18 +11,20 @@ components:
 material: ''
 duration: 30 days
 concentration: false
-classes: []
+classes:
+- Bard
+- Cleric
+- Druid
+- Paladin
+- Wizard
 id: spell:geas
+material_price: ''
 ---
-
-*Level 5 Enchantment (Bard, Cleric, Druid, Paladin, Wizard)*
-
+# Geas
+*5th-Level Enchantment (Bard, Cleric, Druid, Paladin, Wizard)*
 **Casting Time:** 1 minute
-
 **Range:** 60 feet
-
 **Components:** V
-
 **Duration:** 30 days
 
 You give a verbal command to a creature that you can see within range, ordering it to carry out some service or refrain from an action or a course of activity as you decide. The target must succeed on a Wisdom saving throw or have the Charmed condition for the duration. The target automatically succeeds if it can’t understand your command.

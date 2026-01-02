@@ -13,18 +13,21 @@ components:
 material: fur from a bloodhound
 duration: Concentration, up to 1 hour
 concentration: true
-classes: []
+classes:
+- Bard
+- Cleric
+- Druid
+- Paladin
+- Ranger
+- Wizard
 id: spell:locate-creature
+material_price: ''
 ---
-
-*Level 4 Divination (Bard, Cleric, Druid, Paladin, Ranger, Wizard)*
-
+# Locate Creature
+*4th-Level Divination (Bard, Cleric, Druid, Paladin, Ranger, Wizard)*
 **Casting Time:** Action
-
 **Range:** Self
-
 **Components:** V, S, M (fur from a bloodhound)
-
 **Duration:** Concentration, up to 1 hour
 
 Describe or name a creature that is familiar to you. You sense the direction to the creature’s location if that creature is within 1,000 feet of you. If the creature is moving, you know the direction of its movement.

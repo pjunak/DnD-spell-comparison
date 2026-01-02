@@ -13,19 +13,17 @@ components:
 material: ''
 duration: C, up to 10 minutes
 concentration: false
-classes: []
+classes:
+- Wizard
 id: spell:conjure-constructs
+material_price: ''
 ---
-
-*Level 3 Conjuration (Wizard)*
-
+# Conjure Constructs
+*3rd-Level Conjuration (Wizard)*
 **Casting Time:** Action
-
 **Range:** 60 feet
-
-**Components:** V, S, M (a brass cog)
-
-**Duration:** Concentration, up to 10 minutes
+**Components:** V, S, M
+**Duration:** C, up to 10 minutes
 
 You conjure a group of intangible, orderly spirits that appear as a Medium group of modrons or other Constructs in an unoccupied space you can see within range. The spirits last for the duration.
 

@@ -12,18 +12,19 @@ components:
 material: ''
 duration: 10 minutes
 concentration: false
-classes: []
+classes:
+- Bard
+- Druid
+- Ranger
+- Warlock
 id: spell:speak-with-animals
+material_price: ''
 ---
-
-*Level 1 Divination (Bard, Druid, Ranger, Warlock)*
-
-**Casting Time:** Action or Ritual
-
+# Speak with Animals
+*1st-Level Divination (Bard, Druid, Ranger, Warlock)*
+**Casting Time:** Action
 **Range:** Self
-
 **Components:** V, S
-
 **Duration:** 10 minutes
 
 For the duration, you can comprehend and verbally communicate with Beasts, and you can use any of the Influence action’s skill options with them.

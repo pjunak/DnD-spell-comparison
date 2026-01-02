@@ -13,18 +13,16 @@ components:
 material: a handful of thorns
 duration: Concentration, up to 10 minutes
 concentration: true
-classes: []
+classes:
+- Druid
 id: spell:wall-of-thorns
+material_price: ''
 ---
-
-*Level 6 Conjuration (Druid)*
-
+# Wall of Thorns
+*6th-Level Conjuration (Druid)*
 **Casting Time:** Action
-
 **Range:** 120 feet
-
 **Components:** V, S, M (a handful of thorns)
-
 **Duration:** Concentration, up to 10 minutes
 
 You create a wall of tangled brush bristling with needle-sharp thorns. The wall appears within range on a solid surface and lasts for the duration. You choose to make the wall up to 60 feet long, 10 feet high, and 5 feet thick or a circle that has a 20-foot diameter and is up to 20 feet high and 5 feet thick. The wall blocks line of sight.

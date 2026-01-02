@@ -12,18 +12,17 @@ components:
 material: ''
 duration: Instantaneous
 concentration: false
-classes: []
+classes:
+- Sorcerer
+- Wizard
 id: spell:ray-of-sickness
+material_price: ''
 ---
-
-*Level 1 Necromancy (Sorcerer, Wizard)*
-
+# Ray of Sickness
+*1st-Level Necromancy (Sorcerer, Wizard)*
 **Casting Time:** Action
-
 **Range:** 60 feet
-
 **Components:** V, S
-
 **Duration:** Instantaneous
 
 You shoot a greenish ray at a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 2d8 Poison damage and has the Poisoned condition until the end of your next turn.

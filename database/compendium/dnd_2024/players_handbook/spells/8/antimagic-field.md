@@ -13,18 +13,17 @@ components:
 material: iron filings
 duration: Concentration, up to 1 hour
 concentration: true
-classes: []
+classes:
+- Cleric
+- Wizard
 id: spell:antimagic-field
+material_price: ''
 ---
-
-*Level 8 Abjuration (Cleric, Wizard)*
-
+# Antimagic Field
+*8th-Level Abjuration (Cleric, Wizard)*
 **Casting Time:** Action
-
 **Range:** Self
-
 **Components:** V, S, M (iron filings)
-
 **Duration:** Concentration, up to 1 hour
 
 An aura of antimagic surrounds you in 10-foot Emanation. No one can cast spells, take Magic actions, or create other magical effects inside the aura, and those things can’t target or otherwise affect anything inside it. Magical properties of magic items don’t work inside the aura or on anything inside it.

@@ -13,18 +13,17 @@ components:
 material: a thin sheet of lead
 duration: 24 hours
 concentration: false
-classes: []
+classes:
+- Artificer
+- Wizard
 id: spell:mordenkainen-s-private-sanctum
+material_price: ''
 ---
-
-*Level 4 Abjuration (Artificer, Wizard)*
-
+# Mordenkainen's Private Sanctum
+*4th-Level Abjuration (Artificer, Wizard)*
 **Casting Time:** 10 minutes
-
 **Range:** 120 feet
-
 **Components:** V, S, M (a thin sheet of lead)
-
 **Duration:** 24 hours
 
 You make an area within range magically secure. The area is a Cube that can be as small as 5 feet to as large as 100 feet on each side. The spell lasts for the duration.

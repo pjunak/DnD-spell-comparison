@@ -13,18 +13,16 @@ components:
 material: a gem-encrusted statuette of yourself worth 1,500+ GP
 duration: 10 days
 concentration: false
-classes: []
+classes:
+- Wizard
 id: spell:contingency
+material_price: ''
 ---
-
-*Level 6 Abjuration (Wizard)*
-
+# Contingency
+*6th-Level Abjuration (Wizard)*
 **Casting Time:** 10 minutes
-
 **Range:** Self
-
 **Components:** V, S, M (a gem-encrusted statuette of yourself worth 1,500+ GP)
-
 **Duration:** 10 days
 
 Choose a spell of level 5 or lower that you can cast, that has a casting time of an action, and that can target you. You cast that spell—called the contingent spell—as part of casting Contingency, expending spell slots for both, but the contingent spell doesn’t come into effect. Instead, it takes effect when a certain trigger occurs. You describe that trigger when you cast the two spells. For example, a Contingency cast with Water Breathing might stipulate that Water Breathing comes into effect when you are engulfed in water or a similar liquid.

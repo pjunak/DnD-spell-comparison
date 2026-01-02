@@ -13,18 +13,17 @@ components:
 material: a gilded skull worth 300+ GP
 duration: Concentration, up to 1 hour
 concentration: true
-classes: []
+classes:
+- Warlock
+- Wizard
 id: spell:summon-undead
+material_price: ''
 ---
-
-*Level 3 Necromancy (Warlock, Wizard)*
-
+# Summon Undead
+*3rd-Level Necromancy (Warlock, Wizard)*
 **Casting Time:** Action
-
 **Range:** 90 feet
-
 **Components:** V, S, M (a gilded skull worth 300+ GP)
-
 **Duration:** Concentration, up to 1 hour
 
 You call forth an Undead spirit. It manifests in an unoccupied space that you can see within range and uses the **Undead Spirit** stat block. When you cast the spell, choose the creature’s form: Ghostly, Putrid, or Skeletal. The spirit resembles an Undead creature with the chosen form, which determines certain details in its stat block. The creature disappears when it drops to 0 Hit Points or when the spell ends.

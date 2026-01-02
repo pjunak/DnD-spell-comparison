@@ -12,18 +12,16 @@ components:
 material: ''
 duration: Concentration, up to 1 minute
 concentration: true
-classes: []
+classes:
+- Bard
 id: spell:compulsion
+material_price: ''
 ---
-
-*Level 4 Enchantment (Bard)*
-
+# Compulsion
+*4th-Level Enchantment (Bard)*
 **Casting Time:** Action
-
 **Range:** 30 feet
-
 **Components:** V, S
-
 **Duration:** Concentration, up to 1 minute
 
 Each creature of your choice that you can see within range must succeed on a Wisdom saving throw or have the Charmed condition until the spell ends.

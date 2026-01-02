@@ -12,18 +12,21 @@ components:
 material: ''
 duration: Concentration, up to 1 hour
 concentration: true
-classes: []
+classes:
+- Artificer
+- Cleric
+- Druid
+- Ranger
+- Sorcerer
+- Wizard
 id: spell:protection-from-energy
+material_price: ''
 ---
-
-*Level 3 Abjuration (Artificer, Cleric, Druid, Ranger, Sorcerer, Wizard)*
-
+# Protection from Energy
+*3rd-Level Abjuration (Artificer, Cleric, Druid, Ranger, Sorcerer, Wizard)*
 **Casting Time:** Action
-
 **Range:** Touch
-
 **Components:** V, S
-
 **Duration:** Concentration, up to 1 hour
 
 For the duration, the willing creature you touch has Resistance to one damage type of your choice: Acid, Cold, Fire, Lightning, or Thunder.

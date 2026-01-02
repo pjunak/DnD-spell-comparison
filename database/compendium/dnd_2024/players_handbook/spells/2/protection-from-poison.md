@@ -12,18 +12,20 @@ components:
 material: ''
 duration: 1 hour
 concentration: false
-classes: []
+classes:
+- Artificer
+- Cleric
+- Druid
+- Paladin
+- Ranger
 id: spell:protection-from-poison
+material_price: ''
 ---
-
-*Level 2 Abjuration (Artificer, Cleric, Druid, Paladin, Ranger)*
-
+# Protection from Poison
+*2nd-Level Abjuration (Artificer, Cleric, Druid, Paladin, Ranger)*
 **Casting Time:** Action
-
 **Range:** Touch
-
 **Components:** V, S
-
 **Duration:** 1 hour
 
 You touch a creature and end the Poisoned condition on it. For the duration, the target has Advantage on saving throws to avoid or end the Poisoned condition, and it has Resistance to Poison damage.

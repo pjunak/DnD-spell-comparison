@@ -13,18 +13,17 @@ components:
 material: a jade circlet worth 1,500+ GP
 duration: Concentration, up to 1 hour
 concentration: true
-classes: []
+classes:
+- Druid
+- Wizard
 id: spell:shapechange
+material_price: ''
 ---
-
-*Level 9 Transmutation (Druid, Wizard)*
-
+# Shapechange
+*9th-Level Transmutation (Druid, Wizard)*
 **Casting Time:** Action
-
 **Range:** Self
-
 **Components:** V, S, M (a jade circlet worth 1,500+ GP)
-
 **Duration:** Concentration, up to 1 hour
 
 You shape-shift into another creature for the duration or until you take a Magic action to shape-shift into a different eligible form. The new form must be of a creature that has a Challenge Rating no higher than your level or Challenge Rating. You must have seen the sort of creature before, and it can't be a Construct or an Undead.

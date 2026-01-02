@@ -13,18 +13,16 @@ components:
 material: ''
 duration: Instantaneous
 concentration: false
-classes: []
+classes:
+- Ranger
 id: spell:lightning-arrow
+material_price: ''
 ---
-
-*Level 3 Transmutation (Ranger)*
-
+# Lightning Arrow
+*3rd-Level Transmutation (Ranger)*
 **Casting Time:** Bonus Action, which you take immediately after hitting or missing a target with a ranged attack using a weapon
-
 **Range:** Self
-
 **Components:** V, S
-
 **Duration:** Instantaneous
 
 As your attack hits or misses the target, the weapon or ammunition you’re using transforms into a lightning bolt. Instead of taking any damage or other effects from the attack, the target takes 4d8 Lightning damage on a hit or half as much damage on a miss. Each creature within 10 feet of the target then makes a Dexterity saving throw, taking 2d8 Lightning damage on a failed save or half as much damage on a successful one.

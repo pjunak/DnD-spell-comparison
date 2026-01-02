@@ -12,18 +12,19 @@ components:
 material: some makeup
 duration: Concentration, up to 1 minute
 concentration: true
-classes: []
+classes:
+- Bard
+- Sorcerer
+- Warlock
+- Wizard
 id: spell:friends
+material_price: ''
 ---
-
+# Friends
 *Enchantment Cantrip (Bard, Sorcerer, Warlock, Wizard)*
-
 **Casting Time:** Action
-
 **Range:** 10 feet
-
 **Components:** S, M (some makeup)
-
 **Duration:** Concentration, up to 1 minute
 
 You magically emanate a sense of friendship toward one creature you can see within range. The target must succeed on a Wisdom saving throw or have the Charmed condition for the duration. The target succeeds automatically if it isn’t a Humanoid, if you’re fighting it, or if you have cast this spell on it within the past 24 hours.

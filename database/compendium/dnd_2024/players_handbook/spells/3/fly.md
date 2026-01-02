@@ -13,18 +13,19 @@ components:
 material: a feather
 duration: Concentration, up to 10 minutes
 concentration: true
-classes: []
+classes:
+- Artificer
+- Sorcerer
+- Warlock
+- Wizard
 id: spell:fly
+material_price: ''
 ---
-
-*Level 3 Transmutation (Artificer, Sorcerer, Warlock, Wizard)*
-
+# Fly
+*3rd-Level Transmutation (Artificer, Sorcerer, Warlock, Wizard)*
 **Casting Time:** Action
-
 **Range:** Touch
-
 **Components:** V, S, M (a feather)
-
 **Duration:** Concentration, up to 10 minutes
 
 You touch a willing creature. For the duration, the target gains a Fly Speed of 60 feet and can hover. When the spell ends, the target falls if it is still aloft unless it can stop the fall.

@@ -11,18 +11,18 @@ components:
 material: ''
 duration: Concentration, up to 1 hour
 concentration: true
-classes: []
+classes:
+- Bard
+- Warlock
+- Wizard
 id: spell:mislead
+material_price: ''
 ---
-
-*Level 5 Illusion (Bard, Warlock, Wizard)*
-
+# Mislead
+*5th-Level Illusion (Bard, Warlock, Wizard)*
 **Casting Time:** Action
-
 **Range:** Self
-
 **Components:** S
-
 **Duration:** Concentration, up to 1 hour
 
 You gain the Invisible condition at the same time that an illusory double of you appears where you are standing. The double lasts for the duration, but the invisibility ends immediately after you make an attack roll, deal damage, or cast a spell.

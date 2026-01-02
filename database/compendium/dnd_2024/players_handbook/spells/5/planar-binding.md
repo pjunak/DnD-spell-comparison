@@ -13,18 +13,20 @@ components:
 material: a jewel worth 1,000+ GP, which the spell consumes
 duration: 24 hours
 concentration: false
-classes: []
+classes:
+- Bard
+- Cleric
+- Druid
+- Warlock
+- Wizard
 id: spell:planar-binding
+material_price: ''
 ---
-
-*Level 5 Abjuration (Bard, Cleric, Druid, Warlock, Wizard)*
-
+# Planar Binding
+*5th-Level Abjuration (Bard, Cleric, Druid, Warlock, Wizard)*
 **Casting Time:** 1 hour
-
 **Range:** 60 feet
-
 **Components:** V, S, M (a jewel worth 1,000+ GP, which the spell consumes)
-
 **Duration:** 24 hours
 
 You attempt to bind a Celestial, an Elemental, a Fey, or a Fiend to your service. The creature must be within range for the entire casting of the spell. (Typically, the creature is first summoned into the center of the inverted version of the Magic Circle spell to trap it while this spell is cast.) At the completion of the casting, the target must succeed on a Charisma saving throw or be bound to serve you for the duration. If the creature was summoned or created by another spell, that spell’s duration is extended to match the duration of this spell.

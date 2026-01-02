@@ -12,18 +12,17 @@ components:
 material: ''
 duration: Concentration, up to 1 minute
 concentration: true
-classes: []
+classes:
+- Druid
+- Ranger
 id: spell:grasping-vine
+material_price: ''
 ---
-
-*Level 4 Conjuration (Druid, Ranger)*
-
+# Grasping Vine
+*4th-Level Conjuration (Druid, Ranger)*
 **Casting Time:** Bonus Action
-
 **Range:** 60 feet
-
 **Components:** V, S
-
 **Duration:** Concentration, up to 1 minute
 
 You conjure a vine that sprouts from a surface in an unoccupied space that you can see within range. The vine lasts for the duration.

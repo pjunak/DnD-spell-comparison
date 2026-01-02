@@ -13,18 +13,18 @@ components:
 material: a bit of spiderweb
 duration: Concentration, up to 1 hour
 concentration: true
-classes: []
+classes:
+- Artificer
+- Sorcerer
+- Wizard
 id: spell:web
+material_price: ''
 ---
-
-*Level 2 Conjuration (Artificer, Sorcerer, Wizard)*
-
+# Web
+*2nd-Level Conjuration (Artificer, Sorcerer, Wizard)*
 **Casting Time:** Action
-
 **Range:** 60 feet
-
 **Components:** V, S, M (a bit of spiderweb)
-
 **Duration:** Concentration, up to 1 hour
 
 You conjure a mass of sticky webbing at a point within range. The webs fill a 20-foot Cube there for the duration. The webs are Difficult Terrain, and the area within them is Lightly Obscured.

@@ -13,18 +13,18 @@ components:
 material: burning incense
 duration: 10 minutes
 concentration: false
-classes: []
+classes:
+- Bard
+- Cleric
+- Wizard
 id: spell:speak-with-dead
+material_price: ''
 ---
-
-*Level 3 Necromancy (Bard, Cleric, Wizard)*
-
+# Speak with Dead
+*3rd-Level Necromancy (Bard, Cleric, Wizard)*
 **Casting Time:** Action
-
 **Range:** 10 feet
-
 **Components:** V, S, M (burning incense)
-
 **Duration:** 10 minutes
 
 You grant the semblance of life to a corpse of your choice within range, allowing it to answer questions you pose. The corpse must have a mouth, and this spell fails if the deceased creature was Undead when it died. The spell also fails if the corpse was the target of this spell within the past 10 days.

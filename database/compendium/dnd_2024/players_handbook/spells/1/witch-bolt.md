@@ -13,18 +13,18 @@ components:
 material: a twig struck by lightning
 duration: Concentration, up to 1 minute
 concentration: true
-classes: []
+classes:
+- Sorcerer
+- Warlock
+- Wizard
 id: spell:witch-bolt
+material_price: ''
 ---
-
-*Level 1 Evocation (Sorcerer, Warlock, Wizard)*
-
+# Witch Bolt
+*1st-Level Evocation (Sorcerer, Warlock, Wizard)*
 **Casting Time:** Action
-
 **Range:** 60 feet
-
 **Components:** V, S, M (a twig struck by lightning)
-
 **Duration:** Concentration, up to 1 minute
 
 A beam of crackling energy lances toward a creature within range, forming a sustained arc of lightning between you and the target. Make a ranged spell attack against it. On a hit, the target takes 2d12 Lightning damage.

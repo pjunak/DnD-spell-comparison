@@ -11,18 +11,17 @@ components:
 material: ''
 duration: Instantaneous
 concentration: false
-classes: []
+classes:
+- Sorcerer
+- Wizard
 id: spell:wish
+material_price: ''
 ---
-
-*Level 9 Conjuration (Sorcerer, Wizard)*
-
+# Wish
+*9th-Level Conjuration (Sorcerer, Wizard)*
 **Casting Time:** Action
-
 **Range:** Self
-
 **Components:** V
-
 **Duration:** Instantaneous
 
 Wish is the mightiest spell a mortal can cast. By simply speaking aloud, you can alter reality itself.

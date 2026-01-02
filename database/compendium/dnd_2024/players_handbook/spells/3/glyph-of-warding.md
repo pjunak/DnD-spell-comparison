@@ -13,18 +13,19 @@ components:
 material: powdered diamond worth 200+ GP, which the spell consumes
 duration: Until dispelled or triggered
 concentration: false
-classes: []
+classes:
+- Artificer
+- Bard
+- Cleric
+- Wizard
 id: spell:glyph-of-warding
+material_price: ''
 ---
-
-*Level 3 Abjuration (Artificer, Bard, Cleric, Wizard)*
-
+# Glyph of Warding
+*3rd-Level Abjuration (Artificer, Bard, Cleric, Wizard)*
 **Casting Time:** 1 hour
-
 **Range:** Touch
-
 **Components:** V, S, M (powdered diamond worth 200+ GP, which the spell consumes)
-
 **Duration:** Until dispelled or triggered
 
 You inscribe a glyph that later unleashes a magical effect. You inscribe it either on a surface (such as a table or a section of floor) or within an object that can be closed (such as a book or chest) to conceal the glyph. The glyph can cover an area no larger than 10 feet in diameter. If the surface or object is moved more than 10 feet from where you cast this spell, the glyph is broken, and the spell ends without being triggered.

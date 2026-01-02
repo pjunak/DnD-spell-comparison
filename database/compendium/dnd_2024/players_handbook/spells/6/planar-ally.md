@@ -12,18 +12,16 @@ components:
 material: ''
 duration: Instantaneous
 concentration: false
-classes: []
+classes:
+- Cleric
 id: spell:planar-ally
+material_price: ''
 ---
-
-*Level 6 Conjuration (Cleric)*
-
+# Planar Ally
+*6th-Level Conjuration (Cleric)*
 **Casting Time:** 10 minutes
-
 **Range:** 60 feet
-
 **Components:** V, S
-
 **Duration:** Instantaneous
 
 You beseech an otherworldly entity for aid. The being must be known to you: a god, a demon prince, or some other being of cosmic power. That entity sends a Celestial, an Elemental, or a Fiend loyal to it to aid you, making the creature appear in an unoccupied space within range. If you know a specific creature’s name, you can speak that name when you cast this spell to request that creature, though you might get a different creature anyway (DM’s choice).

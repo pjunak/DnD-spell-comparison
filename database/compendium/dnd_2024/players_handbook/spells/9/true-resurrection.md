@@ -13,18 +13,17 @@ components:
 material: diamonds worth 25,000+ GP, which the spell consumes
 duration: Instantaneous
 concentration: false
-classes: []
+classes:
+- Cleric
+- Druid
 id: spell:true-resurrection
+material_price: ''
 ---
-
-*Level 9 Necromancy (Cleric, Druid)*
-
+# True Resurrection
+*9th-Level Necromancy (Cleric, Druid)*
 **Casting Time:** 1 hour
-
 **Range:** Touch
-
 **Components:** V, S, M (diamonds worth 25,000+ GP, which the spell consumes)
-
 **Duration:** Instantaneous
 
 You touch a creature that has been dead for no longer than 200 years and that died for any reason except old age. The creature is revived with all its Hit Points.

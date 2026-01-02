@@ -13,18 +13,17 @@ components:
 material: a crystal bead
 duration: 8 hours
 concentration: false
-classes: []
+classes:
+- Bard
+- Wizard
 id: spell:leomund-s-tiny-hut
+material_price: ''
 ---
-
-*Level 3 Evocation (Bard, Wizard)*
-
-**Casting Time:** 1 minute or Ritual
-
+# Leomund's Tiny Hut
+*3rd-Level Evocation (Bard, Wizard)*
+**Casting Time:** 1 minute
 **Range:** Self
-
 **Components:** V, S, M (a crystal bead)
-
 **Duration:** 8 hours
 
 A 10-foot Emanation springs into existence around you and remains stationary for the duration. The spell fails when you cast it if the Emanation isn’t big enough to fully encapsulate all creatures in its area.

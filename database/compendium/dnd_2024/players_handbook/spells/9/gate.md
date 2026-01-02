@@ -13,18 +13,19 @@ components:
 material: a diamond worth 5,000+ GP
 duration: Concentration, up to 1 minute
 concentration: true
-classes: []
+classes:
+- Cleric
+- Sorcerer
+- Warlock
+- Wizard
 id: spell:gate
+material_price: ''
 ---
-
-*Level 9 Conjuration (Cleric, Sorcerer, Warlock, Wizard)*
-
+# Gate
+*9th-Level Conjuration (Cleric, Sorcerer, Warlock, Wizard)*
 **Casting Time:** Action
-
 **Range:** 60 feet
-
-**Components:** V, S, M(a diamond worth 5,000+ GP)
-
+**Components:** V, S, M (a diamond worth 5,000+ GP)
 **Duration:** Concentration, up to 1 minute
 
 You conjure a portal linking an unoccupied space you can see within range to a precise location on a different plane of existence. The portal is a circular opening, which you can make 5 to 20 feet in diameter. You can orient the portal in any direction you choose. The portal lasts for the duration, and the portal's destination is visible through it.

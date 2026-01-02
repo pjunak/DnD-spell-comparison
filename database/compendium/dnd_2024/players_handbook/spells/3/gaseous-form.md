@@ -13,18 +13,18 @@ components:
 material: a bit of gauze
 duration: Concentration, up to 1 hour
 concentration: true
-classes: []
+classes:
+- Sorcerer
+- Warlock
+- Wizard
 id: spell:gaseous-form
+material_price: ''
 ---
-
-*Level 3 Transmutation (Sorcerer, Warlock, Wizard)*
-
+# Gaseous Form
+*3rd-Level Transmutation (Sorcerer, Warlock, Wizard)*
 **Casting Time:** Action
-
 **Range:** Touch
-
 **Components:** V, S, M (a bit of gauze)
-
 **Duration:** Concentration, up to 1 hour
 
 A willing creature you touch shape-shifts, along with everything it’s wearing and carrying, into a misty cloud for the duration. The spell ends on the target if it drops to 0 Hit Points or if it takes a Magic action to end the spell on itself.

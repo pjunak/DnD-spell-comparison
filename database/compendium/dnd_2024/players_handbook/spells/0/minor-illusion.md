@@ -12,18 +12,19 @@ components:
 material: a bit of fleece
 duration: 1 minute
 concentration: false
-classes: []
+classes:
+- Bard
+- Sorcerer
+- Warlock
+- Wizard
 id: spell:minor-illusion
+material_price: ''
 ---
-
+# Minor Illusion
 *Illusion Cantrip (Bard, Sorcerer, Warlock, Wizard)*
-
 **Casting Time:** Action
-
 **Range:** 30 feet
-
 **Components:** S, M (a bit of fleece)
-
 **Duration:** 1 minute
 
 You create a sound or an image of an object within range that lasts for the duration. See the descriptions below for the effects of each. The illusion ends if you cast this spell again.

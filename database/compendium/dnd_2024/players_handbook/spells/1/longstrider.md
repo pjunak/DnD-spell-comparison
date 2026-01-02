@@ -13,18 +13,20 @@ components:
 material: a pinch of dirt
 duration: 1 hour
 concentration: false
-classes: []
+classes:
+- Artificer
+- Bard
+- Druid
+- Ranger
+- Wizard
 id: spell:longstrider
+material_price: ''
 ---
-
-*Level 1 Transmutation (Artificer, Bard, Druid, Ranger, Wizard)*
-
+# Longstrider
+*1st-Level Transmutation (Artificer, Bard, Druid, Ranger, Wizard)*
 **Casting Time:** Action
-
 **Range:** Touch
-
 **Components:** V, S, M (a pinch of dirt)
-
 **Duration:** 1 hour
 
 You touch a creature. The target’s Speed increases by 10 feet until the spell ends.

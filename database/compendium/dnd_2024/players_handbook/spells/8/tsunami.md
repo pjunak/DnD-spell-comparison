@@ -12,18 +12,16 @@ components:
 material: ''
 duration: Concentration, up to 6 rounds
 concentration: true
-classes: []
+classes:
+- Druid
 id: spell:tsunami
+material_price: ''
 ---
-
-*Level 8 Conjuration (Druid)*
-
+# Tsunami
+*8th-Level Conjuration (Druid)*
 **Casting Time:** 1 minute
-
 **Range:** 1 mile
-
 **Components:** V, S
-
 **Duration:** Concentration, up to 6 rounds
 
 A wall of water springs into existence at a point you choose within range. You can make the wall up to 300 feet long, 300 feet high, and 50 feet thick. The wall lasts for the duration.

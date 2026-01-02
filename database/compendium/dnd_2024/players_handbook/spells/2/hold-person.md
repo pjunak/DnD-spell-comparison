@@ -13,18 +13,21 @@ components:
 material: a straight piece of iron
 duration: Concentration, up to 1 minute
 concentration: true
-classes: []
+classes:
+- Bard
+- Cleric
+- Druid
+- Sorcerer
+- Warlock
+- Wizard
 id: spell:hold-person
+material_price: ''
 ---
-
-*Level 2 Enchantment (Bard, Cleric, Druid, Sorcerer, Warlock, Wizard)*
-
+# Hold Person
+*2nd-Level Enchantment (Bard, Cleric, Druid, Sorcerer, Warlock, Wizard)*
 **Casting Time:** Action
-
 **Range:** 60 feet
-
 **Components:** V, S, M (a straight piece of iron)
-
 **Duration:** Concentration, up to 1 minute
 
 Choose a Humanoid that you can see within range. The target must succeed on a Wisdom saving throw or have the Paralyzed condition for the duration. At the end of each of its turns, the target repeats the save, ending the spell on itself on a success.

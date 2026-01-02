@@ -13,18 +13,18 @@ components:
 material: a bit of fleece
 duration: Concentration, up to 10 minutes
 concentration: true
-classes: []
+classes:
+- Bard
+- Sorcerer
+- Wizard
 id: spell:silent-image
+material_price: ''
 ---
-
-*Level 1 Illusion (Bard, Sorcerer, Wizard)*
-
+# Silent Image
+*1st-Level Illusion (Bard, Sorcerer, Wizard)*
 **Casting Time:** Action
-
 **Range:** 60 feet
-
 **Components:** V, S, M (a bit of fleece)
-
 **Duration:** Concentration, up to 10 minutes
 
 You create the image of an object, a creature, or some other visible phenomenon that is no larger than a 15-foot Cube. The image appears at a spot within range and lasts for the duration. The image is purely visual; it isn’t accompanied by sound, smell, or other sensory effects.

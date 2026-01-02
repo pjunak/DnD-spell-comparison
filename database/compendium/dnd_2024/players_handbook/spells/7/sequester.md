@@ -13,18 +13,16 @@ components:
 material: gem dust worth 5,000+ GP, which the spell consumes
 duration: Until dispelled
 concentration: false
-classes: []
+classes:
+- Wizard
 id: spell:sequester
+material_price: ''
 ---
-
-*Level 7 Transmutation (Wizard)*
-
+# Sequester
+*7th-Level Transmutation (Wizard)*
 **Casting Time:** Action
-
 **Range:** Touch
-
 **Components:** V, S, M (gem dust worth 5,000+ GP, which the spell consumes)
-
 **Duration:** Until dispelled
 
 With a touch, you magically sequester an object or a willing creature. For the duration, the target has the Invisible condition and can’t be targeted by Divination spells, detected by magic, or viewed remotely with magic.

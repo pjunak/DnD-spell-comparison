@@ -13,18 +13,17 @@ components:
 material: a bit of bat fur
 duration: Concentration, up to 1 hour
 concentration: true
-classes: []
+classes:
+- Artificer
+- Wizard
 id: spell:arcane-eye
+material_price: ''
 ---
-
-*Level 4 Divination (Artificer, Wizard)*
-
+# Arcane Eye
+*4th-Level Divination (Artificer, Wizard)*
 **Casting Time:** Action
-
 **Range:** 30 feet
-
 **Components:** V, S, M (a bit of bat fur)
-
 **Duration:** Concentration, up to 1 hour
 
 You create an Invisible, invulnerable eye within range that hovers for the duration. You mentally receive visual information from the eye, which can see in every direction. It also has Darkvision with a range of 30 feet.

@@ -13,18 +13,17 @@ components:
 material: a bloody vial worth 600+ GP
 duration: Concentration, up to 1 hour
 concentration: true
-classes: []
+classes:
+- Warlock
+- Wizard
 id: spell:summon-fiend
+material_price: ''
 ---
-
-*Level 6 Conjuration (Warlock, Wizard)*
-
+# Summon Fiend
+*6th-Level Conjuration (Warlock, Wizard)*
 **Casting Time:** Action
-
 **Range:** 90 feet
-
 **Components:** V, S, M (a bloody vial worth 600+ GP)
-
 **Duration:** Concentration, up to 1 hour
 
 You call forth a fiendish spirit. It manifests in an unoccupied space that you can see within range and uses the **Fiendish Spirit** stat block. When you cast the spell, choose Demon, Devil, or Yugoloth. The creature resembles a Fiend of the chosen type, which determines certain details in its stat block. The creature disappears when it drops to 0 Hit Points or when the spell ends.

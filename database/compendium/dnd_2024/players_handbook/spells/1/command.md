@@ -11,18 +11,18 @@ components:
 material: ''
 duration: Instantaneous
 concentration: false
-classes: []
+classes:
+- Bard
+- Cleric
+- Paladin
 id: spell:command
+material_price: ''
 ---
-
-*Level 1 Enchantment (Bard, Cleric, Paladin)*
-
+# Command
+*1st-Level Enchantment (Bard, Cleric, Paladin)*
 **Casting Time:** Action
-
 **Range:** 60 feet
-
 **Components:** V
-
 **Duration:** Instantaneous
 
 You speak a one-word command to a creature you can see within range. The target must succeed on a Wisdom saving throw or follow the command on its next turn. Choose the command from these options:

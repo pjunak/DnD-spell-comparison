@@ -14,18 +14,19 @@ material: a focus worth 100+ GP, either a jeweled horn for hearing or a glass ey
   for seeing
 duration: Concentration, up to 10 minutes
 concentration: true
-classes: []
+classes:
+- Bard
+- Cleric
+- Sorcerer
+- Wizard
 id: spell:clairvoyance
+material_price: ''
 ---
-
-*Level 3 Divination (Bard, Cleric, Sorcerer, Wizard)*
-
+# Clairvoyance
+*3rd-Level Divination (Bard, Cleric, Sorcerer, Wizard)*
 **Casting Time:** 10 minutes
-
 **Range:** 1 mile
-
 **Components:** V, S, M (a focus worth 100+ GP, either a jeweled horn for hearing or a glass eye for seeing)
-
 **Duration:** Concentration, up to 10 minutes
 
 You create an Invisible sensor within range in a location familiar to you (a place you have visited or seen before) or in an obvious location that is unfamiliar to you (such as behind a door, around a corner, or in a grove of trees). The intangible, invulnerable sensor remains in place for the duration.

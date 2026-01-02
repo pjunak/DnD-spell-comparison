@@ -13,18 +13,18 @@ components:
 material: incense worth 25+ GP, which the spell consumes
 duration: Instantaneous
 concentration: false
-classes: []
+classes:
+- Cleric
+- Druid
+- Wizard
 id: spell:divination
+material_price: ''
 ---
-
-*Level 4 Divination (Cleric, Druid, Wizard)*
-
-**Casting Time:** Action or Ritual
-
+# Divination
+*4th-Level Divination (Cleric, Druid, Wizard)*
+**Casting Time:** Action
 **Range:** Self
-
 **Components:** V, S, M (incense worth 25+ GP, which the spell consumes)
-
 **Duration:** Instantaneous
 
 This spell puts you in contact with a god or a god’s servants. You ask one question about a specific goal, event, or activity to occur within 7 days. The DM offers a truthful reply, which might be a short phrase or cryptic rhyme. The spell doesn’t account for circumstances that might change the answer, such as the casting of other spells.

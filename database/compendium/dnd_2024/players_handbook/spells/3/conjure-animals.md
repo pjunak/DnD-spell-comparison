@@ -12,18 +12,17 @@ components:
 material: ''
 duration: Concentration, up to 10 minutes
 concentration: true
-classes: []
+classes:
+- Druid
+- Ranger
 id: spell:conjure-animals
+material_price: ''
 ---
-
-*Level 3 Conjuration (Druid, Ranger)*
-
+# Conjure Animals
+*3rd-Level Conjuration (Druid, Ranger)*
 **Casting Time:** Action
-
 **Range:** 60 feet
-
 **Components:** V, S
-
 **Duration:** Concentration, up to 10 minutes
 
 You conjure nature spirits that appear as a Large pack of spectral, intangible animals in an unoccupied space you can see within range. The pack lasts for the duration, and you choose the spirits’ animal form, such as wolves, serpents, or birds.

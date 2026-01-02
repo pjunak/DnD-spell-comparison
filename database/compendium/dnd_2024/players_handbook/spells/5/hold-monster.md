@@ -13,18 +13,19 @@ components:
 material: a straight piece of iron
 duration: Concentration, up to 1 minute
 concentration: true
-classes: []
+classes:
+- Bard
+- Sorcerer
+- Warlock
+- Wizard
 id: spell:hold-monster
+material_price: ''
 ---
-
-*Level 5 Enchantment (Bard, Sorcerer, Warlock, Wizard)*
-
+# Hold Monster
+*5th-Level Enchantment (Bard, Sorcerer, Warlock, Wizard)*
 **Casting Time:** Action
-
 **Range:** 90 feet
-
 **Components:** V, S, M (a straight piece of iron)
-
 **Duration:** Concentration, up to 1 minute
 
 Choose a creature that you can see within range. The target must succeed on a Wisdom saving throw or have the Paralyzed condition for the duration. At the end of each of its turns, the target repeats the save, ending the spell on itself on a success.

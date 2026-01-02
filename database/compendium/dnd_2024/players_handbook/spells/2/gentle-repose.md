@@ -13,18 +13,18 @@ components:
 material: 2 Copper Pieces, which the spell consumes
 duration: 10 days
 concentration: false
-classes: []
+classes:
+- Cleric
+- Paladin
+- Wizard
 id: spell:gentle-repose
+material_price: ''
 ---
-
-*Level 2 Necromancy (Cleric, Paladin, Wizard)*
-
-**Casting Time:** Action or Ritual
-
+# Gentle Repose
+*2nd-Level Necromancy (Cleric, Paladin, Wizard)*
+**Casting Time:** Action
 **Range:** Touch
-
 **Components:** V, S, M (2 Copper Pieces, which the spell consumes)
-
 **Duration:** 10 days
 
 You touch a corpse or other remains. For the duration, the target is protected from decay and can’t become Undead.

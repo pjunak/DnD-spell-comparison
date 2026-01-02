@@ -14,18 +14,18 @@ material: specially marked sticks, bones, cards, or other divinatory tokens wort
   25+ GP
 duration: Instantaneous
 concentration: false
-classes: []
+classes:
+- Cleric
+- Druid
+- Wizard
 id: spell:augury
+material_price: ''
 ---
-
-*Level 2 Divination (Cleric, Druid, Wizard)*
-
-**Casting Time:** 1 minute or Ritual
-
+# Augury
+*2nd-Level Divination (Cleric, Druid, Wizard)*
+**Casting Time:** 1 minute
 **Range:** Self
-
 **Components:** V, S, M (specially marked sticks, bones, cards, or other divinatory tokens worth 25+ GP)
-
 **Duration:** Instantaneous
 
 You receive an omen from an otherworldly entity about the results of a course of action that you plan to take within the next 30 minutes. The DM chooses the omen from the Omens table.

@@ -12,18 +12,19 @@ components:
 material: ''
 duration: Concentration, up to 1 minute
 concentration: true
-classes: []
+classes:
+- Artificer
+- Bard
+- Sorcerer
+- Wizard
 id: spell:animate-objects
+material_price: ''
 ---
-
-*Level 5 Transmutation (Artificer, Bard, Sorcerer, Wizard)*
-
+# Animate Objects
+*5th-Level Transmutation (Artificer, Bard, Sorcerer, Wizard)*
 **Casting Time:** Action
-
 **Range:** 120 feet
-
 **Components:** V, S
-
 **Duration:** Concentration, up to 1 minute
 
 Objects animate at your command. Choose a number of nonmagical objects within range that aren’t being worn or carried, aren’t fixed to a surface, and aren’t Gargantuan. The maximum number of objects is equal to your spellcasting ability modifier; for this number, a Medium or smaller target counts as one object, a Large target counts as two, and a Huge target counts as three.

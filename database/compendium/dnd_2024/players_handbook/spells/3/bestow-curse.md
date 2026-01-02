@@ -12,18 +12,18 @@ components:
 material: ''
 duration: Concentration, up to 1 minute
 concentration: true
-classes: []
+classes:
+- Bard
+- Cleric
+- Wizard
 id: spell:bestow-curse
+material_price: ''
 ---
-
-*Level 3 Necromancy (Bard, Cleric, Wizard)*
-
+# Bestow Curse
+*3rd-Level Necromancy (Bard, Cleric, Wizard)*
 **Casting Time:** Action
-
 **Range:** Touch
-
 **Components:** V, S
-
 **Duration:** Concentration, up to 1 minute
 
 You touch a creature, which must succeed on a Wisdom saving throw or become cursed for the duration. Until the curse ends, the target suffers one of the following effects of your choice:

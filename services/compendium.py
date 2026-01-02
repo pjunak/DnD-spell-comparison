@@ -11,6 +11,14 @@ from typing import Any, Dict, Iterable, List, Mapping, Optional, Set
 
 DEFAULT_COMPENDIUM_PATH = Path(__file__).resolve().parents[1] / "database" / "compendium" / "dnd_2024"
 
+# Module-level cache for Compendium instances to avoid redundant disk I/O
+_COMPENDIUM_CACHE: Dict[tuple, "Compendium"] = {}
+
+
+def clear_compendium_cache() -> None:
+    """Clear the cached compendium instances (e.g. after settings change)."""
+    _COMPENDIUM_CACHE.clear()
+
 
 @dataclass
 class SpellGrant:
@@ -64,8 +72,17 @@ class Compendium:
         # If it is None, we use settings.
         active_modules = set(modules) if modules is not None else settings.active_modules
         
+        # Check cache before loading from disk
+        modules_key = frozenset(active_modules) if active_modules else frozenset()
+        cache_key = (str(target), modules_key)
+        
+        if cache_key in _COMPENDIUM_CACHE:
+            return _COMPENDIUM_CACHE[cache_key]
+        
         payload = _load_payload(target, active_modules)
-        return cls(payload)
+        instance = cls(payload)
+        _COMPENDIUM_CACHE[cache_key] = instance
+        return instance
 
     @property
     def payload(self) -> Mapping[str, object]:
@@ -697,4 +714,4 @@ def _invocation_matches(
     return True
 
 
-__all__ = ["Compendium", "DEFAULT_COMPENDIUM_PATH"]
+__all__ = ["Compendium", "DEFAULT_COMPENDIUM_PATH", "clear_compendium_cache"]

@@ -135,6 +135,14 @@ def render_spell_stat_block(record: Dict[str, Any]) -> str:
     """
     Generate a Markdown stat block for a spell record.
     """
+    # 1. Prefer pre-defined full text if it looks like a complete block
+    text = record.get("text")
+    if isinstance(text, dict) and text.get("full"):
+        desc_full = text.get("full", "")
+        # If the content already starts with a header, it's likely the full markdown representation
+        if desc_full.strip().startswith("# "):
+             return desc_full
+
     # 2. Fallback construction
     name = record.get("name", "Unknown")
     level = record.get("level", 0)
@@ -167,15 +175,21 @@ def render_spell_stat_block(record: Dict[str, Any]) -> str:
     
     # Properties
     time = record.get("time", [])
+    val = ""
     if isinstance(time, list) and time:
         val = f"{time[0].get('number')} {time[0].get('unit')}"
-        # Sometimes structure is more complex
         if not val.strip(): val = str(time)
+    elif isinstance(time, str):
+        val = time
     else:
+        val = str(record.get("casting_time", ""))
+        
+    if not val.strip():
         val = str(time)
+        
     header += f"**Casting Time:** {val}\n\n"
     
-    range_ = record.get("range", {})
+    range_ = record.get("range")
     range_val = "Unknown"
     if isinstance(range_, dict):
         dist = range_.get("distance")
@@ -186,18 +200,26 @@ def render_spell_stat_block(record: Dict[str, Any]) -> str:
             elif type_ == "self": range_val = "Self"
         elif range_.get("type"):
             range_val = range_.get("type").title()
+    elif isinstance(range_, str):
+        range_val = range_
+        
     header += f"**Range:** {range_val}\n\n"
     
-    # Components
-    comps = record.get("components", {})
+    # Components - handle both list format (["V", "S", "M"]) and dict format ({"v": true, "s": true})
+    comps = record.get("components", [])
     comp_list = []
-    if comps.get("v"): comp_list.append("V")
-    if comps.get("s"): comp_list.append("S")
-    if comps.get("m"):
-        mat = comps.get("m")
-        if isinstance(mat, dict): text = mat.get("text", "")
-        else: text = str(mat)
-        comp_list.append(f"M ({text})")
+    if isinstance(comps, list):
+        # List format: ["V", "S", "M (a bit of fleece)"]
+        comp_list = [str(c) for c in comps]
+    elif isinstance(comps, dict):
+        # Dict format: {"v": true, "s": true, "m": {"text": "..."}}
+        if comps.get("v"): comp_list.append("V")
+        if comps.get("s"): comp_list.append("S")
+        if comps.get("m"):
+            mat = comps.get("m")
+            if isinstance(mat, dict): text = mat.get("text", "")
+            else: text = str(mat)
+            comp_list.append(f"M ({text})")
     header += f"**Components:** {', '.join(comp_list)}\n\n"
     
     # Duration
@@ -215,6 +237,9 @@ def render_spell_stat_block(record: Dict[str, Any]) -> str:
                 dur_text = "Concentration, up to " + dur_text
         elif dtype == "permanent":
             dur_text = "Until Dispelled"
+    elif isinstance(duration, str):
+        dur_text = duration
+        
     header += f"**Duration:** {dur_text}\n\n"
     
     header += "---\n\n"
@@ -245,8 +270,6 @@ def render_spell_stat_block(record: Dict[str, Any]) -> str:
     text = record.get("text")
     if isinstance(text, dict) and text.get("full"):
         desc_full = text.get("full", "")
-        if desc_full.strip().startswith("# "):
-             return desc_full
         if not desc:
             desc = desc_full
 

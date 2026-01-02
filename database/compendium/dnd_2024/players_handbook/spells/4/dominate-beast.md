@@ -12,18 +12,18 @@ components:
 material: ''
 duration: Concentration, up to 1 minute
 concentration: true
-classes: []
+classes:
+- Druid
+- Ranger
+- Sorcerer
 id: spell:dominate-beast
+material_price: ''
 ---
-
-*Level 4 Enchantment (Druid, Ranger, Sorcerer)*
-
+# Dominate Beast
+*4th-Level Enchantment (Druid, Ranger, Sorcerer)*
 **Casting Time:** Action
-
 **Range:** 60 feet
-
 **Components:** V, S
-
 **Duration:** Concentration, up to 1 minute
 
 One Beast you can see within range must succeed on a Wisdom saving throw or have the Charmed condition for the duration. The target has Advantage on the save if you or your allies are fighting it. Whenever the target takes damage, it repeats the save, ending the spell on itself on a success.

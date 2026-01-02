@@ -12,18 +12,17 @@ components:
 material: ''
 duration: Instantaneous
 concentration: false
-classes: []
+classes:
+- Artificer
+- Wizard
 id: spell:fabricate
+material_price: ''
 ---
-
-*Level 4 Transmutation (Artificer, Wizard)*
-
+# Fabricate
+*4th-Level Transmutation (Artificer, Wizard)*
 **Casting Time:** 10 minutes
-
 **Range:** 120 feet
-
 **Components:** V, S
-
 **Duration:** Instantaneous
 
 You convert raw materials into products of the same material. For example, you can fabricate a wooden bridge from a clump of trees, a rope from a patch of hemp, or clothes from flax or wool.

@@ -12,18 +12,19 @@ components:
 material: ''
 duration: Instantaneous
 concentration: false
-classes: []
+classes:
+- Artificer
+- Druid
+- Sorcerer
+- Wizard
 id: spell:elementalism
+material_price: ''
 ---
-
+# Elementalism
 *Transmutation Cantrip (Artificer, Druid, Sorcerer, Wizard)*
-
 **Casting Time:** Action
-
 **Range:** 30 feet
-
 **Components:** V, S
-
 **Duration:** Instantaneous
 
 You exert control over the elements, creating one of the following effects within range.

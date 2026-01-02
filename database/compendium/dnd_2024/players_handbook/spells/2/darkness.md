@@ -12,18 +12,18 @@ components:
 material: bat fur and a piece of coal
 duration: Concentration, up to 10 minutes
 concentration: true
-classes: []
+classes:
+- Sorcerer
+- Warlock
+- Wizard
 id: spell:darkness
+material_price: ''
 ---
-
-*Level 2 Evocation (Sorcerer, Warlock, Wizard)*
-
+# Darkness
+*2nd-Level Evocation (Sorcerer, Warlock, Wizard)*
 **Casting Time:** Action
-
 **Range:** 60 feet
-
 **Components:** V, M (bat fur and a piece of coal)
-
 **Duration:** Concentration, up to 10 minutes
 
 For the duration, magical Darkness spreads from a point within range and fills a 15-foot-radius Sphere. Darkvision can’t see through it, and nonmagical light can’t illuminate it.

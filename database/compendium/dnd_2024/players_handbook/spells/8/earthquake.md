@@ -13,18 +13,18 @@ components:
 material: a fractured rock
 duration: Concentration, up to 1 minute
 concentration: true
-classes: []
+classes:
+- Cleric
+- Druid
+- Sorcerer
 id: spell:earthquake
+material_price: ''
 ---
-
-*Level 8 Transmutation (Cleric, Druid, Sorcerer)*
-
+# Earthquake
+*8th-Level Transmutation (Cleric, Druid, Sorcerer)*
 **Casting Time:** Action
-
 **Range:** 500 feet
-
 **Components:** V, S, M (a fractured rock)
-
 **Duration:** Concentration, up to 1 minute
 
 Choose a point on the ground that you can see within range. For the duration, an intense tremor rips through the ground in a 100-foot-radius circle centered on that point. The ground there is Difficult Terrain.

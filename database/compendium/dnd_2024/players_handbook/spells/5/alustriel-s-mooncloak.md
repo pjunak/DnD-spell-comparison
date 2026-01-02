@@ -13,19 +13,20 @@ components:
 material: C
 duration: C, up to 1 minute
 concentration: false
-classes: []
+classes:
+- Bard
+- Druid
+- Ranger
+- Wizard
 id: spell:alustriel-s-mooncloak
+material_price: ''
 ---
-
-*Level 5 Abjuration (Bard, Druid, Ranger, Wizard)*
-
+# Alustriel's Mooncloak
+*5th-Level Abjuration (Bard, Druid, Ranger, Wizard)*
 **Casting Time:** Action
-
 **Range:** Self
-
-**Components:** V, S, M (a moonstone worth 50+ GP)
-
-**Duration:** Concentration, up to 1 minute
+**Components:** V, S, M (C)
+**Duration:** C, up to 1 minute
 
 For the duration, moonlight fills a 20-foot Emanation originating from you with Dim Light. While in that area, you and your allies have Half Cover and Resistance to Cold, Lightning, and Radiant damage.
 

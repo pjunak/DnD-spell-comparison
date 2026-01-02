@@ -13,18 +13,16 @@ components:
 material: a pair of linked silver rings
 duration: 24 hours
 concentration: false
-classes: []
+classes:
+- Wizard
 id: spell:telepathy
+material_price: ''
 ---
-
-*Level 8 Divination (Wizard)*
-
+# Telepathy
+*8th-Level Divination (Wizard)*
 **Casting Time:** Action
-
 **Range:** Unlimited
-
 **Components:** V, S, M (a pair of linked silver rings)
-
 **Duration:** 24 hours
 
 You create a telepathic link between yourself and a willing creature with which you are familiar. The creature can be anywhere on the same plane of existence as you. The spell ends if you or the target are no longer on the same plane.

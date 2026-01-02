@@ -13,18 +13,18 @@ components:
 material: ruby dust worth 1,500+ GP, which the spell consumes
 duration: Concentration, up to 1 hour
 concentration: true
-classes: []
+classes:
+- Bard
+- Warlock
+- Wizard
 id: spell:forcecage
+material_price: ''
 ---
-
-*Level 7 Evocation (Bard, Warlock, Wizard)*
-
+# Forcecage
+*7th-Level Evocation (Bard, Warlock, Wizard)*
 **Casting Time:** Action
-
 **Range:** 100 feet
-
 **Components:** V, S, M (ruby dust worth 1,500+ GP, which the spell consumes)
-
 **Duration:** Concentration, up to 1 hour
 
 An immobile, Invisible, Cube-shaped prison composed of magical force springs into existence around an area you choose within range. The prison can be a cage or a solid box, as you choose.

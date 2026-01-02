@@ -13,18 +13,18 @@ components:
 material: a bit of pork rind or butter
 duration: 1 minute
 concentration: false
-classes: []
+classes:
+- Artificer
+- Sorcerer
+- Wizard
 id: spell:grease
+material_price: ''
 ---
-
-*Level 1 Conjuration (Artificer, Sorcerer, Wizard)*
-
+# Grease
+*1st-Level Conjuration (Artificer, Sorcerer, Wizard)*
 **Casting Time:** Action
-
 **Range:** 60 feet
-
 **Components:** V, S, M (a bit of pork rind or butter)
-
 **Duration:** 1 minute
 
 Nonflammable grease covers the ground in a 10-foot square centered on a point within range and turns it into Difficult Terrain for the duration.

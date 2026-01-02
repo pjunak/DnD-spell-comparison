@@ -15,8 +15,14 @@ duration: Concentration, up to 1 hour
 concentration: true
 classes: []
 id: spell:summon-fey
+material_price: ''
 ---
-
+# Summon Fey
+*3rd-Level Conjuration*
+**Casting Time:** Action
+**Range:** 90 feet
+**Components:** V, S, M (a gilded flower worth 300+ GP)
+**Duration:** Concentration, up to 1 hour
 Level 3 Conjuration (Druid, Ranger, Warlock, Wizard)
 Casting Time: Action
 Range: 90 feet

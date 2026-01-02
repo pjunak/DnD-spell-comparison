@@ -12,18 +12,20 @@ components:
 material: ''
 duration: 1 minute
 concentration: false
-classes: []
+classes:
+- Artificer
+- Bard
+- Sorcerer
+- Warlock
+- Wizard
 id: spell:mage-hand
+material_price: ''
 ---
-
+# Mage Hand
 *Conjuration Cantrip (Artificer, Bard, Sorcerer, Warlock, Wizard)*
-
 **Casting Time:** Action
-
 **Range:** 30 feet
-
 **Components:** V, S
-
 **Duration:** 1 minute
 
 A spectral, floating hand appears at a point you choose within range. The hand lasts for the duration. The hand vanishes if it is ever more than 30 feet away from you or if you cast this spell again.

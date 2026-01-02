@@ -12,18 +12,19 @@ components:
 material: ''
 duration: Instantaneous
 concentration: false
-classes: []
+classes:
+- Bard
+- Sorcerer
+- Warlock
+- Wizard
 id: spell:synaptic-static
+material_price: ''
 ---
-
-*Level 5 Enchantment (Bard, Sorcerer, Warlock, Wizard)*
-
+# Synaptic Static
+*5th-Level Enchantment (Bard, Sorcerer, Warlock, Wizard)*
 **Casting Time:** Action
-
 **Range:** 120 feet
-
 **Components:** V, S
-
 **Duration:** Instantaneous
 
 You cause psychic energy to erupt at a point within range. Each creature in a 20-foot-radius Sphere centered on that point makes an Intelligence saving throw, taking 8d6 Psychic damage on a failed save or half as much damage on a successful one.

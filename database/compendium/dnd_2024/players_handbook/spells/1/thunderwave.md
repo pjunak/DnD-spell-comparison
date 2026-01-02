@@ -12,18 +12,19 @@ components:
 material: ''
 duration: Instantaneous
 concentration: false
-classes: []
+classes:
+- Bard
+- Druid
+- Sorcerer
+- Wizard
 id: spell:thunderwave
+material_price: ''
 ---
-
-*Level 1 Evocation (Bard, Druid, Sorcerer, Wizard)*
-
+# Thunderwave
+*1st-Level Evocation (Bard, Druid, Sorcerer, Wizard)*
 **Casting Time:** Action
-
 **Range:** Self
-
 **Components:** V, S
-
 **Duration:** Instantaneous
 
 You unleash a wave of thunderous energy. Each creature in a 15-foot Cube originating from you makes a Constitution saving throw. On a failed save, a creature takes 2d8 Thunder damage and is pushed 10 feet away from you. On a successful save, a creature takes half as much damage only.

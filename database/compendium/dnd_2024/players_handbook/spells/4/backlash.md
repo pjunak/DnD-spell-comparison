@@ -11,18 +11,19 @@ components:
 material: ''
 duration: Instantaneous
 concentration: false
-classes: []
+classes:
+- Bard
+- Sorcerer
+- Warlock
+- Wizard
 id: spell:backlash
+material_price: ''
 ---
-
-*Level 4 Abjuration (Bard, Sorcerer, Warlock, Wizard)*
-
-**Casting Time:** Reaction, which you take in response to taking damage
-
+# Backlash
+*4th-Level Abjuration (Bard, Sorcerer, Warlock, Wizard)*
+**Casting Time:** Reaction
 **Range:** 60 feet
-
 **Components:** V
-
 **Duration:** Instantaneous
 
 You ward yourself against destructive energy, reducing the damage taken by 4d6 plus your spellcasting ability modifier.

@@ -11,18 +11,17 @@ components:
 material: ''
 duration: Concentration, up to 1 minute
 concentration: true
-classes: []
+classes:
+- Bard
+- Wizard
 id: spell:otto-s-irresistible-dance
+material_price: ''
 ---
-
-*Level 6 Enchantment (Bard, Wizard)*
-
+# Otto's Irresistible Dance
+*6th-Level Enchantment (Bard, Wizard)*
 **Casting Time:** Action
-
 **Range:** 30 feet
-
 **Components:** V
-
 **Duration:** Concentration, up to 1 minute
 
 One creature that you can see within range must make a Wisdom saving throw. On a successful save, the target dances comically until the end of its next turn, during which it must spend all its movement to dance in place.

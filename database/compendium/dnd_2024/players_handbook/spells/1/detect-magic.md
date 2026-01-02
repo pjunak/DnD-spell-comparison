@@ -12,18 +12,24 @@ components:
 material: ''
 duration: Concentration, up to 10 minutes
 concentration: true
-classes: []
+classes:
+- Artificer
+- Bard
+- Cleric
+- Druid
+- Paladin
+- Ranger
+- Sorcerer
+- Warlock
+- Wizard
 id: spell:detect-magic
+material_price: ''
 ---
-
-*Level 1 Divination (Artificer, Bard, Cleric, Druid, Paladin, Ranger, Sorcerer, Warlock, Wizard))*
-
-**Casting Time:** Action or Ritual
-
+# Detect Magic
+*1st-Level Divination (Artificer, Bard, Cleric, Druid, Paladin, Ranger, Sorcerer, Warlock, Wizard)*
+**Casting Time:** Action
 **Range:** Self
-
 **Components:** V, S
-
 **Duration:** Concentration, up to 10 minutes
 
 For the duration, you sense the presence of magical effects within 30 feet of yourself. If you sense such effects, you can take the Magic action to see a faint aura around any visible creature or object in the area that bears the magic, and if an effect was created by a spell, you learn the spell's school of magic.

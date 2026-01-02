@@ -1,6 +1,6 @@
 import unittest
 
-from backend.calculations import chain_spell_distribution
+from spell_graphs.calculations import chain_spell_distribution
 
 
 class ChainSpellDistributionTests(unittest.TestCase):

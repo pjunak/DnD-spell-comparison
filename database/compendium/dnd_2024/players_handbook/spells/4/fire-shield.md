@@ -15,8 +15,14 @@ duration: 10 minutes
 concentration: false
 classes: []
 id: spell:fire-shield
+material_price: ''
 ---
-
+# Fire Shield
+*4th-Level Evocation*
+**Casting Time:** Action
+**Range:** Self
+**Components:** V, S, M (a bit of phosphorus or a firefly)
+**Duration:** 10 minutes
 Level 4 Evocation (Druid, Sorcerer, Wizard)
 Casting Time: Action
 Range: Self

@@ -12,18 +12,16 @@ components:
 material: ''
 duration: Instantaneous
 concentration: false
-classes: []
+classes:
+- Druid
 id: spell:druidcraft
+material_price: ''
 ---
-
+# Druidcraft
 *Transmutation Cantrip (Druid)*
-
 **Casting Time:** Action
-
 **Range:** 30 feet
-
 **Components:** V, S
-
 **Duration:** Instantaneous
 
 Whispering to the spirits of nature, you create one of the following effects within range.

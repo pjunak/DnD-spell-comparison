@@ -12,18 +12,18 @@ components:
 material: ''
 duration: Concentration, up to 1 minute
 concentration: true
-classes: []
+classes:
+- Bard
+- Sorcerer
+- Wizard
 id: spell:dominate-person
+material_price: ''
 ---
-
-*Level 5 Enchantment (Bard, Sorcerer, Wizard)*
-
+# Dominate Person
+*5th-Level Enchantment (Bard, Sorcerer, Wizard)*
 **Casting Time:** Action
-
 **Range:** 60 feet
-
 **Components:** V, S
-
 **Duration:** Concentration, up to 1 minute
 
 One Humanoid you can see within range must succeed on a Wisdom saving throw or have the Charmed condition for the duration. The target has Advantage on the save if you or your allies are fighting it. Whenever the target takes damage, it repeats the save, ending the spell on itself on a success.

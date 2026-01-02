@@ -12,18 +12,16 @@ components:
 material: ''
 duration: Instantaneous
 concentration: false
-classes: []
+classes:
+- Cleric
 id: spell:inflict-wounds
+material_price: ''
 ---
-
-*Level 1 Necromancy (Cleric)*
-
+# Inflict Wounds
+*1st-Level Necromancy (Cleric)*
 **Casting Time:** Action
-
 **Range:** Touch
-
 **Components:** V, S
-
 **Duration:** Instantaneous
 
 A creature you touch makes a Constitution saving throw, taking 2d10 Necrotic damage on a failed save or half as much damage on a successful one.

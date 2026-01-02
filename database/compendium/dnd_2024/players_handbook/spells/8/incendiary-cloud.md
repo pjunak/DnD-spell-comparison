@@ -12,18 +12,18 @@ components:
 material: ''
 duration: Concentration, up to 1 minute
 concentration: true
-classes: []
+classes:
+- Druid
+- Sorcerer
+- Wizard
 id: spell:incendiary-cloud
+material_price: ''
 ---
-
-*Level 8 Conjuration (Druid, Sorcerer, Wizard)*
-
+# Incendiary Cloud
+*8th-Level Conjuration (Druid, Sorcerer, Wizard)*
 **Casting Time:** Action
-
 **Range:** 150 feet
-
 **Components:** V, S
-
 **Duration:** Concentration, up to 1 minute
 
 A swirling cloud of embers and smoke fills a 20-foot-radius Sphere centered on a point within range. The cloud’s area is Heavily Obscured. It lasts for the duration or until a strong wind (like that created by Gust of Wind) disperses it.

@@ -13,18 +13,16 @@ components:
 material: burning incense worth 10+ GP, which the spell consumes
 duration: Instantaneous
 concentration: false
-classes: []
+classes:
+- Wizard
 id: spell:find-familiar
+material_price: ''
 ---
-
-*Level 1 Conjuration (Wizard)*
-
-**Casting Time:** 1 hour or Ritual
-
+# Find Familiar
+*1st-Level Conjuration (Wizard)*
+**Casting Time:** 1 hour
 **Range:** 10 feet
-
 **Components:** V, S, M (burning incense worth 10+ GP, which the spell consumes)
-
 **Duration:** Instantaneous
 
 You gain the service of a familiar, a spirit that takes an animal form you choose: Bat, Cat, Frog, Hawk, Lizard, Octopus, Owl, Rat, Raven, Spider, Weasel, or another Beast that has a Challenge Rating of 0. Appearing in an unoccupied space within range, the familiar has the statistics of the chosen form (see appendix B), though it is a Celestial, Fey, or Fiend (your choice) instead of a Beast. Your familiar acts independently of you, but it obeys your commands.

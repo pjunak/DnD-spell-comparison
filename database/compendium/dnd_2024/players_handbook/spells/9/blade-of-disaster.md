@@ -12,19 +12,19 @@ components:
 material: ''
 duration: C, up to 1 minute
 concentration: false
-classes: []
+classes:
+- Sorcerer
+- Warlock
+- Wizard
 id: spell:blade-of-disaster
+material_price: ''
 ---
-
-*Level 9 Conjuration (Sorcerer, Warlock, Wizard)*
-
+# Blade Of Disaster
+*9th-Level Conjuration (Sorcerer, Warlock, Wizard)*
 **Casting Time:** Bonus Action
-
 **Range:** 60 feet
-
 **Components:** V, S
-
-**Duration:** Concentration, up to 1 minute
+**Duration:** C, up to 1 minute
 
 You create a 3-foot-long blade-shaped planar rift that lasts for the duration. The rift appears within range in a space of your choice, and you can immediately make up to two melee spell attacks, each one against a creature or object within 5 feet of the rift. On a hit, the target takes 10d6 Force damage. This attack scores a Critical Hit if the number on the d20 is 18 or higher.
 

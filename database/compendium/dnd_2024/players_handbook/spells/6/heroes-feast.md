@@ -13,18 +13,18 @@ components:
 material: a gem-encrusted bowl worth 1,000+ GP, which the spell consumes
 duration: Instantaneous
 concentration: false
-classes: []
+classes:
+- Bard
+- Cleric
+- Druid
 id: spell:heroes-feast
+material_price: ''
 ---
-
-*Level 6 Conjuration (Bard, Cleric, Druid)*
-
+# Heroes' Feast
+*6th-Level Conjuration (Bard, Cleric, Druid)*
 **Casting Time:** 10 minutes
-
 **Range:** Self
-
 **Components:** V, S, M (a gem-encrusted bowl worth 1,000+ GP, which the spell consumes)
-
 **Duration:** Instantaneous
 
 You conjure a feast that appears on a surface in an unoccupied 10-foot Cube next to you. The feast takes 1 hour to consume and disappears at the end of that time, and the beneficial effects don’t set in until this hour is over. Up to twelve creatures can partake of the feast.

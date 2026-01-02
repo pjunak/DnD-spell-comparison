@@ -13,18 +13,17 @@ components:
 material: a fan and a feather
 duration: Concentration, up to 1 minute
 concentration: true
-classes: []
+classes:
+- Druid
+- Ranger
 id: spell:wind-wall
+material_price: ''
 ---
-
-*Level 3 Evocation (Druid, Ranger)*
-
+# Wind Wall
+*3rd-Level Evocation (Druid, Ranger)*
 **Casting Time:** Action
-
 **Range:** 120 feet
-
 **Components:** V, S, M (a fan and a feather)
-
 **Duration:** Concentration, up to 1 minute
 
 A wall of strong wind rises from the ground at a point you choose within range. You can make the wall up to 50 feet long, 15 feet high, and 1 foot thick. You can shape the wall in any way you choose so long as it makes one continuous path along the ground. The wall lasts for the duration.

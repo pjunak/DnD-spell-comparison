@@ -15,8 +15,14 @@ duration: Concentration, up to 1 hour
 concentration: true
 classes: []
 id: spell:invisibility
+material_price: ''
 ---
-
+# Invisibility
+*2nd-Level Illusion*
+**Casting Time:** Action
+**Range:** Touch
+**Components:** V, S, M (an eyelash in gum arabic)
+**Duration:** Concentration, up to 1 hour
 Level 2 Illusion (Artificer, Bard, Sorcerer, Warlock, Wizard)
 Casting Time: Action
 Range: Touch

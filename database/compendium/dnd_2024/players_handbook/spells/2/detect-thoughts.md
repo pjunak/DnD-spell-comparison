@@ -13,18 +13,18 @@ components:
 material: 1 Copper Piece
 duration: Concentration, up to 1 minute
 concentration: true
-classes: []
+classes:
+- Bard
+- Sorcerer
+- Wizard
 id: spell:detect-thoughts
+material_price: ''
 ---
-
-*Level 2 Divination (Bard, Sorcerer, Wizard)*
-
+# Detect Thoughts
+*2nd-Level Divination (Bard, Sorcerer, Wizard)*
 **Casting Time:** Action
-
 **Range:** Self
-
 **Components:** V, S, M (1 Copper Piece)
-
 **Duration:** Concentration, up to 1 minute
 
 You activate one of the effects below. Until the spell ends, you can activate either effect as a Magic action on your later turns.

@@ -11,18 +11,17 @@ components:
 material: ''
 duration: Instantaneous
 concentration: false
-classes: []
+classes:
+- Cleric
+- Paladin
 id: spell:prayer-of-healing
+material_price: ''
 ---
-
-*Level 2 Abjuration (Cleric, Paladin)*
-
+# Prayer of Healing
+*2nd-Level Abjuration (Cleric, Paladin)*
 **Casting Time:** 10 minutes
-
 **Range:** 30 feet
-
 **Components:** V
-
 **Duration:** Instantaneous
 
 Up to five creatures of your choice who remain within range for the spell’s entire casting gain the benefits of a Short Rest and also regain 2d8 Hit Points. A creature can’t be affected by this spell again until that creature finishes a Long Rest.

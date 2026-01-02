@@ -13,18 +13,19 @@ components:
 material: a bit of fleece
 duration: Concentration, up to 10 minutes
 concentration: true
-classes: []
+classes:
+- Bard
+- Sorcerer
+- Warlock
+- Wizard
 id: spell:major-image
+material_price: ''
 ---
-
-*Level 3 Illusion (Bard, Sorcerer, Warlock, Wizard)*
-
+# Major Image
+*3rd-Level Illusion (Bard, Sorcerer, Warlock, Wizard)*
 **Casting Time:** Action
-
 **Range:** 120 feet
-
 **Components:** V, S, M (a bit of fleece)
-
 **Duration:** Concentration, up to 10 minutes
 
 You create the image of an object, a creature, or some other visible phenomenon that is no larger than a 20-foot Cube. The image appears at a spot that you can see within range and lasts for the duration. It seems real, including sounds, smells, and temperature appropriate to the thing depicted, but it can’t deal damage or cause conditions.

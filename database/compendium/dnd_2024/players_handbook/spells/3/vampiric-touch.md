@@ -12,18 +12,18 @@ components:
 material: ''
 duration: Concentration, up to 1 minute
 concentration: true
-classes: []
+classes:
+- Sorcerer
+- Warlock
+- Wizard
 id: spell:vampiric-touch
+material_price: ''
 ---
-
-*Level 3 Necromancy (Sorcerer, Warlock, Wizard)*
-
+# Vampiric Touch
+*3rd-Level Necromancy (Sorcerer, Warlock, Wizard)*
 **Casting Time:** Action
-
 **Range:** Self
-
 **Components:** V, S
-
 **Duration:** Concentration, up to 1 minute
 
 The touch of your shadow-wreathed hand can siphon life force from others to heal your wounds. Make a melee spell attack against one creature within reach. On a hit, the target takes 3d6 Necrotic damage, and you regain Hit Points equal to half the amount of Necrotic damage dealt.

@@ -13,18 +13,18 @@ components:
 material: a bit of string and of wood
 duration: 1 hour
 concentration: false
-classes: []
+classes:
+- Bard
+- Warlock
+- Wizard
 id: spell:unseen-servant
+material_price: ''
 ---
-
-*Level 1 Conjuration (Bard, Warlock, Wizard)*
-
-**Casting Time:** Action or Ritual
-
+# Unseen Servant
+*1st-Level Conjuration (Bard, Warlock, Wizard)*
+**Casting Time:** Action
 **Range:** 60 feet
-
 **Components:** V, S, M (a bit of string and of wood)
-
 **Duration:** 1 hour
 
 This spell creates an Invisible, mindless, shapeless, Medium force that performs simple tasks at your command until the spell ends. The servant springs into existence in an unoccupied space on the ground within range. It has AC 10, 1 Hit Point, and a Strength of 2, and it can’t attack. If it drops to 0 Hit Points, the spell ends.

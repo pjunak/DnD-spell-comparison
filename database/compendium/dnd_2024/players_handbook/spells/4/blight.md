@@ -12,18 +12,19 @@ components:
 material: ''
 duration: Instantaneous
 concentration: false
-classes: []
+classes:
+- Druid
+- Sorcerer
+- Warlock
+- Wizard
 id: spell:blight
+material_price: ''
 ---
-
-*Level 4 Necromancy (Druid, Sorcerer, Warlock, Wizard)*
-
+# Blight
+*4th-Level Necromancy (Druid, Sorcerer, Warlock, Wizard)*
 **Casting Time:** Action
-
 **Range:** 30 feet
-
 **Components:** V, S
-
 **Duration:** Instantaneous
 
 A creature that you can see within range makes a Constitution saving throw, taking 8d8 Necrotic damage on a failed save or half as much damage on a successful one. A Plant creature automatically fails the save.

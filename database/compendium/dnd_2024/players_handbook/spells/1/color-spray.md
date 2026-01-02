@@ -13,18 +13,18 @@ components:
 material: a pinch of colorful sand
 duration: Instantaneous
 concentration: false
-classes: []
+classes:
+- Bard
+- Sorcerer
+- Wizard
 id: spell:color-spray
+material_price: ''
 ---
-
-*Level 1 Illusion (Bard, Sorcerer, Wizard)*
-
+# Color Spray
+*1st-Level Illusion (Bard, Sorcerer, Wizard)*
 **Casting Time:** Action
-
 **Range:** Self
-
 **Components:** V, S, M (a pinch of colorful sand)
-
 **Duration:** Instantaneous
 
 You launch a dazzling array of flashing, colorful light. Each creature in a 15-foot Cone originating from you must succeed on a Constitution saving throw or have the Blinded condition until the end of your next turn.

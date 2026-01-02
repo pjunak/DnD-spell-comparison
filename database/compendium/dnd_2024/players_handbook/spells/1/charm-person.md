@@ -12,18 +12,20 @@ components:
 material: ''
 duration: 1 hour
 concentration: false
-classes: []
+classes:
+- Bard
+- Druid
+- Sorcerer
+- Warlock
+- Wizard
 id: spell:charm-person
+material_price: ''
 ---
-
-*Level 1 Enchantment (Bard, Druid, Sorcerer, Warlock, Wizard)*
-
+# Charm Person
+*1st-Level Enchantment (Bard, Druid, Sorcerer, Warlock, Wizard)*
 **Casting Time:** Action
-
 **Range:** 30 feet
-
 **Components:** V, S
-
 **Duration:** 1 hour
 
 One Humanoid you can see within range makes a Wisdom saving throw. It does so with Advantage if you or your allies are fighting it. On a failed save, the target has the Charmed condition until the spell ends or until you or your allies damage it. The Charmed creature is Friendly to you. When the spell ends, the target knows it was Charmed by you.

@@ -13,18 +13,18 @@ components:
 material: a rotten egg
 duration: Concentration, up to 1 minute
 concentration: true
-classes: []
+classes:
+- Bard
+- Sorcerer
+- Wizard
 id: spell:stinking-cloud
+material_price: ''
 ---
-
-*Level 3 Conjuration (Bard, Sorcerer, Wizard)*
-
+# Stinking Cloud
+*3rd-Level Conjuration (Bard, Sorcerer, Wizard)*
 **Casting Time:** Action
-
 **Range:** 90 feet
-
 **Components:** V, S, M (a rotten egg)
-
 **Duration:** Concentration, up to 1 minute
 
 You create a 20-foot-radius Sphere of yellow, nauseating gas centered on a point within range. The cloud is Heavily Obscured. The cloud lingers in the air for the duration or until a strong wind (such as the one created by Gust of Wind) disperses it.

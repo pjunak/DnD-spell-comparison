@@ -12,18 +12,17 @@ components:
 material: ''
 duration: 7 days
 concentration: false
-classes: []
+classes:
+- Cleric
+- Druid
 id: spell:contagion
+material_price: ''
 ---
-
-*Level 5 Necromancy (Cleric, Druid)*
-
+# Contagion
+*5th-Level Necromancy (Cleric, Druid)*
 **Casting Time:** Action
-
 **Range:** Touch
-
-**Component:** V, S
-
+**Components:** V, S
 **Duration:** 7 days
 
 Your touch inflicts a magical contagion. The target must succeed on a Constitution saving throw or take 11d8 Necrotic damage and have the Poisoned condition. Also, choose one ability when you cast the spell. While Poisoned, the target has Disadvantage on saving throws made with the chosen ability.

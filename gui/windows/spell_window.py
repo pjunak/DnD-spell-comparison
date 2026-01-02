@@ -3,11 +3,14 @@
 from __future__ import annotations
 
 from typing import List, Mapping, Optional
+from pathlib import Path
 
-from PySide6.QtCore import Qt, Signal
+from PySide6.QtCore import Qt, Signal, QUrl
+from PySide6.QtGui import QDesktopServices
 from PySide6.QtWidgets import (
     QHBoxLayout,
     QLabel,
+    QSizePolicy,
     QSplitter,
     QTextBrowser,
     QVBoxLayout,
@@ -42,6 +45,7 @@ class SpellWindow(FramelessWindow):
 
         self._compendium: Compendium | None = None
         self._spells: List[dict] = []
+        self._current_payload: Mapping[str, Any] | None = None
 
         central = QWidget(self)
         root = QVBoxLayout(central)
@@ -144,6 +148,11 @@ class SpellWindow(FramelessWindow):
         self._table.selectionModel().selectionChanged.connect(self._on_selection_changed)
         left_layout.addWidget(self._table)
 
+        # -- Status Bar --
+        self._status_label = QLabel("")
+        self._status_label.setStyleSheet("color: #7f8c8d; font-size: 11px;")
+        left_layout.addWidget(self._status_label)
+
         split.addWidget(left_widget)
 
         # Right Pane: Details
@@ -151,14 +160,27 @@ class SpellWindow(FramelessWindow):
         right_layout = QVBoxLayout(right_widget)
         right_layout.setContentsMargins(0, 0, 0, 0)
 
+        # Dev mode button
+        self._open_source_btn = QPushButton("Open Source File")
+        self._open_source_btn.setVisible(False)
+        self._open_source_btn.clicked.connect(self._on_open_source_clicked)
+        self._open_source_btn.setStyleSheet("text-align: left; padding: 5px; background-color: #4a4a4a; color: #ffffff; border: none;")
+        right_layout.addWidget(self._open_source_btn)
+
         self._details = QTextBrowser()
         self._details.setOpenExternalLinks(False)
         self._details.setPlaceholderText("Select a spell to view details.")
         right_layout.addWidget(self._details)
 
         split.addWidget(right_widget)
-        split.setStretchFactor(0, 2)
-        split.setStretchFactor(1, 1)
+        
+        # Table pane: stretch to fill available space
+        split.setStretchFactor(0, 1)
+        # Details pane: fixed width, doesn't stretch
+        split.setStretchFactor(1, 0)
+        
+        # Set fixed width for details pane
+        right_widget.setFixedWidth(400)
 
         self.setCentralWidget(central)
         self._load_data()
@@ -186,6 +208,12 @@ class SpellWindow(FramelessWindow):
         except Exception as e:
             self._details.setText(f"Error loading spells: {e}")
 
+    def _update_status(self) -> None:
+        """Update the status label with the current spell count."""
+        visible = self._table.visible_count()
+        total = len(self._spells)
+        self._status_label.setText(f"Showing {visible} of {total} spells")
+
     def _apply_filters(self):
         # Gather levels
         levels = []
@@ -204,9 +232,31 @@ class SpellWindow(FramelessWindow):
         query = ""
         
         self._table.apply_filters(levels if levels else [], schools, query)
+        self._update_status()
+
+    def _on_open_source_clicked(self) -> None:
+        if not self._current_payload:
+            return
+            
+        path_str = self._current_payload.get("_meta_source_path")
+        if not path_str:
+            return
+
+        path = Path(path_str)
+        if not path.exists():
+            return
+            
+        url = QUrl.fromLocalFile(str(path.resolve()))
+        QDesktopServices.openUrl(url)
 
     def _on_selection_changed(self):
         payload = self._table.get_selected_spell()
+        self._current_payload = payload
+        
+        # Update dev button visibility
+        has_source = bool(payload and payload.get("_meta_source_path"))
+        self._open_source_btn.setVisible(has_source)
+
         if not payload:
             self._details.clear()
             return

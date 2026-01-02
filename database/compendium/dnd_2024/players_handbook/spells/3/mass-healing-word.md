@@ -11,18 +11,17 @@ components:
 material: ''
 duration: Instantaneous
 concentration: false
-classes: []
+classes:
+- Bard
+- Cleric
 id: spell:mass-healing-word
+material_price: ''
 ---
-
-*Level 3 Abjuration (Bard, Cleric)*
-
+# Mass Healing Word
+*3rd-Level Abjuration (Bard, Cleric)*
 **Casting Time:** Bonus Action
-
 **Range:** 60 feet
-
 **Components:** V
-
 **Duration:** Instantaneous
 
 Up to six creatures of your choice that you can see within range regain Hit Points equal to 2d4 plus your spellcasting ability modifier.

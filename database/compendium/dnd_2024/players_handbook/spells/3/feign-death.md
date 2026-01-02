@@ -15,8 +15,14 @@ duration: 1 hour
 concentration: false
 classes: []
 id: spell:feign-death
+material_price: ''
 ---
-
+# Feign Death
+*3rd-Level Necromancy*
+**Casting Time:** Action
+**Range:** Touch
+**Components:** V, S, M (a pinch of graveyard dirt)
+**Duration:** 1 hour
 Level 3 Necromancy (Bard, Cleric, Druid, Wizard)
 Casting Time: Action or Ritual
 Range: Touch

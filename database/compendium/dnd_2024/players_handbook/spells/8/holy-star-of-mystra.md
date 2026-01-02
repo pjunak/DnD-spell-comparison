@@ -12,19 +12,18 @@ components:
 material: ''
 duration: C, up to 1 minute
 concentration: false
-classes: []
+classes:
+- Cleric
+- Wizard
 id: spell:holy-star-of-mystra
+material_price: ''
 ---
-
-*Level 8 Evocation (Cleric, Wizard)*
-
+# Holy Star of Mystra
+*8th-Level Evocation (Cleric, Wizard)*
 **Casting Time:** Bonus Action
-
 **Range:** Self
-
 **Components:** V, S
-
-**Duration:** Concentration, up to 1 minute
+**Duration:** C, up to 1 minute
 
 You create a glowing mote of energy that hovers above you for the duration. The mote sheds Bright Light in a 5-foot radius and Dim Light for an additional 5 feet.
 

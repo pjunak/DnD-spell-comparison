@@ -12,18 +12,16 @@ components:
 material: ''
 duration: Concentration, up to 10 minutes
 concentration: true
-classes: []
+classes:
+- Cleric
 id: spell:conjure-celestial
+material_price: ''
 ---
-
-*Level 7 Conjuration (Cleric)*
-
+# Conjure Celestial
+*7th-Level Conjuration (Cleric)*
 **Casting Time:** Action
-
 **Range:** 90 feet
-
 **Components:** V, S
-
 **Duration:** Concentration, up to 10 minutes
 
 You conjure a spirit from the Upper Planes, which manifests as a pillar of light in a 10-foot-radius, 40-foot-high Cylinder centered on a point within range. For each creature you can see in the Cylinder, choose which of these lights shines on it:

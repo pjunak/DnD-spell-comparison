@@ -12,18 +12,19 @@ components:
 material: ''
 duration: Concentration, up to 1 hour
 concentration: true
-classes: []
+classes:
+- Bard
+- Sorcerer
+- Warlock
+- Wizard
 id: spell:dominate-monster
+material_price: ''
 ---
-
-*Level 8 Enchantment (Bard, Sorcerer, Warlock, Wizard)*
-
+# Dominate Monster
+*8th-Level Enchantment (Bard, Sorcerer, Warlock, Wizard)*
 **Casting Time:** Action
-
 **Range:** 60 feet
-
 **Components:** V, S
-
 **Duration:** Concentration, up to 1 hour
 
 One creature you can see within range must succeed on a Wisdom saving throw or have the Charmed condition for the duration. The target has Advantage on the save if you or your allies are fighting it. Whenever the target takes damage, it repeats the save, ending the spell on itself on a success.

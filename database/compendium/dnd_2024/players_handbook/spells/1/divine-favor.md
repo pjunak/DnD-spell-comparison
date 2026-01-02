@@ -12,18 +12,16 @@ components:
 material: ''
 duration: 1 minute
 concentration: false
-classes: []
+classes:
+- Paladin
 id: spell:divine-favor
+material_price: ''
 ---
-
-*Level 1 Transmutation (Paladin)*
-
+# Divine Favor
+*1st-Level Transmutation (Paladin)*
 **Casting Time:** Bonus Action
-
 **Range:** Self
-
 **Components:** V, S
-
 **Duration:** 1 minute
 
 Until the spell ends, your attacks with weapons deal an extra 1d4 Radiant damage on a hit.

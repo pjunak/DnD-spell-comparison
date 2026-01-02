@@ -13,18 +13,18 @@ components:
 material: a mixture of water and dust
 duration: Concentration, up to 10 minutes
 concentration: true
-classes: []
+classes:
+- Cleric
+- Druid
+- Wizard
 id: spell:control-water
+material_price: ''
 ---
-
-*Level 4 Transmutation (Cleric, Druid, Wizard)*
-
+# Control Water
+*4th-Level Transmutation (Cleric, Druid, Wizard)*
 **Casting Time:** Action
-
 **Range:** 300 feet
-
 **Components:** V, S, M (a mixture of water and dust)
-
 **Duration:** Concentration, up to 10 minutes
 
 Until the spell ends, you control any water inside an area you choose that is a Cube up to 100 feet on a side, using one of the following effects. As a Magic action on your later turns, you can repeat the same effect or choose a different one.

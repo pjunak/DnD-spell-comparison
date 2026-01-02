@@ -13,18 +13,16 @@ components:
 material: an object with the image of a dragon engraved on it worth 500+ GP
 duration: Concentration, up to 1 hour
 concentration: true
-classes: []
+classes:
+- Wizard
 id: spell:summon-dragon
+material_price: ''
 ---
-
-*Level 5 Conjuration (Wizard)*
-
+# Summon Dragon
+*5th-Level Conjuration (Wizard)*
 **Casting Time:** Action
-
 **Range:** 60 feet
-
 **Components:** V, S, M (an object with the image of a dragon engraved on it worth 500+ GP)
-
 **Duration:** Concentration, up to 1 hour
 
 You call forth a Dragon spirit. It manifests in an unoccupied space that you can see within range and uses the **Draconic Spirit** stat block. The creature disappears when it drops to 0 Hit Points or when the spell ends.

@@ -12,18 +12,19 @@ components:
 material: ''
 duration: Instantaneous
 concentration: false
-classes: []
+classes:
+- Artificer
+- Cleric
+- Druid
+- Paladin
 id: spell:purify-food-and-drink
+material_price: ''
 ---
-
-*Level 1 Transmutation (Artificer, Cleric, Druid, Paladin)*
-
-**Casting Time:** Action or Ritual
-
+# Purify Food and Drink
+*1st-Level Transmutation (Artificer, Cleric, Druid, Paladin)*
+**Casting Time:** Action
 **Range:** 10 feet
-
 **Components:** V, S
-
 **Duration:** Instantaneous
 
 You remove poison and rot from nonmagical food and drink in a 5-foot-radius Sphere centered on a point within range.

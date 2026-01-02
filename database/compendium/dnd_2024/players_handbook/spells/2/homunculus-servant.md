@@ -13,18 +13,16 @@ components:
 material: C
 duration: Instantaneous
 concentration: false
-classes: []
+classes:
+- Artificer
 id: spell:homunculus-servant
+material_price: ''
 ---
-
-*Level 2 Conjuration (Artificer)*
-
-**Casting Time:** 1 hour or Ritual
-
+# Homunculus Servant
+*2nd-Level Conjuration (Artificer)*
+**Casting Time:** 1 hour
 **Range:** 10 feet
-
-**Components:** V, S, M (a gem worth 100+ GP)
-
+**Components:** V, S, M (C)
 **Duration:** Instantaneous
 
 You summon a special homunculus in an unoccupied space within range. This creature uses the Homunculus Servant stat block. If you already have a homunculus from this spell, the homunculus is replaced by the new one. You determine the homunculus’s appearance, such as a mechanical-looking bird, winged vials, or miniature animate cauldrons.

@@ -13,18 +13,16 @@ components:
 material: a shard of blue glass
 duration: 1 Hour
 concentration: false
-classes: []
+classes:
+- Warlock
 id: spell:armor-of-agathys
+material_price: ''
 ---
-
-*Level 1 Abjuration (Warlock)*
-
+# Armor of Agathys
+*1st-Level Abjuration (Warlock)*
 **Casting Time:** Bonus Action
-
 **Range:** Self
-
 **Components:** V, S, M (a shard of blue glass)
-
 **Duration:** 1 Hour
 
 Protective magical frost surrounds you. You gain 5 Temporary Hit Points. If a creature hits you with a melee attack roll before the spell ends, the creature takes 5 Cold damage. The spell ends early if you have no Temporary Hit Points.

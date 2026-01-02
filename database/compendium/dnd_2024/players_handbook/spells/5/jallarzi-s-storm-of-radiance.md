@@ -13,18 +13,17 @@ components:
 material: a pinch of phosphorus
 duration: Concentration, up to 1 minute
 concentration: true
-classes: []
+classes:
+- Warlock
+- Wizard
 id: spell:jallarzi-s-storm-of-radiance
+material_price: ''
 ---
-
-*Level 5 Evocation (Warlock, Wizard)*
-
+# Jallarzi's Storm of Radiance
+*5th-Level Evocation (Warlock, Wizard)*
 **Casting Time:** Action
-
 **Range:** 120 feet
-
 **Components:** V, S, M (a pinch of phosphorus)
-
 **Duration:** Concentration, up to 1 minute
 
 You unleash a storm of flashing light and raging thunder in a 10-foot-radius, 40-foot-high Cylinder centered on a point you can see within range. While in this area, creatures have the Blinded and Deafened conditions, and they can’t cast spells with a Verbal component.

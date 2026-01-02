@@ -13,18 +13,18 @@ components:
 material: a drop of alcohol
 duration: Instantaneous
 concentration: false
-classes: []
+classes:
+- Artificer
+- Sorcerer
+- Wizard
 id: spell:false-life
+material_price: ''
 ---
-
-*Level 1 Necromancy (Artificer, Sorcerer, Wizard)*
-
+# False Life
+*1st-Level Necromancy (Artificer, Sorcerer, Wizard)*
 **Casting Time:** Action
-
 **Range:** Self
-
 **Components:** V, S, M (a drop of alcohol)
-
 **Duration:** Instantaneous
 
 You gain 2d4 + 4 Temporary Hit Points.

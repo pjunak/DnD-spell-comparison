@@ -13,18 +13,19 @@ components:
 material: a key ring with no keys
 duration: Instantaneous
 concentration: false
-classes: []
+classes:
+- Bard
+- Druid
+- Warlock
+- Wizard
 id: spell:befuddlement
+material_price: ''
 ---
-
-*Level 8 Enchantment (Bard, Druid, Warlock, Wizard)*
-
+# Befuddlement
+*8th-Level Enchantment (Bard, Druid, Warlock, Wizard)*
 **Casting Time:** Action
-
 **Range:** 150 feet
-
 **Components:** V, S, M (a key ring with no keys)
-
 **Duration:** Instantaneous
 
 You blast the mind of a creature that you can see within range. The target makes an Intelligence saving throw.

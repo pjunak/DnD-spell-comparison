@@ -12,18 +12,16 @@ components:
 material: ''
 duration: Instantaneous
 concentration: false
-classes: []
+classes:
+- Paladin
 id: spell:staggering-smite
+material_price: ''
 ---
-
-*Level 4 Enchantment (Paladin)*
-
+# Staggering Smite
+*4th-Level Enchantment (Paladin)*
 **Casting Time:** Bonus Action, which you take immediately after hitting a creature with a Melee weapon or an Unarmed Strike
-
 **Range:** Self
-
 **Components:** V
-
 **Duration:** Instantaneous
 
 The target takes an extra 4d6 Psychic damage from the attack, and the target must succeed on a Wisdom saving throw or have the Stunned condition until the end of your next turn.

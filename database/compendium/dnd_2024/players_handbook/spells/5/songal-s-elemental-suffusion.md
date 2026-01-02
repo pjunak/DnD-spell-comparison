@@ -13,19 +13,19 @@ components:
 material: C
 duration: C, up to 1 minute
 concentration: false
-classes: []
+classes:
+- Druid
+- Sorcerer
+- Wizard
 id: spell:songal-s-elemental-suffusion
+material_price: ''
 ---
-
-*Level 5 Transmutation (Druid, Sorcerer, Wizard)*
-
+# Songal's Elemental Suffusion
+*5th-Level Transmutation (Druid, Sorcerer, Wizard)*
 **Casting Time:** Action
-
 **Range:** Self
-
-**Components:** V, S, M (a pearl worth 100+ GP)
-
-**Duration:** Concentration, up to 1 minute
+**Components:** V, S, M (C)
+**Duration:** C, up to 1 minute
 
 You imbue yourself with the elemental power of genies. You gain the following benefits until the spell ends:
 

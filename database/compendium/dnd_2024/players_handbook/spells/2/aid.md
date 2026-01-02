@@ -13,18 +13,21 @@ components:
 material: a strip of white cloth
 duration: 8 hours
 concentration: false
-classes: []
+classes:
+- Artificer
+- Bard
+- Cleric
+- Druid
+- Paladin
+- Ranger
 id: spell:aid
+material_price: ''
 ---
-
-*Level 2 Abjuration (Artificer, Bard, Cleric, Druid, Paladin, Ranger)*
-
+# Aid
+*2nd-Level Abjuration (Artificer, Bard, Cleric, Druid, Paladin, Ranger)*
 **Casting Time:** Action
-
 **Range:** 30 feet
-
 **Components:** V, S, M (a strip of white cloth)
-
 **Duration:** 8 hours
 
 Choose up to three creatures within range. Each target’s Hit Point maximum and current Hit Points increase by 5 for the duration.

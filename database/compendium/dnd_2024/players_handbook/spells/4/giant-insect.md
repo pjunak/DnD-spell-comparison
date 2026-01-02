@@ -12,18 +12,16 @@ components:
 material: ''
 duration: Concentration, up to 10 minutes
 concentration: true
-classes: []
+classes:
+- Druid
 id: spell:giant-insect
+material_price: ''
 ---
-
-*Level 4 Conjuration (Druid)*
-
+# Giant Insect
+*4th-Level Conjuration (Druid)*
 **Casting Time:** Action
-
 **Range:** 60 feet
-
 **Components:** V, S
-
 **Duration:** Concentration, up to 10 minutes
 
 You summon a giant centipede, spider, or wasp (chosen when you cast the spell). It manifests in an unoccupied space you can see within range and uses the **Giant Insect** stat block. The form you choose determines certain details in its stat block. The creature disappears when it drops to 0 Hit Points or when the spell ends.

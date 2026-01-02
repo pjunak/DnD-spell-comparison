@@ -13,18 +13,17 @@ components:
 material: powdered silver and iron
 duration: Concentration, up to 1 minute
 concentration: true
-classes: []
+classes:
+- Cleric
+- Paladin
 id: spell:dispel-evil-and-good
+material_price: ''
 ---
-
-*Level 5 Abjuration (Cleric, Paladin)*
-
+# Dispel Evil and Good
+*5th-Level Abjuration (Cleric, Paladin)*
 **Casting Time:** Action
-
 **Range:** Self
-
 **Components:** V, S, M (powdered silver and iron)
-
 **Duration:** Concentration, up to 1 minute
 
 For the duration, Celestials, Elementals, Fey, Fiends, and Undead have Disadvantage on attack rolls against you. You can end the spell early by using either of the following special functions.

@@ -13,18 +13,17 @@ components:
 material: a lodestone and dust
 duration: Instantaneous
 concentration: false
-classes: []
+classes:
+- Sorcerer
+- Wizard
 id: spell:disintegrate
+material_price: ''
 ---
-
-*Level 6 Transmutation (Sorcerer, Wizard)*
-
+# Disintegrate
+*6th-Level Transmutation (Sorcerer, Wizard)*
 **Casting Time:** Action
-
 **Range:** 60 feet
-
 **Components:** V, S, M (a lodestone and dust)
-
 **Duration:** Instantaneous
 
 You launch a green ray at a target you can see within range. The target can be a creature, a nonmagical object, or a creation of magical force, such as the wall created by Wall of Force.

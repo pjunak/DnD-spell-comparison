@@ -12,18 +12,19 @@ components:
 material: ''
 duration: Concentration, up to 1 minute
 concentration: true
-classes: []
+classes:
+- Bard
+- Sorcerer
+- Warlock
+- Wizard
 id: spell:crown-of-madness
+material_price: ''
 ---
-
-*Level 2 Enchantment (Bard, Sorcerer, Warlock, Wizard)*
-
+# Crown Of Madness
+*2nd-Level Enchantment (Bard, Sorcerer, Warlock, Wizard)*
 **Casting Time:** Action
-
 **Range:** 120 feet
-
 **Components:** V, S
-
 **Duration:** Concentration, up to 1 minute
 
 One creature that you can see within range must succeed on a Wisdom saving throw or have the Charmed condition for the duration. The creature succeeds automatically if it isn’t Humanoid.

@@ -13,18 +13,17 @@ components:
 material: a miniature sword worth 250+ GP
 duration: Concentration, up to 1 minute
 concentration: true
-classes: []
+classes:
+- Bard
+- Wizard
 id: spell:mordenkainen-s-sword
+material_price: ''
 ---
-
-*Level 7 Evocation (Bard, Wizard)*
-
+# Mordenkainen's Sword
+*7th-Level Evocation (Bard, Wizard)*
 **Casting Time:** Action
-
 **Range:** 90 feet
-
 **Components:** V, S, M (a miniature sword worth 250+ GP)
-
 **Duration:** Concentration, up to 1 minute
 
 You create a spectral sword that hovers within range. It lasts for the duration.

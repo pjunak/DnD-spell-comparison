@@ -13,18 +13,18 @@ components:
 material: a lodestone and iron filings
 duration: Concentration, up to 1 minute
 concentration: true
-classes: []
+classes:
+- Druid
+- Sorcerer
+- Wizard
 id: spell:reverse-gravity
+material_price: ''
 ---
-
-*Level 7 Transmutation (Druid, Sorcerer, Wizard)*
-
+# Reverse Gravity
+*7th-Level Transmutation (Druid, Sorcerer, Wizard)*
 **Casting Time:** Action
-
 **Range:** 100 feet
-
 **Components:** V, S, M (a lodestone and iron filings)
-
 **Duration:** Concentration, up to 1 minute
 
 This spell reverses gravity in a 50-foot-radius, 100-foot high Cylinder centered on a point within range. All creatures and objects in that area that aren’t anchored to the ground fall upward and reach the top of the Cylinder. A creature can make a Dexterity saving throw to grab a fixed object it can reach, thus avoiding the fall upward.

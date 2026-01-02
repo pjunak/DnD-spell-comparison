@@ -13,18 +13,18 @@ components:
 material: a bell and silver wire
 duration: 8 hours
 concentration: false
-classes: []
+classes:
+- Artificer
+- Ranger
+- Wizard
 id: spell:alarm
+material_price: ''
 ---
-
-*Level 1 Abjuration (Artificer, Ranger, Wizard)*
-
-**Casting Time:** 1 minute or Ritual
-
+# Alarm
+*1st-Level Abjuration (Artificer, Ranger, Wizard)*
+**Casting Time:** 1 minute
 **Range:** 30 feet
-
 **Components:** V, S, M (a bell and silver wire)
-
 **Duration:** 8 hours
 
 You set an alarm against intrusion. Choose a door, a window, or an area within range that is no larger than a 20-foot Cube. Until the spell ends, an alarm alerts you whenever a creature touches or enters the warded area. When you cast the spell, you can designate creatures that won’t set off the alarm. You also choose whether the alarm is audible or mental:

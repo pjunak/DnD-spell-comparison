@@ -13,18 +13,18 @@ components:
 material: C
 duration: 1 hour
 concentration: false
-classes: []
+classes:
+- Druid
+- Sorcerer
+- Wizard
 id: spell:elminster-s-effulgent-spheres
+material_price: ''
 ---
-
-*Level 6 Evocation (Druid, Sorcerer, Wizard)*
-
+# Elminster's Effulgent Spheres
+*6th-Level Evocation (Druid, Sorcerer, Wizard)*
 **Casting Time:** Action
-
 **Range:** Self
-
-**Components:** V, S, M (an opal worth 1,000 GP+)
-
+**Components:** V, S, M (C)
 **Duration:** 1 hour
 
 Six chromatic spheres orbit you for the duration.

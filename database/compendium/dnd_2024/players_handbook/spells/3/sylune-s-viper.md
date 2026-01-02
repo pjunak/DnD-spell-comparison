@@ -13,18 +13,17 @@ components:
 material: ''
 duration: 1 hour
 concentration: false
-classes: []
+classes:
+- Druid
+- Wizard
 id: spell:sylune-s-viper
+material_price: ''
 ---
-
-*Level 3 Conjuration (Druid, Wizard)*
-
+# Sylune's Viper
+*3rd-Level Conjuration (Druid, Wizard)*
 **Casting Time:** Bonus Action
-
 **Range:** Self
-
-**Components:** V, S, M (a snake fang)
-
+**Components:** V, S, M
 **Duration:** 1 hour
 
 A shimmering, spectral snake encircles your body for the duration. You gain 15 Temporary Hit Points; the spell ends early if you have no Temporary Hit Points left.

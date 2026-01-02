@@ -12,18 +12,16 @@ components:
 material: ''
 duration: 1 minute
 concentration: false
-classes: []
+classes:
+- Paladin
 id: spell:blinding-smite
+material_price: ''
 ---
-
-*Level 3 Evocation (Paladin)*
-
+# Blinding Smite
+*3rd-Level Evocation (Paladin)*
 **Casting Time:** Bonus Action, which you take immediately after hitting a creature with a Melee weapon or an Unarmed Strike
-
 **Range:** Self
-
-**Component:** V
-
+**Components:** V
 **Duration:** 1 minute
 
 The target hit by the strike takes an extra 3d8 Radiant damage from the attack, and the target has the Blinded condition until the spell ends. At the end of each of its turns, the Blinded target makes a Constitution saving throw, ending the spell on itself on a success.

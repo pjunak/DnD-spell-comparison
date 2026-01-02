@@ -13,18 +13,18 @@ components:
 material: a tart and a feather
 duration: Concentration, up to 1 minute
 concentration: true
-classes: []
+classes:
+- Bard
+- Warlock
+- Wizard
 id: spell:tasha-s-hideous-laughter
+material_price: ''
 ---
-
-*Level 1 Enchantment (Bard, Warlock, Wizard)*
-
+# Tasha's Hideous Laughter
+*1st-Level Enchantment (Bard, Warlock, Wizard)*
 **Casting Time:** Action
-
 **Range:** 30 feet
-
 **Components:** V, S, M (a tart and a feather)
-
 **Duration:** Concentration, up to 1 minute
 
 One creature of your choice that you can see within range makes a Wisdom saving throw. On a failed save, it has the Prone and Incapacitated conditions for the duration. During that time, it laughs uncontrollably if it’s capable of laughter, and it can’t end the Prone condition on itself.

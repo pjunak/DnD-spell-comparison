@@ -13,18 +13,16 @@ components:
 material: ruby dust worth 1,000+ GP
 duration: 1 day
 concentration: false
-classes: []
+classes:
+- Cleric
 id: spell:forbiddance
+material_price: ''
 ---
-
-*Level 6 Abjuration (Cleric)*
-
-**Casting Time:** 10 minutes or Ritual
-
+# Forbiddance
+*6th-Level Abjuration (Cleric)*
+**Casting Time:** 10 minutes
 **Range:** Touch
-
 **Components:** V, S, M (ruby dust worth 1,000+ GP)
-
 **Duration:** 1 day
 
 You create a ward against magical travel that protects up to 40,000 square feet of floor space to a height of 30 feet above the floor. For the duration, creatures can’t teleport into the area or use portals, such as those created by the Gate spell, to enter the area. The spell proofs the area against planar travel, and therefore prevents creatures from accessing the area by way of the Astral Plane, the Ethereal Plane, the Feywild, the Shadowfell, or the Plane Shift spell.

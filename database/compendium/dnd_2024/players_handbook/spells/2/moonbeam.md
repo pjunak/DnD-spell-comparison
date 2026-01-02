@@ -13,18 +13,16 @@ components:
 material: a moonseed leaf
 duration: Concentration, up to 1 minute
 concentration: true
-classes: []
+classes:
+- Druid
 id: spell:moonbeam
+material_price: ''
 ---
-
-*Level 2 Evocation (Druid)*
-
+# Moonbeam
+*2nd-Level Evocation (Druid)*
 **Casting Time:** Action
-
 **Range:** 120 feet
-
 **Components:** V, S, M (a moonseed leaf)
-
 **Duration:** Concentration, up to 1 minute
 
 A silvery beam of pale light shines down in a 5-foot-radius, 40-foot-high Cylinder centered on a point within range. Until the spell ends, Dim Light fills the Cylinder, and you can take a Magic action on later turns to move the Cylinder up to 60 feet.

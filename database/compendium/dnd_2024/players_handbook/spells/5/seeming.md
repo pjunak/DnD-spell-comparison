@@ -12,18 +12,18 @@ components:
 material: ''
 duration: 8 hours
 concentration: false
-classes: []
+classes:
+- Bard
+- Sorcerer
+- Wizard
 id: spell:seeming
+material_price: ''
 ---
-
-*Level 5 Illusion (Bard, Sorcerer, Wizard)*
-
+# Seeming
+*5th-Level Illusion (Bard, Sorcerer, Wizard)*
 **Casting Time:** Action
-
 **Range:** 30 feet
-
 **Components:** V, S
-
 **Duration:** 8 hours
 
 You give an illusory appearance to each creature of your choice that you can see within range. An unwilling target can make a Charisma saving throw, and if it succeeds, it is unaffected by this spell.

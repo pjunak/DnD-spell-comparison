@@ -13,18 +13,17 @@ components:
 material: a gilded ladle worth 500+ GP
 duration: 10 minutes
 concentration: false
-classes: []
+classes:
+- Warlock
+- Wizard
 id: spell:tasha-s-bubbling-cauldron
+material_price: ''
 ---
-
-*Level 6 Conjuration (Warlock, Wizard)*
-
+# Tasha's Bubbling Cauldron
+*6th-Level Conjuration (Warlock, Wizard)*
 **Casting Time:** Action
-
 **Range:** 5 feet
-
 **Components:** V, S, M (a gilded ladle worth 500+ GP)
-
 **Duration:** 10 minutes
 
 You conjure a claw-footed cauldron filled with bubbling liquid. The cauldron appears in an unoccupied space on the ground within 5 feet of you and lasts for the duration. The cauldron can't be moved and disappears when the spell ends, along with the bubbling liquid inside it.

@@ -15,8 +15,14 @@ duration: Concentration, up to 1 minute
 concentration: true
 classes: []
 id: spell:fear
+material_price: ''
 ---
-
+# Fear
+*3rd-Level Illusion*
+**Casting Time:** Action
+**Range:** Self
+**Components:** V, S, M (a white feather)
+**Duration:** Concentration, up to 1 minute
 Level 3 Illusion (Bard, Sorcerer, Warlock, Wizard)
 Casting Time: Action
 Range: Self

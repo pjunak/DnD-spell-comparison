@@ -50,7 +50,11 @@ class SpellsTableModel(QAbstractTableModel):
             elif col == 5:
                 return self._format_duration(spell.get("duration", ""), spell.get("concentration", False))
             elif col == 6:
-                return self._format_components(spell.get("components", []), spell.get("materials", ""))
+                return self._format_components(
+                    spell.get("components", []), 
+                    spell.get("materials") or spell.get("material"),
+                    spell.get("material_price")
+                )
             elif col == 7:
                 return "Yes" if spell.get("ritual") else "No"
 
@@ -113,18 +117,25 @@ class SpellsTableModel(QAbstractTableModel):
             return f"Con, {raw}"
         return raw
 
-    def _format_components(self, components: List[str], materials: str) -> str:
+    def _format_components(self, components: List[str], materials: str | None, material_price: str | None) -> str:
         comps = ", ".join(components)
+        
+        has_cost = False
+        
+        # Explicit price field
+        if material_price:
+            has_cost = True
+            
         # Check for gold cost or consumed materials in the materials string
-        # Heuristic: look for "gp", "gold", "worth", "consume"
-        if materials:
+        elif materials:
             mat_lower = materials.lower()
-            # Simple heuristic for cost
-            # Check if there is a number followed by gp/sp/cp or "worth"
+            # Heuristic: look for "gp", "gold", "worth", "consume"
             if re.search(r"\d+\s*(gp|gold|sp|cp)", mat_lower) or "worth" in mat_lower:
-                comps += "*"
-            # Previous logic was strict. User asked: "if component has monetary value given ... add *"
-            # My previous implementation had similar check but let's make it robust with regex.
+                has_cost = True
+
+        if has_cost:
+            comps += "*"
+            
         return comps
 
     def headerData(self, section: int, orientation: Qt.Orientation, role: int = Qt.ItemDataRole.DisplayRole) -> Any:
@@ -209,17 +220,28 @@ class SpellsTableView(QTableView):
         model = SpellsTableModel(spells, self)
         self._proxy.setSourceModel(model)
         
-        # Optimize: Resize once based on content, then switch to Interactive
-        # This prevents expensive recalculations on every paint/layout
-        self.resizeColumnsToContents()
-        
         header = self.horizontalHeader()
-        # Name stretches
-        header.setSectionResizeMode(0, QHeaderView.ResizeMode.Stretch)
         
-        # Others are interactive (fixed width but user adjustable)
-        for i in range(1, 8):
-            header.setSectionResizeMode(i, QHeaderView.ResizeMode.Interactive)
+        # Disable horizontal scrollbar - only vertical scrolling allowed
+        self.setHorizontalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
+        
+        # Column indices: 0=Name, 1=Lvl, 2=School, 3=Casting Time, 4=Range, 5=Duration, 6=Comp, 7=R
+        
+        # Name column: stretch to fill remaining space
+        header.setSectionResizeMode(0, QHeaderView.ResizeMode.Stretch)
+        header.setMinimumSectionSize(20) # Allow columns to be narrow (default is often larger)
+        
+        # Narrow columns: fixed width
+        header.setSectionResizeMode(1, QHeaderView.ResizeMode.Fixed)  # Lvl
+        header.setSectionResizeMode(7, QHeaderView.ResizeMode.Fixed)  # R
+        
+        # Medium columns: resize to contents
+        for i in [2, 3, 4, 5, 6]:
+            header.setSectionResizeMode(i, QHeaderView.ResizeMode.ResizeToContents)
+        
+        # Now set fixed column widths explicitly
+        self.setColumnWidth(1, 40)   # Lvl - single digit
+        self.setColumnWidth(7, 35)   # R - "Yes"/"No"
 
     def apply_filters(self, levels: Set[int], schools: Set[str], text: str) -> None:
         self._proxy.set_filter_criteria(levels, schools, text)
@@ -231,3 +253,7 @@ class SpellsTableView(QTableView):
         proxy_index = indexes[0]
         source_index = self._proxy.mapToSource(proxy_index)
         return source_index.data(Qt.ItemDataRole.UserRole)
+
+    def visible_count(self) -> int:
+        """Return the number of currently visible (filtered) spells."""
+        return self._proxy.rowCount()

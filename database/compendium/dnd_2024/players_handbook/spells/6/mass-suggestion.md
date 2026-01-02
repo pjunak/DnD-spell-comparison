@@ -12,18 +12,18 @@ components:
 material: a snake’s tongue
 duration: 24 hours
 concentration: false
-classes: []
+classes:
+- Bard
+- Sorcerer
+- Wizard
 id: spell:mass-suggestion
+material_price: ''
 ---
-
-*Level 6 Enchantment (Bard, Sorcerer, Wizard)*
-
+# Mass Suggestion
+*6th-Level Enchantment (Bard, Sorcerer, Wizard)*
 **Casting Time:** Action
-
 **Range:** 60 feet
-
 **Components:** V, M (a snake’s tongue)
-
 **Duration:** 24 hours
 
 You suggest a course of activity—described in no more than 25 words—to twelve or fewer creatures you can see within range that can hear and understand you. The suggestion must sound achievable and not involve anything that would obviously deal damage to any of the targets or their allies. For example, you could say, “Walk to the village down that road, and help the villagers there harvest crops until sunset.” Or you could say, “Now is not the time for violence. Drop your weapons, and dance! Stop in an hour.”

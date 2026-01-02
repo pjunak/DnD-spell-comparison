@@ -12,18 +12,18 @@ components:
 material: ''
 duration: Concentration, up to 1 hour
 concentration: true
-classes: []
+classes:
+- Artificer
+- Sorcerer
+- Wizard
 id: spell:alter-self
+material_price: ''
 ---
-
-*Level 2 Transmutation (Artificer, Sorcerer, Wizard)*
-
+# Alter Self
+*2nd-Level Transmutation (Artificer, Sorcerer, Wizard)*
 **Casting Time:** Action
-
 **Range:** Self
-
 **Components:** V, S
-
 **Duration:** Concentration, up to 1 hour
 
 You alter your physical form. Choose one of the following options. Its effects last for the duration, during which you can take a Magic action to replace the option you chose with a different one.

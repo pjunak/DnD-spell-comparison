@@ -13,18 +13,17 @@ components:
 material: a miniature crystal sphere
 duration: Instantaneous
 concentration: false
-classes: []
+classes:
+- Sorcerer
+- Wizard
 id: spell:otiluke-s-freezing-sphere
+material_price: ''
 ---
-
-*Level 6 Evocation (Sorcerer, Wizard)*
-
+# Otiluke's Freezing Sphere
+*6th-Level Evocation (Sorcerer, Wizard)*
 **Casting Time:** Action
-
 **Range:** 300 feet
-
 **Components:** V, S, M (a miniature crystal sphere)
-
 **Duration:** Instantaneous
 
 A frigid globe streaks from you to a point of your choice within range, where it explodes in a 60-foot-radius Sphere. Each creature in that area makes a Constitution saving throw, taking 10d6 Cold damage on failed save or half as much damage on a successful one.

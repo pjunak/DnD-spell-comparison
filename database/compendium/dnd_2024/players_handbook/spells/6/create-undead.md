@@ -13,18 +13,18 @@ components:
 material: one 150+ GP black onyx stone for each corpse
 duration: Instantaneous
 concentration: false
-classes: []
+classes:
+- Cleric
+- Warlock
+- Wizard
 id: spell:create-undead
+material_price: ''
 ---
-
-*Level 6 Necromancy (Cleric, Warlock, Wizard)*
-
+# Create Undead
+*6th-Level Necromancy (Cleric, Warlock, Wizard)*
 **Casting Time:** 1 minute
-
 **Range:** 10 feet
-
 **Components:** V, S, M (one 150+ GP black onyx stone for each corpse)
-
 **Duration:** Instantaneous
 
 You can cast this spell only at night. Choose up to three corpses of Medium or Small Humanoids within range. Each one becomes a Ghoul under your control (see the Monster Manual for its stat block).

@@ -14,18 +14,18 @@ material: for each of the spell's targets, one jacinth worth 1,000+ GP and one s
   bar worth 100+ GP, all of which the spell consumes
 duration: Until dispelled
 concentration: false
-classes: []
+classes:
+- Cleric
+- Warlock
+- Wizard
 id: spell:astral-projection
+material_price: ''
 ---
-
-*Level 9 Necromancy (Cleric, Warlock, Wizard)*
-
+# Astral Projection
+*9th-Level Necromancy (Cleric, Warlock, Wizard)*
 **Casting Time:** 1 hour
-
 **Range:** 10 feet
-
 **Components:** V, S, M (for each of the spell's targets, one jacinth worth 1,000+ GP and one silver bar worth 100+ GP, all of which the spell consumes)
-
 **Duration:** Until dispelled
 
 You and up to eight willing creatures within range project your astral bodies into the Astral Plane (the spell ends instantly if you are already on that plane). Each target's body is left behind in a state of suspended animation; it has the Unconscious condition, doesn't need food or air, and doesn't age.

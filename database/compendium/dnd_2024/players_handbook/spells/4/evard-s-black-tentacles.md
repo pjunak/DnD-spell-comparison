@@ -13,18 +13,16 @@ components:
 material: a tentacle
 duration: Concentration, up to 1 minute
 concentration: true
-classes: []
+classes:
+- Wizard
 id: spell:evard-s-black-tentacles
+material_price: ''
 ---
-
-*Level 4 Conjuration (Wizard)*
-
+# Evard's Black Tentacles
+*4th-Level Conjuration (Wizard)*
 **Casting Time:** Action
-
 **Range:** 90 feet
-
 **Components:** V, S, M (a tentacle)
-
 **Duration:** Concentration, up to 1 minute
 
 Squirming, ebony tentacles fill a 20-foot square on ground that you can see within range. For the duration, these tentacles turn the ground in that area into Difficult Terrain.

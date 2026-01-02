@@ -23,13 +23,8 @@ from ..application_context import ApplicationContext
 from ..dialogs import GlobalSettingsDialog
 from ..resources import get_app_icon
 from ..widgets import FramelessWindow
-from .character_sheet_hub import CharacterSheetHubWindow
 
-from .compendium_window import CompendiumWindow
-from .main_window import MainWindow
-from .monster_window import MonsterWindow
-from .equipment_window import EquipmentWindow
-from .spell_window import SpellWindow
+# Window classes are imported lazily in handler methods to improve startup time
 
 
 def _create_tile_icon(kind: str, size: int = 64) -> QIcon:
@@ -241,36 +236,42 @@ class LauncherWindow(FramelessWindow):
 
     def _open_spell_grapher(self) -> None:
         logging.info("Opening Spell Grapher")
+        from .main_window import MainWindow  # Lazy import
         window = MainWindow(app_context=self._app_context)
         self._register_window(window)
         window.show()
 
     def _open_character_sheet_workspace(self) -> None:
         logging.info("Opening Character Sheet Workspace")
+        from .character_sheet_hub import CharacterSheetHubWindow  # Lazy import
         window = CharacterSheetHubWindow(self._app_context, parent=self)
         self._register_window(window)
         window.show()
 
     def _open_compendium(self) -> None:
         logging.info("Opening Compendium")
+        from .compendium_window import CompendiumWindow  # Lazy import
         window = CompendiumWindow(self)
         self._register_window(window)
         window.show()
 
     def _open_monster_manual(self) -> None:
         logging.info("Opening Monster Manual")
+        from .monster_window import MonsterWindow  # Lazy import
         window = MonsterWindow(self)
         self._register_window(window)
         window.show()
 
     def _open_equipment_manager(self) -> None:
         logging.info("Opening Equipment Manager")
+        from .equipment_window import EquipmentWindow  # Lazy import
         window = EquipmentWindow(self)
         self._register_window(window)
         window.show()
 
     def _open_spell_browser(self) -> None:
         logging.info("Opening Spell Browser")
+        from .spell_window import SpellWindow  # Lazy import
         window = SpellWindow(self)
         self._register_window(window)
         window.show()

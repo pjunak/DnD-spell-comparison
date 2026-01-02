@@ -12,18 +12,17 @@ components:
 material: ''
 duration: Instantaneous
 concentration: false
-classes: []
+classes:
+- Cleric
+- Druid
 id: spell:heal
+material_price: ''
 ---
-
-*Level 6 Abjuration (Cleric, Druid)*
-
+# Heal
+*6th-Level Abjuration (Cleric, Druid)*
 **Casting Time:** Action
-
 **Range:** 60 feet
-
 **Components:** V, S
-
 **Duration:** Instantaneous
 
 Choose a creature that you can see within range. Positive energy washes through the target, restoring 70 Hit Points. This spell also ends the Blinded, Deafened, and Poisoned conditions on the target.

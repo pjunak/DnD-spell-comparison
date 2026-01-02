@@ -12,18 +12,17 @@ components:
 material: ''
 duration: Concentration, up to 1 minute
 concentration: true
-classes: []
+classes:
+- Warlock
+- Wizard
 id: spell:ray-of-enfeeblement
+material_price: ''
 ---
-
-*Level 2 Necromancy (Warlock, Wizard)*
-
+# Ray of Enfeeblement
+*2nd-Level Necromancy (Warlock, Wizard)*
 **Casting Time:** Action
-
 **Range:** 60 feet
-
 **Components:** V, S
-
 **Duration:** Concentration, up to 1 minute
 
 A beam of enervating energy shoots from you toward a creature within range. The target must make a Constitution saving throw. On a successful save, the target has Disadvantage on the next attack roll it makes until the start of your next turn.

@@ -11,18 +11,18 @@ components:
 material: ''
 duration: Instantaneous
 concentration: false
-classes: []
+classes:
+- Bard
+- Sorcerer
+- Wizard
 id: spell:teleport
+material_price: ''
 ---
-
-*Level 7 Conjuration (Bard, Sorcerer, Wizard)*
-
+# Teleport
+*7th-Level Conjuration (Bard, Sorcerer, Wizard)*
 **Casting Time:** Action
-
 **Range:** 10 feet
-
 **Components:** V
-
 **Duration:** Instantaneous
 
 This spell instantly transports you and up to eight willing creatures that you can see within range, or a single object that you can see within range, to a destination you select. If you target an object, it must be Large or smaller, and it can’t be held or carried by an unwilling creature.

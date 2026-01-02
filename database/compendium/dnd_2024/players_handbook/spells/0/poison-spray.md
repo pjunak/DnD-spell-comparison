@@ -12,18 +12,20 @@ components:
 material: ''
 duration: Instantaneous
 concentration: false
-classes: []
+classes:
+- Artificer
+- Druid
+- Sorcerer
+- Warlock
+- Wizard
 id: spell:poison-spray
+material_price: ''
 ---
-
+# Poison Spray
 *Necromancy Cantrip (Artificer, Druid, Sorcerer, Warlock, Wizard)*
-
 **Casting Time:** Action
-
 **Range:** 30 feet
-
 **Components:** V, S
-
 **Duration:** Instantaneous
 
 You spray toxic mist at a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d12 Poison damage.

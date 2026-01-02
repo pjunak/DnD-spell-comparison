@@ -13,18 +13,19 @@ components:
 material: ''
 duration: Instantaneous
 concentration: false
-classes: []
+classes:
+- Bard
+- Cleric
+- Paladin
+- Wizard
 id: spell:wardaway
+material_price: ''
 ---
-
-*Level 1 Abjuration (Bard, Cleric, Paladin, Wizard)*
-
+# Wardaway
+*1st-Level Abjuration (Bard, Cleric, Paladin, Wizard)*
 **Casting Time:** Action
-
 **Range:** 60 feet
-
-**Components:** V, S, M (a miniature clay hand)
-
+**Components:** V, S, M
 **Duration:** Instantaneous
 
 You hurl a disorienting magical force toward one creature within range. The target makes a Constitution saving throw; Constructs and Undead automatically succeed on this save.

@@ -12,18 +12,16 @@ components:
 material: ''
 duration: Instantaneous
 concentration: false
-classes: []
+classes:
+- Paladin
 id: spell:find-steed
+material_price: ''
 ---
-
-*Level 2 Conjuration (Paladin)*
-
+# Find Steed
+*2nd-Level Conjuration (Paladin)*
 **Casting Time:** Action
-
 **Range:** 30 feet
-
 **Components:** V, S
-
 **Duration:** Instantaneous
 
 You summon an otherworldly being that appears as a loyal steed in an unoccupied space of your choice within range. This creature uses the **Otherworldly Steed** stat block. If you already have a steed from this spell, the steed is replaced by the new one.

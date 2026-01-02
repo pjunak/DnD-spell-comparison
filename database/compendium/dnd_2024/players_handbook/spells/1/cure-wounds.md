@@ -12,18 +12,21 @@ components:
 material: ''
 duration: Instantaneous
 concentration: false
-classes: []
+classes:
+- Artificer
+- Bard
+- Cleric
+- Druid
+- Paladin
+- Ranger
 id: spell:cure-wounds
+material_price: ''
 ---
-
-*Level 1 Abjuration (Artificer, Bard, Cleric, Druid, Paladin, Ranger)*
-
+# Cure Wounds
+*1st-Level Abjuration (Artificer, Bard, Cleric, Druid, Paladin, Ranger)*
 **Casting Time:** Action
-
 **Range:** Touch
-
 **Components:** V, S
-
 **Duration:** Instantaneous
 
 A creature you touch regains a number of Hit Points equal to 2d8 plus your spellcasting ability modifier.

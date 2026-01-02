@@ -11,18 +11,19 @@ components:
 material: ''
 duration: Instantaneous
 concentration: false
-classes: []
+classes:
+- Bard
+- Sorcerer
+- Warlock
+- Wizard
 id: spell:dimension-door
+material_price: ''
 ---
-
-*Level 4 Conjuration (Bard, Sorcerer, Warlock, Wizard)*
-
+# Dimension Door
+*4th-Level Conjuration (Bard, Sorcerer, Warlock, Wizard)*
 **Casting Time:** Action
-
 **Range:** 500 feet
-
 **Components:** V
-
 **Duration:** Instantaneous
 
 You teleport to a location within range. You arrive at exactly the spot desired. It can be a place you can see, one you can visualize, or one you can describe by stating distance and direction, such as “200 feet straight downward” or “300 feet upward to the northwest at a 45-degree angle.”

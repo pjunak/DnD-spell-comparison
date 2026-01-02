@@ -13,18 +13,18 @@ components:
 material: air, a pebble, ash, and water inside a gold-inlaid vial worth 400+ GP
 duration: Concentration, up to 1 hour
 concentration: true
-classes: []
+classes:
+- Druid
+- Ranger
+- Wizard
 id: spell:summon-elemental
+material_price: ''
 ---
-
-*Level 4 Conjuration (Druid, Ranger, Wizard)*
-
+# Summon Elemental
+*4th-Level Conjuration (Druid, Ranger, Wizard)*
 **Casting Time:** Action
-
 **Range:** 90 feet
-
 **Components:** V, S, M (air, a pebble, ash, and water inside a gold-inlaid vial worth 400+ GP)
-
 **Duration:** Concentration, up to 1 hour
 
 You call forth an Elemental spirit. It manifests in an unoccupied space that you can see within range and uses the **Elemental Spirit** stat block. When you cast the spell, choose an element: Air, Earth, Fire, or Water. The creature resembles a bipedal form wreathed in the chosen element, which determines certain details in its stat block. The creature disappears when it drops to 0 Hit Points or when the spell ends.

@@ -13,18 +13,17 @@ components:
 material: a miniature door worth 15+ GP
 duration: 24 hours
 concentration: false
-classes: []
+classes:
+- Bard
+- Wizard
 id: spell:mordenkainen-s-magnificent-mansion
+material_price: ''
 ---
-
-*Level 7 Conjuration (Bard, Wizard)*
-
+# Mordenkainen's Magnificent Mansion
+*7th-Level Conjuration (Bard, Wizard)*
 **Casting Time:** 1 minute
-
 **Range:** 300 feet
-
 **Components:** V, S, M (a miniature door worth 15+ GP)
-
 **Duration:** 24 hours
 
 You conjure a shimmering door in range that lasts for the duration. The door leads to an extradimensional dwelling and is 5 feet wide and 10 feet tall. You and any creature you designate when you cast the spell can enter the extradimensional dwelling as long as the door remains open. You can open or close it (no action required) if you are within 30 feet of it. While closed, the door is imperceptible.

@@ -13,18 +13,17 @@ components:
 material: two eggs
 duration: 1 hour
 concentration: false
-classes: []
+classes:
+- Bard
+- Wizard
 id: spell:rary-s-telepathic-bond
+material_price: ''
 ---
-
-*Level 5 Divination (Bard, Wizard)*
-
-**Casting Time:** Action or Ritual
-
+# Rary's Telepathic Bond
+*5th-Level Divination (Bard, Wizard)*
+**Casting Time:** Action
 **Range:** 30 feet
-
 **Components:** V, S, M (two eggs)
-
 **Duration:** 1 hour
 
 You forge a telepathic link among up to eight willing creatures of your choice within range, psychically linking each creature to all the others for the duration. Creatures that can’t communicate in any languages aren’t affected by this spell.

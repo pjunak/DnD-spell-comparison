@@ -13,18 +13,16 @@ components:
 material: a silver whistle
 duration: 8 hours
 concentration: false
-classes: []
+classes:
+- Wizard
 id: spell:mordenkainen-s-faithful-hound
+material_price: ''
 ---
-
-*Level 4 Conjuration (Wizard)*
-
+# Mordenkainen's Faithful Hound
+*4th-Level Conjuration (Wizard)*
 **Casting Time:** Action
-
 **Range:** 30 feet
-
 **Components:** V, S, M (a silver whistle)
-
 **Duration:** 8 hours
 
 You conjure a phantom watchdog in an unoccupied space that you can see within range. The hound remains for the duration or until the two of you are more than 300 feet apart from each other.

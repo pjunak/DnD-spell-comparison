@@ -12,18 +12,19 @@ components:
 material: ''
 duration: 1 minute
 concentration: false
-classes: []
+classes:
+- Bard
+- Sorcerer
+- Warlock
+- Wizard
 id: spell:mirror-image
+material_price: ''
 ---
-
-*Level 2 Illusion (Bard, Sorcerer, Warlock, Wizard)*
-
+# Mirror Image
+*2nd-Level Illusion (Bard, Sorcerer, Warlock, Wizard)*
 **Casting Time:** Action
-
 **Range:** Self
-
 **Components:** V, S
-
 **Duration:** 1 minute
 
 Three illusory duplicates of yourself appear in your space. Until the spell ends, the duplicates move with you and mimic your actions, shifting position so it’s impossible to track which image is real.

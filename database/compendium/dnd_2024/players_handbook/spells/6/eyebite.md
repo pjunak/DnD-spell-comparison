@@ -12,18 +12,19 @@ components:
 material: ''
 duration: Concentration, up to 1 minute
 concentration: true
-classes: []
+classes:
+- Bard
+- Sorcerer
+- Warlock
+- Wizard
 id: spell:eyebite
+material_price: ''
 ---
-
-*Level 6 Necromancy (Bard, Sorcerer, Warlock, Wizard)*
-
+# Eyebite
+*6th-Level Necromancy (Bard, Sorcerer, Warlock, Wizard)*
 **Casting Time:** Action
-
 **Range:** Self
-
 **Components:** V, S
-
 **Duration:** Concentration, up to 1 minute
 
 For the duration, your eyes become an inky void. One creature of your choice within 60 feet of you that you can see must succeed on a Wisdom saving throw or be affected by one of the following effects of your choice for the duration.

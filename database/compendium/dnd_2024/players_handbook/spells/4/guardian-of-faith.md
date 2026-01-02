@@ -11,18 +11,16 @@ components:
 material: ''
 duration: 8 hours
 concentration: false
-classes: []
+classes:
+- Cleric
 id: spell:guardian-of-faith
+material_price: ''
 ---
-
-*Level 4 Conjuration (Cleric)*
-
+# Guardian of Faith
+*4th-Level Conjuration (Cleric)*
 **Casting Time:** Action
-
 **Range:** 30 feet
-
 **Components:** V
-
 **Duration:** 8 hours
 
 A Large spectral guardian appears and hovers for the duration in an unoccupied space that you can see within range. The guardian occupies that space and is invulnerable, and it appears in a form appropriate for your deity or pantheon.

@@ -12,18 +12,18 @@ components:
 material: ''
 duration: Concentration, up to 1 minute
 concentration: true
-classes: []
+classes:
+- Bard
+- Sorcerer
+- Wizard
 id: spell:greater-invisibility
+material_price: ''
 ---
-
-*Level 4 Illusion (Bard, Sorcerer, Wizard)*
-
+# Greater Invisibility
+*4th-Level Illusion (Bard, Sorcerer, Wizard)*
 **Casting Time:** Action
-
 **Range:** Touch
-
 **Components:** V, S
-
 **Duration:** Concentration, up to 1 minute
 
 A creature you touch has the Invisible condition until the spell ends.

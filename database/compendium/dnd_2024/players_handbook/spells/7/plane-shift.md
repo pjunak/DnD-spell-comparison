@@ -13,18 +13,20 @@ components:
 material: a forked, metal rod worth 250+ GP and attuned to a plane of existence
 duration: Instantaneous
 concentration: false
-classes: []
+classes:
+- Cleric
+- Druid
+- Sorcerer
+- Warlock
+- Wizard
 id: spell:plane-shift
+material_price: ''
 ---
-
-*Level 7 Conjuration (Cleric, Druid, Sorcerer, Warlock, Wizard)*
-
+# Plane Shift
+*7th-Level Conjuration (Cleric, Druid, Sorcerer, Warlock, Wizard)*
 **Casting Time:** Action
-
 **Range:** Touch
-
 **Components:** V, S, M (a forked, metal rod worth 250+ GP and attuned to a plane of existence)
-
 **Duration:** Instantaneous
 
 You and up to eight willing creatures who link hands in a circle are transported to a different plane of existence. You can specify a target destination in general terms, such as the City of Brass on the Elemental Plane of Fire or the palace of Dispater on the second level of the Nine Hells, and you appear in or near that destination, as determined by the DM.

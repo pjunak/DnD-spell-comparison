@@ -13,18 +13,17 @@ components:
 material: three silver pins
 duration: Instantaneous
 concentration: false
-classes: []
+classes:
+- Sorcerer
+- Wizard
 id: spell:chain-lightning
+material_price: ''
 ---
-
-*Level 6 Evocation (Sorcerer, Wizard)*
-
+# Chain Lightning
+*6th-Level Evocation (Sorcerer, Wizard)*
 **Casting Time:** Action
-
 **Range:** 150 feet
-
 **Components:** V, S, M (three silver pins)
-
 **Duration:** Instantaneous
 
 You launch a lightning bolt toward a target you can see within range. Three bolts then leap from that target to as many as three other targets of your choice, each of which must be within 30 feet of the first target. A target can be a creature or an object and can be targeted by only one of the bolts.

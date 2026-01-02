@@ -13,18 +13,19 @@ components:
 material: a mushroom
 duration: 24 hours
 concentration: false
-classes: []
+classes:
+- Bard
+- Druid
+- Warlock
+- Wizard
 id: spell:hallucinatory-terrain
+material_price: ''
 ---
-
-*Level 4 Illusion (Bard, Druid, Warlock, Wizard)*
-
+# Hallucinatory Terrain
+*4th-Level Illusion (Bard, Druid, Warlock, Wizard)*
 **Casting Time:** 10 minutes
-
 **Range:** 300 feet
-
 **Components:** V, S, M (a mushroom)
-
 **Duration:** 24 hours
 
 You make natural terrain in a 150-foot Cube in range look, sound, and smell like another sort of natural terrain. Thus, open fields or a road can be made to resemble a swamp, hill, crevasse, or some other difficult or impassable terrain. A pond can be made to seem like a grassy meadow, a precipice like a gentle slope, or a rock-strewn gully like a wide and smooth road. Manufactured structures, equipment, and creatures within the area aren’t changed.

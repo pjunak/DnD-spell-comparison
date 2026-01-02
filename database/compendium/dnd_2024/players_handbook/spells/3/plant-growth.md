@@ -12,18 +12,18 @@ components:
 material: ''
 duration: Instantaneous
 concentration: false
-classes: []
+classes:
+- Bard
+- Druid
+- Ranger
 id: spell:plant-growth
+material_price: ''
 ---
-
-*Level 3 Transmutation (Bard, Druid, Ranger)*
-
+# Plant Growth
+*3rd-Level Transmutation (Bard, Druid, Ranger)*
 **Casting Time:** Action (Overgrowth) or 8 hours (Enrichment)
-
 **Range:** 150 feet
-
 **Components:** V, S
-
 **Duration:** Instantaneous
 
 This spell channels vitality into plants. The casting time you use determines whether the spell has the Overgrowth or the Enrichment effect below.

@@ -11,19 +11,18 @@ components:
 material: ''
 duration: C, up to 1 minute
 concentration: false
-classes: []
+classes:
+- Bard
+- Cleric
 id: spell:dirge
+material_price: ''
 ---
-
-*Level 6 Enchantment (Bard, Cleric)*
-
+# Dirge
+*6th-Level Enchantment (Bard, Cleric)*
 **Casting Time:** Action
-
 **Range:** Self
-
 **Components:** V
-
-**Duration:** Concentration, up to 1 minute
+**Duration:** C, up to 1 minute
 
 Deathly power fills a 60-foot Emanation originating from you for the duration.
 

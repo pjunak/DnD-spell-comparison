@@ -13,18 +13,16 @@ components:
 material: a prayer scroll
 duration: Concentration, up to 10 minutes
 concentration: true
-classes: []
+classes:
+- Cleric
 id: spell:spirit-guardians
+material_price: ''
 ---
-
-*Level 3 Conjuration (Cleric)*
-
+# Spirit Guardians
+*3rd-Level Conjuration (Cleric)*
 **Casting Time:** Action
-
 **Range:** Self
-
 **Components:** V, S, M (a prayer scroll)
-
 **Duration:** Concentration, up to 10 minutes
 
 Protective spirits flit around you in a 15-foot Emanation for the duration. If you are good or neutral, their spectral form appears angelic or fey (your choice). If you are evil, they appear fiendish.

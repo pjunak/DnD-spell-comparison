@@ -13,18 +13,18 @@ components:
 material: C
 duration: Instantaneous
 concentration: false
-classes: []
+classes:
+- Cleric
+- Sorcerer
+- Wizard
 id: spell:laeral-s-silver-lance
+material_price: ''
 ---
-
-*Level 3 Evocation (Cleric, Sorcerer, Wizard)*
-
+# Laeral's Silver Lance
+*3rd-Level Evocation (Cleric, Sorcerer, Wizard)*
 **Casting Time:** Action
-
 **Range:** Self
-
-**Components:** V, S, M (a silver pin worth 250+ GP)
-
+**Components:** V, S, M (C)
 **Duration:** Instantaneous
 
 Silver energy bursts out from you in a 120-foot-long, 5-foot-wide Line. Each creature of your choice in the Line makes a Strength saving throw. On a failed save, a creature takes 3d10 Force damage and has the Prone condition. On a successful save, a creature takes half as much damage only.

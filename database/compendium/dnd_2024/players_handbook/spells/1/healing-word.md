@@ -11,18 +11,18 @@ components:
 material: ''
 duration: Instantaneous
 concentration: false
-classes: []
+classes:
+- Bard
+- Cleric
+- Druid
 id: spell:healing-word
+material_price: ''
 ---
-
-*Level 1 Abjuration (Bard, Cleric, Druid)*
-
+# Healing Word
+*1st-Level Abjuration (Bard, Cleric, Druid)*
 **Casting Time:** Bonus Action
-
 **Range:** 60 feet
-
 **Components:** V
-
 **Duration:** Instantaneous
 
 A creature of your choice that you can see within range regains Hit Points equal to 2d4 plus your spellcasting ability modifier.

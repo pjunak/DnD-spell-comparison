@@ -13,18 +13,17 @@ components:
 material: jade dust worth 25+ GP
 duration: Until dispelled
 concentration: false
-classes: []
+classes:
+- Bard
+- Wizard
 id: spell:programmed-illusion
+material_price: ''
 ---
-
-*Level 6 Illusion (Bard, Wizard)*
-
+# Programmed Illusion
+*6th-Level Illusion (Bard, Wizard)*
 **Casting Time:** Action
-
 **Range:** 120 feet
-
 **Components:** V, S, M (jade dust worth 25+ GP)
-
 **Duration:** Until dispelled
 
 You create an illusion of an object, a creature, or some other visible phenomenon within range that activates when a specific trigger occurs. The illusion is imperceptible until then. It must be no larger than a 30-foot Cube, and you decide when you cast the spell how the illusion behaves and what sounds it makes. This scripted performance can last up to 5 minutes.

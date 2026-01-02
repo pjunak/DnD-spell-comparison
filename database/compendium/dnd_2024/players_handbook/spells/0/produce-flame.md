@@ -12,18 +12,16 @@ components:
 material: ''
 duration: 10 minutes
 concentration: false
-classes: []
+classes:
+- Druid
 id: spell:produce-flame
+material_price: ''
 ---
-
+# Produce Flame
 *Conjuration Cantrip (Druid)*
-
 **Casting Time:** Bonus Action
-
 **Range:** Self
-
 **Components:** V, S
-
 **Duration:** 10 minutes
 
 A flickering flame appears in your hand and remains there for the duration. While there, the flame emits no heat and ignites nothing, and it sheds Bright Light in a 20-foot radius and Dim Light for an additional 20 feet. The spell ends if you cast it again.

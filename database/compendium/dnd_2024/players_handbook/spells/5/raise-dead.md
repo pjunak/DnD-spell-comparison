@@ -13,18 +13,18 @@ components:
 material: a diamond worth 500+ GP, which the spell consumes
 duration: Instantaneous
 concentration: false
-classes: []
+classes:
+- Bard
+- Cleric
+- Paladin
 id: spell:raise-dead
+material_price: ''
 ---
-
-*Level 5 Necromancy (Bard, Cleric, Paladin)*
-
+# Raise Dead
+*5th-Level Necromancy (Bard, Cleric, Paladin)*
 **Casting Time:** 1 hour
-
 **Range:** Touch
-
 **Components:** V, S, M (a diamond worth 500+ GP, which the spell consumes)
-
 **Duration:** Instantaneous
 
 With a touch, you revive a dead creature if it has been dead no longer than 10 days and it wasn’t Undead when it died.

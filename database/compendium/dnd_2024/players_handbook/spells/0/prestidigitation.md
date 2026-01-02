@@ -12,18 +12,20 @@ components:
 material: ''
 duration: Up to 1 hour
 concentration: false
-classes: []
+classes:
+- Artificer
+- Bard
+- Sorcerer
+- Warlock
+- Wizard
 id: spell:prestidigitation
+material_price: ''
 ---
-
+# Prestidigitation
 *Transmutation Cantrip (Artificer, Bard, Sorcerer, Warlock, Wizard)*
-
 **Casting Time:** Action
-
 **Range:** 10 feet
-
 **Components:** V, S
-
 **Duration:** Up to 1 hour
 
 You create a magical effect within range. Choose the effect from the options below. If you cast this spell multiple times, you can have up to three of its non-instantaneous effects active at a time.

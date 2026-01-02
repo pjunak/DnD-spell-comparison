@@ -12,18 +12,17 @@ components:
 material: ''
 duration: Concentration, up to 10 minutes
 concentration: true
-classes: []
+classes:
+- Sorcerer
+- Wizard
 id: spell:cloudkill
+material_price: ''
 ---
-
-*Level 5 Conjuration (Sorcerer, Wizard)*
-
+# Cloudkill
+*5th-Level Conjuration (Sorcerer, Wizard)*
 **Casting Time:** Action
-
 **Range:** 120 feet
-
 **Components:** V, S
-
 **Duration:** Concentration, up to 10 minutes
 
 You create a 20-foot-radius Sphere of yellow-green fog centered on a point within range. The fog lasts for the duration or until strong wind (such as the one created by Gust of Wind) disperses it, ending the spell. Its area is Heavily Obscured.

@@ -1,12 +1,14 @@
 import unittest
 
-import matplotlib
+try:
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+except ModuleNotFoundError:
+    raise unittest.SkipTest("matplotlib not installed")
 
-matplotlib.use("Agg")
 
-import matplotlib.pyplot as plt
-
-from backend import plotting
+from spell_graphs import plotting
 
 
 def make_spell(

@@ -13,18 +13,18 @@ components:
 material: burning incense
 duration: Concentration, up to 8 hours
 concentration: true
-classes: []
+classes:
+- Cleric
+- Druid
+- Wizard
 id: spell:control-weather
+material_price: ''
 ---
-
-*Level 8 Transmutation (Cleric, Druid, Wizard)*
-
+# Control Weather
+*8th-Level Transmutation (Cleric, Druid, Wizard)*
 **Casting Time:** 10 minutes
-
 **Range:** Self
-
 **Components:** V, S, M (burning incense)
-
 **Duration:** Concentration, up to 8 hours
 
 You take control of the weather within 5 miles of you for the duration. You must be outdoors to cast this spell, and it ends early if you go indoors.

@@ -13,18 +13,19 @@ components:
 material: a pinch of talc
 duration: 1 hour
 concentration: false
-classes: []
+classes:
+- Artificer
+- Bard
+- Sorcerer
+- Wizard
 id: spell:see-invisibility
+material_price: ''
 ---
-
-*Level 2 Divination (Artificer, Bard, Sorcerer, Wizard)*
-
+# See Invisibility
+*2nd-Level Divination (Artificer, Bard, Sorcerer, Wizard)*
 **Casting Time:** Action
-
 **Range:** Self
-
 **Components:** V, S, M (a pinch of talc)
-
 **Duration:** 1 hour
 
 For the duration, you see creatures and objects that have the Invisible condition as if they were visible, and you can see into the Ethereal Plane. Creatures and objects there appear ghostly.

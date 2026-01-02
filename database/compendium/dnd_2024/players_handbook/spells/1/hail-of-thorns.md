@@ -12,18 +12,16 @@ components:
 material: ''
 duration: Instantaneous
 concentration: false
-classes: []
+classes:
+- Ranger
 id: spell:hail-of-thorns
+material_price: ''
 ---
-
-*Level 1 Conjuration (Ranger)*
-
+# Hail of Thorns
+*1st-Level Conjuration (Ranger)*
 **Casting Time:** Bonus Action, which you take immediately after hitting a creature with a Ranged weapon
-
 **Range:** Self
-
 **Components:** V
-
 **Duration:** Instantaneous
 
 As you hit the creature, this spell creates a rain of thorns that sprouts from your Ranged weapon or ammunition. The target of the attack and each creature within 5 feet of it make a Dexterity saving throw, taking 1d10 Piercing damage on a failed save or half as much damage on a successful one.

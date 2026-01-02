@@ -12,18 +12,16 @@ components:
 material: ''
 duration: Concentration, up to 10 minutes
 concentration: true
-classes: []
+classes:
+- Druid
 id: spell:call-lightning
+material_price: ''
 ---
-
-*Level 3 Conjuration (Druid)*
-
+# Call Lightning
+*3rd-Level Conjuration (Druid)*
 **Casting Time:** Action
-
 **Range:** 120 feet
-
 **Components:** V, S
-
 **Duration:** Concentration, up to 10 minutes
 
 A storm cloud appears at a point within range that you can see above yourself. It takes the shape of a Cylinder that is 10 feet tall with a 60-foot radius.

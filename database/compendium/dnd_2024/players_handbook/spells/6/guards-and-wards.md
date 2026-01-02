@@ -13,18 +13,17 @@ components:
 material: a silver rod worth 10+ GP
 duration: 24 hours
 concentration: false
-classes: []
+classes:
+- Bard
+- Wizard
 id: spell:guards-and-wards
+material_price: ''
 ---
-
-*Level 6 Abjuration (Bard, Wizard)*
-
+# Guards and Wards
+*6th-Level Abjuration (Bard, Wizard)*
 **Casting Time:** 1 hour
-
 **Range:** Touch
-
 **Components:** V, S, M (a silver rod worth 10+ GP)
-
 **Duration:** 24 hours
 
 You create a ward that protects up to 2,500 square feet of floor space. The warded area can be up to 20 feet tall, and you shape it as one 50-foot square, one hundred 5-foot squares that are contiguous, or twenty-five 10-foot squares that are contiguous.

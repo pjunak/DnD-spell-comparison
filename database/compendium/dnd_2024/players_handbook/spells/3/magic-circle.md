@@ -13,18 +13,19 @@ components:
 material: salt and powdered silver worth 100+ GP, which the spell consumes
 duration: 1 hour
 concentration: false
-classes: []
+classes:
+- Cleric
+- Paladin
+- Warlock
+- Wizard
 id: spell:magic-circle
+material_price: ''
 ---
-
-*Level 3 Abjuration (Cleric, Paladin, Warlock, Wizard)*
-
+# Magic Circle
+*3rd-Level Abjuration (Cleric, Paladin, Warlock, Wizard)*
 **Casting Time:** 1 minute
-
 **Range:** 10 feet
-
 **Components:** V, S, M (salt and powdered silver worth 100+ GP, which the spell consumes)
-
 **Duration:** 1 hour
 
 You create a 10-foot-radius, 20-foot-tall Cylinder of magical energy centered on a point on the ground that you can see within range. Glowing runes appear wherever the Cylinder intersects with the floor or other surface.

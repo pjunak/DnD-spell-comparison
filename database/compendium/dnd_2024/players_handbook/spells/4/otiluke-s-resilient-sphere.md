@@ -13,18 +13,17 @@ components:
 material: a glass sphere
 duration: Concentration, up to 1 minute
 concentration: true
-classes: []
+classes:
+- Artificer
+- Wizard
 id: spell:otiluke-s-resilient-sphere
+material_price: ''
 ---
-
-*Level 4 Abjuration (Artificer, Wizard)*
-
+# Otiluke's Resilient Sphere
+*4th-Level Abjuration (Artificer, Wizard)*
 **Casting Time:** Action
-
 **Range:** 30 feet
-
 **Components:** V, S, M (a glass sphere)
-
 **Duration:** Concentration, up to 1 minute
 
 A shimmering sphere encloses a Large or smaller creature or object within range. An unwilling creature must succeed on a Dexterity saving throw or be enclosed for the duration.

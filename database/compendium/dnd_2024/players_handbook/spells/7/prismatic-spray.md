@@ -12,18 +12,18 @@ components:
 material: ''
 duration: Instantaneous
 concentration: false
-classes: []
+classes:
+- Bard
+- Sorcerer
+- Wizard
 id: spell:prismatic-spray
+material_price: ''
 ---
-
-*Level 7 Evocation (Bard, Sorcerer, Wizard)*
-
+# Prismatic Spray
+*7th-Level Evocation (Bard, Sorcerer, Wizard)*
 **Casting Time:** Action
-
 **Range:** Self
-
 **Components:** V, S
-
 **Duration:** Instantaneous
 
 Eight rays of light flash from you in a 60-foot Cone. Each creature in the Cone makes a Dexterity saving throw. For each target, roll 1d8 to determine which color ray affects it, consulting the Prismatic Rays table.

@@ -12,18 +12,16 @@ components:
 material: ''
 duration: Concentration, up to 1 hour
 concentration: true
-classes: []
+classes:
+- Druid
 id: spell:antilife-shell
+material_price: ''
 ---
-
-*Level 5 Abjuration (Druid)*
-
+# Antilife Shell
+*5th-Level Abjuration (Druid)*
 **Casting Time:** Action
-
 **Range:** Self
-
 **Components:** V, S
-
 **Duration:** Concentration, up to 1 hour
 
 An aura extends from you in a 10-foot Emanation for the duration. The aura prevents creatures other than Constructs and Undead from passing or reaching through it. An affected creature can cast spells or make attacks with Ranged or Reach weapons through the barrier.

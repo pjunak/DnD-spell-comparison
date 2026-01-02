@@ -13,18 +13,18 @@ components:
 material: a metal spring
 duration: Concentration, up to 10 minutes
 concentration: true
-classes: []
+classes:
+- Artificer
+- Sorcerer
+- Wizard
 id: spell:levitate
+material_price: ''
 ---
-
-*Level 2 Transmutation (Artificer, Sorcerer, Wizard)*
-
+# Levitate
+*2nd-Level Transmutation (Artificer, Sorcerer, Wizard)*
 **Casting Time:** Action
-
 **Range:** 60 feet
-
 **Components:** V, S, M (a metal spring)
-
 **Duration:** Concentration, up to 10 minutes
 
 One creature or loose object of your choice that you can see within range rises vertically up to 20 feet and remains suspended there for the duration. The spell can levitate an object that weighs up to 500 pounds. An unwilling creature that succeeds on a Constitution saving throw is unaffected.

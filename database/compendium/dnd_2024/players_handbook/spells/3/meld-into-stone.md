@@ -12,18 +12,18 @@ components:
 material: ''
 duration: 8 hours
 concentration: false
-classes: []
+classes:
+- Cleric
+- Druid
+- Ranger
 id: spell:meld-into-stone
+material_price: ''
 ---
-
-*Level 3 Transmutation (Cleric, Druid, Ranger)*
-
-**Casting Time:** Action or Ritual
-
+# Meld into Stone
+*3rd-Level Transmutation (Cleric, Druid, Ranger)*
+**Casting Time:** Action
 **Range:** Touch
-
 **Components:** V, S
-
 **Duration:** 8 hours
 
 You step into a stone object or surface large enough to fully contain your body, merging yourself and your equipment with the stone for the duration. You must touch the stone to do so. Nothing of your presence remains visible or otherwise detectable by nonmagical senses.

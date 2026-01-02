@@ -11,18 +11,18 @@ components:
 material: ''
 duration: Instantaneous
 concentration: false
-classes: []
+classes:
+- Bard
+- Sorcerer
+- Wizard
 id: spell:knock
+material_price: ''
 ---
-
-*Level 2 Transmutation (Bard, Sorcerer, Wizard)*
-
+# Knock
+*2nd-Level Transmutation (Bard, Sorcerer, Wizard)*
 **Casting Time:** Action
-
 **Range:** 60 feet
-
 **Components:** V
-
 **Duration:** Instantaneous
 
 Choose an object that you can see within range. The object can be a door, a box, a chest, a set of manacles, a padlock, or another object that contains a mundane or magical means that prevents access.

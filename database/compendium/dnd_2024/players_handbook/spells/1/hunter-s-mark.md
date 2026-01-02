@@ -11,18 +11,16 @@ components:
 material: ''
 duration: Concentration, up to 1 hour
 concentration: true
-classes: []
+classes:
+- Ranger
 id: spell:hunter-s-mark
+material_price: ''
 ---
-
-*Level 1 Divination (Ranger)*
-
+# Hunter's Mark
+*1st-Level Divination (Ranger)*
 **Casting Time:** Bonus Action
-
 **Range:** 90 feet
-
 **Components:** V
-
 **Duration:** Concentration, up to 1 hour
 
 You magically mark one creature you can see within range as your quarry. Until the spell ends, you deal an extra 1d6 Force damage to the target whenever you hit it with an attack roll. You also have Advantage on any Wisdom (Perception or Survival) check you make to find it.

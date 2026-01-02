@@ -13,18 +13,20 @@ components:
 material: a dried carrot
 duration: 8 hours
 concentration: false
-classes: []
+classes:
+- Artificer
+- Druid
+- Ranger
+- Sorcerer
+- Wizard
 id: spell:darkvision
+material_price: ''
 ---
-
-*Level 2 Transmutation (Artificer, Druid, Ranger, Sorcerer, Wizard)*
-
+# Darkvision
+*2nd-Level Transmutation (Artificer, Druid, Ranger, Sorcerer, Wizard)*
 **Casting Time:** Action
-
 **Range:** Touch
-
 **Components:** V, S, M (a dried carrot)
-
 **Duration:** 8 hours
 
 For the duration, a willing creature you touch has Darkvision with a range of 150 feet.

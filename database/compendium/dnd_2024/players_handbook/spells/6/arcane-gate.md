@@ -12,18 +12,18 @@ components:
 material: ''
 duration: Concentration, up to 10 minutes
 concentration: true
-classes: []
+classes:
+- Sorcerer
+- Warlock
+- Wizard
 id: spell:arcane-gate
+material_price: ''
 ---
-
-*Level 6 Conjuration (Sorcerer, Warlock, Wizard)*
-
+# Arcane Gate
+*6th-Level Conjuration (Sorcerer, Warlock, Wizard)*
 **Casting Time:** Action
-
 **Range:** 500 feet
-
 **Components:** V, S
-
 **Duration:** Concentration, up to 10 minutes
 
 You create linked teleportation portals. Choose two Large, unoccupied spaces on the ground that you can see, one space within range and the other one within 10 feet of you. A circular portal opens in each of those spaces and remains for the duration.

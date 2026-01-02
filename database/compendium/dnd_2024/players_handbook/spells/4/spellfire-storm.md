@@ -12,19 +12,18 @@ components:
 material: ''
 duration: C, up to 1 minute
 concentration: false
-classes: []
+classes:
+- Sorcerer
+- Wizard
 id: spell:spellfire-storm
+material_price: ''
 ---
-
-*Level 4 Evocation (Sorcerer, Wizard)*
-
+# Spellfire Storm
+*4th-Level Evocation (Sorcerer, Wizard)*
 **Casting Time:** Action
-
 **Range:** 60 feet
-
 **Components:** V, S
-
-**Duration:** Concentration, up to 1 minute
+**Duration:** C, up to 1 minute
 
 You conjure a pillar of spellfire in a 20-foot-radius, 20-foot-high Cylinder centered on a point within range. The area of the Cylinder is Bright Light, and each creature in it when it appears makes a Constitution saving throw, taking 4d10 Radiant damage on a failed save or half as much damage on a successful one. A creature also makes this save when it enters the spell’s area for the first time on a turn or ends its turn there. A creature makes this save only once per turn.
 

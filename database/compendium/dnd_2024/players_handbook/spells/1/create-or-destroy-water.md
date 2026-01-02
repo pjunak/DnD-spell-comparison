@@ -13,18 +13,17 @@ components:
 material: a mix of water and sand
 duration: Instantaneous
 concentration: false
-classes: []
+classes:
+- Cleric
+- Druid
 id: spell:create-or-destroy-water
+material_price: ''
 ---
-
-*Level 1 Transmutation (Cleric, Druid)*
-
+# Create or Destroy Water
+*1st-Level Transmutation (Cleric, Druid)*
 **Casting Time:** Action
-
 **Range:** 30 feet
-
 **Components:** V, S, M (a mix of water and sand)
-
 **Duration:** Instantaneous
 
 You do one of the following:

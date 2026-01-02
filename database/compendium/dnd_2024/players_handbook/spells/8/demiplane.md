@@ -11,18 +11,18 @@ components:
 material: ''
 duration: 1 hour
 concentration: false
-classes: []
+classes:
+- Sorcerer
+- Warlock
+- Wizard
 id: spell:demiplane
+material_price: ''
 ---
-
-*Level 8 Conjuration (Sorcerer, Warlock, Wizard)*
-
+# Demiplane
+*8th-Level Conjuration (Sorcerer, Warlock, Wizard)*
 **Casting Time:** Action
-
 **Range:** 60 feet
-
 **Components:** S
-
 **Duration:** 1 hour
 
 You create a shadowy Medium door on a flat solid surface that you can see within range. This door can be opened and closed, and it leads to a demiplane that is an empty room 30 feet in each dimension, made of wood or stone (your choice).

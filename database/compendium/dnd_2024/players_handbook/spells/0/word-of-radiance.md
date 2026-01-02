@@ -12,18 +12,16 @@ components:
 material: a sunburst token
 duration: Instantaneous
 concentration: false
-classes: []
+classes:
+- Cleric
 id: spell:word-of-radiance
+material_price: ''
 ---
-
+# Word of Radiance
 *Evocation Cantrip (Cleric)*
-
 **Casting Time:** Action
-
 **Range:** Self
-
 **Components:** V, M (a sunburst token)
-
 **Duration:** Instantaneous
 
 Burning radiance erupts from you in a 5-foot Emanation. Each creature of your choice that you can see in it must succeed on a Constitution saving throw or take 1d6 Radiant damage.

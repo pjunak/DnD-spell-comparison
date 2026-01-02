@@ -12,18 +12,17 @@ components:
 material: ''
 duration: Concentration, up to 10 minutes
 concentration: true
-classes: []
+classes:
+- Bard
+- Druid
 id: spell:fount-of-moonlight
+material_price: ''
 ---
-
-*Level 4 Evocation (Bard, Druid)*
-
+# Fount of Moonlight
+*4th-Level Evocation (Bard, Druid)*
 **Casting Time:** Action
-
 **Range:** Self
-
 **Components:** V, S
-
 **Duration:** Concentration, up to 10 minutes
 
 A cool light wreathes your body for the duration, emitting Bright Light in a 20-foot radius and Dim Light for an additional 20 feet.

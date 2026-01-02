@@ -13,18 +13,18 @@ components:
 material: a drop of molasses
 duration: Concentration, up to 1 minute
 concentration: true
-classes: []
+classes:
+- Bard
+- Sorcerer
+- Wizard
 id: spell:slow
+material_price: ''
 ---
-
-*Level 3 Transmutation (Bard, Sorcerer, Wizard)*
-
+# Slow
+*3rd-Level Transmutation (Bard, Sorcerer, Wizard)*
 **Casting Time:** Action
-
 **Range:** 120 feet
-
 **Components:** V, S, M (a drop of molasses)
-
 **Duration:** Concentration, up to 1 minute
 
 You alter time around up to six creatures of your choice in a 40-foot Cube within range. Each target must succeed on a Wisdom saving throw or be affected by this spell for the duration.
