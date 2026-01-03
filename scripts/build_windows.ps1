@@ -9,8 +9,8 @@ Set-Location $root
 
 $pyinstaller = if ($env:PYINSTALLER -and $env:PYINSTALLER.Trim()) { $env:PYINSTALLER } else { "pyinstaller" }
 $buildDir = Join-Path $root "build"
-$finalDir = Join-Path $buildDir "SpellGraphix"
-$finalBackup = Join-Path $buildDir "SpellGraphix.prev"
+$finalDir = Join-Path $buildDir "LivingScroll"
+$finalBackup = Join-Path $buildDir "LivingScroll.prev"
 $tempDist = Join-Path $buildDir ".pyi-dist"
 $tempWork = Join-Path $buildDir ".pyi-work"
 
@@ -59,9 +59,9 @@ try {
     }
 
     Write-Log "Running PyInstaller"
-    & $pyinstaller --clean --noconfirm --distpath $tempDist --workpath $tempWork SpellGraphix.spec
+    & $pyinstaller --clean --noconfirm --distpath $tempDist --workpath $tempWork LivingScroll.spec
 
-    $artifactSource = Join-Path $tempDist "SpellGraphix"
+    $artifactSource = Join-Path $tempDist "LivingScroll"
     if (-not (Test-Path $artifactSource)) {
         throw "PyInstaller output not found at $artifactSource"
     }

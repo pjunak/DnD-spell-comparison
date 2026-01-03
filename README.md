@@ -1,7 +1,6 @@
+# Living Scroll – D&D 2024 Rules + Character + Spell Math Toolkit
 
-# SpellGraphix – D&D 2024 Rules + Character + Spell Math Toolkit
-
-SpellGraphix is a PySide6 desktop app that aims to unify three things under one consistent data model:
+Living Scroll is a PySide6 desktop app that aims to unify three things under one consistent data model:
 
 - A **rule compendium** you can browse in-app.
 - A **character builder/sheet** where most fields are derived and read-only.
@@ -24,7 +23,7 @@ The project is actively migrating toward a single source of truth: a **filesyste
    pip install -r requirements.txt
    ```
 
-2. **Launch SpellGraphix**:
+2. **Launch Living Scroll**:
 
    ```bash
    python -m gui.app
@@ -35,7 +34,7 @@ The project is actively migrating toward a single source of truth: a **filesyste
 3. **Select spells and plot** – Double-click rows in the left table to curate selections.
 
 ## Compendium Dataset Layout
-
+ 
 The dataset is a tree of Markdown files (`.md`) with YAML frontmatter. The loader ingests `database/compendium/dnd_2024/` recursively.
 
 Example:
@@ -95,7 +94,7 @@ The long-term goal is: packaged apps ship only code + UI assets, while the compe
    pwsh -File scripts/build_windows.ps1
    ```
 
-Both scripts clean PyInstaller’s working directories and move the final artifact into `build/SpellGraphix`, making it easy to add the entire `build/` directory to `.gitignore`.
+Both scripts clean PyInstaller’s working directories and move the final artifact into `build/LivingScroll`, making it easy to add the entire `build/` directory to `.gitignore`.
 
 ## Testing
 

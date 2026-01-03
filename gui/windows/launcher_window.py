@@ -1,4 +1,4 @@
-"""Launcher window presenting module tiles for the SpellGraphix suite."""
+"""Launcher window presenting module tiles for the Living Scroll suite."""
 
 from __future__ import annotations
 
@@ -173,11 +173,11 @@ class _TileButton(QToolButton):
 
 
 class LauncherWindow(FramelessWindow):
-    """Home screen that routes users to specific SpellGraphix subprograms."""
+    """Home screen that routes users to specific Living Scroll subprograms."""
 
     def __init__(self) -> None:
         super().__init__()
-        self.setWindowTitle("SpellGraphix")
+        self.setWindowTitle("Living Scroll")
         self.setWindowIcon(get_app_icon())
         self.resize(900, 400)
 

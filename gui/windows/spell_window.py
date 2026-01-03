@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import List, Mapping, Optional
+from typing import List, Mapping, Optional, Any
 from pathlib import Path
 
 from PySide6.QtCore import Qt, Signal, QUrl
@@ -18,7 +18,8 @@ from PySide6.QtWidgets import (
     QComboBox,
     QPushButton,
     QButtonGroup,
-    QCheckBox
+    QCheckBox,
+    QLineEdit
 )
 
 from services.compendium import Compendium
@@ -31,14 +32,17 @@ from ..widgets import FramelessWindow
 class SpellWindow(FramelessWindow):
     """Standalone window for browsing Spells."""
     
+    item_selected = Signal(dict)
+    
     _SCHOOLS = [
         "All Schools", "Abjuration", "Conjuration", "Divination", 
         "Enchantment", "Evocation", "Illusion", "Necromancy", "Transmutation"
     ]
 
-    def __init__(self, parent: QWidget | None = None) -> None:
+    def __init__(self, parent: QWidget | None = None, selection_mode: bool = False) -> None:
         super().__init__(parent)
-        self.setWindowTitle("Spell Browser")
+        self._selection_mode = selection_mode
+        self.setWindowTitle("Select Spell" if selection_mode else "Spell Browser")
         self.setWindowIcon(get_app_icon())
         self.setAttribute(Qt.WidgetAttribute.WA_DeleteOnClose, True)
         self.resize(1300, 800)
@@ -66,6 +70,21 @@ class SpellWindow(FramelessWindow):
         left_layout = QVBoxLayout(left_widget)
         left_layout.setContentsMargins(0, 0, 0, 0)
         left_layout.setSpacing(8)
+
+        # -- Search Bar --
+        self._search_input = QLineEdit()
+        self._search_input.setPlaceholderText("Search spells...")
+        self._search_input.setStyleSheet("""
+            QLineEdit {
+                border: 1px solid #5d5d5d;
+                border-radius: 4px;
+                padding: 4px 8px;
+                background-color: #2b2b2b;
+                color: #ffffff;
+            }
+        """)
+        self._search_input.textChanged.connect(self._apply_filters)
+        left_layout.addWidget(self._search_input)
 
         # -- Filter Toolbar --
         filter_widget = QWidget()
@@ -182,6 +201,38 @@ class SpellWindow(FramelessWindow):
         # Set fixed width for details pane
         right_widget.setFixedWidth(400)
 
+        right_widget.setFixedWidth(400)
+
+        # Selector Buttons
+        if self._selection_mode:
+            btn_layout = QHBoxLayout()
+            btn_layout.setContentsMargins(0, 10, 0, 0)
+            btn_layout.addStretch()
+            
+            self._cancel_btn = QPushButton("Cancel")
+            self._cancel_btn.clicked.connect(self.close)
+            self._cancel_btn.setCursor(Qt.CursorShape.PointingHandCursor)
+            self._cancel_btn.setFixedWidth(100)
+            self._cancel_btn.setStyleSheet("""
+                QPushButton { background-color: #4a4a4a; color: white; border-radius: 4px; padding: 6px; }
+                QPushButton:hover { background-color: #5a5a5a; }
+            """)
+            btn_layout.addWidget(self._cancel_btn)
+            
+            self._select_btn = QPushButton("Select")
+            self._select_btn.clicked.connect(self._confirm_selection)
+            self._select_btn.setEnabled(False)
+            self._select_btn.setCursor(Qt.CursorShape.PointingHandCursor)
+            self._select_btn.setFixedWidth(100)
+            self._select_btn.setStyleSheet("""
+                QPushButton { background-color: #27ae60; color: white; border-radius: 4px; padding: 6px; font-weight: bold; }
+                QPushButton:hover { background-color: #2ecc71; }
+                QPushButton:disabled { background-color: #2c3e50; color: #7f8c8d; }
+            """)
+            btn_layout.addWidget(self._select_btn)
+            
+            root.addLayout(btn_layout)
+
         self.setCentralWidget(central)
         self._load_data()
 
@@ -228,8 +279,8 @@ class SpellWindow(FramelessWindow):
                 # We used abbreviation for text, so use tooltip for full name
                 schools.append(btn.toolTip())
             
-        # Search text (todo: add search bar if needed, logic supported)
-        query = ""
+        # Search text
+        query = self._search_input.text().strip()
         
         self._table.apply_filters(levels if levels else [], schools, query)
         self._update_status()
@@ -247,7 +298,13 @@ class SpellWindow(FramelessWindow):
             return
             
         url = QUrl.fromLocalFile(str(path.resolve()))
+        url = QUrl.fromLocalFile(str(path.resolve()))
         QDesktopServices.openUrl(url)
+
+    def _confirm_selection(self) -> None:
+        if self._current_payload:
+            self.item_selected.emit(self._current_payload)
+            self.close()
 
     def _on_selection_changed(self):
         payload = self._table.get_selected_spell()
@@ -256,6 +313,10 @@ class SpellWindow(FramelessWindow):
         # Update dev button visibility
         has_source = bool(payload and payload.get("_meta_source_path"))
         self._open_source_btn.setVisible(has_source)
+
+        # Update select button
+        if self._selection_mode and hasattr(self, '_select_btn'):
+            self._select_btn.setEnabled(bool(payload))
 
         if not payload:
             self._details.clear()

@@ -18,7 +18,7 @@ class Settings:
     """Simple wrapper around QSettings for application-wide preferences."""
 
     def __init__(self) -> None:
-        self._settings = QSettings("SpellGraphix", "SpellGraphix")
+        self._settings = QSettings("LivingScroll", "LivingScroll")
 
     @property
     def ruleset(self) -> str:

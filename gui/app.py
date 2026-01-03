@@ -1,4 +1,4 @@
-"""Application bootstrap helpers for SpellGraphix."""
+"""Application bootstrap helpers for Living Scroll."""
 
 from __future__ import annotations
 
@@ -37,17 +37,17 @@ def main() -> int:
     """Launch the PySide6 GUI and return the application's exit code."""
     
     # Initialize logging first
-    setup_logging("SpellGraphix", debug=False)
+    setup_logging("LivingScroll", debug=False)
     sys.excepthook = global_exception_handler
     
-    logging.info("Starting SpellGraphix application")
+    logging.info("Starting Living Scroll application")
 
     app = QApplication.instance()
     owns_app = app is None
     if app is None:
         app = QApplication(sys.argv)
-        app.setApplicationName("SpellGraphix")
-        app.setDesktopFileName("SpellGraphix")
+        app.setApplicationName("Living Scroll")
+        app.setDesktopFileName("LivingScroll")
     
     app.setStyleSheet(DARK_THEME_STYLESHEET)
 

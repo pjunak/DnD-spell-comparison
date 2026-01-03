@@ -1,12 +1,12 @@
 # Project Structure
 
-This document provides a comprehensive overview of the SpellGraphix codebase architecture, explaining the purpose of each module and how they interact.
+This document provides a comprehensive overview of the Living Scroll codebase architecture, explaining the purpose of each module and how they interact.
 
 ---
 
 ## Overview
 
-SpellGraphix follows a layered architecture separating concerns across four primary layers:
+Living Scroll follows a layered architecture separating concerns across four primary layers:
 
 1. **Data Layer** — Persistent storage for characters and game content.
 2. **Service Layer** — Business logic, rules engine, and data loading.
@@ -18,7 +18,7 @@ SpellGraphix follows a layered architecture separating concerns across four prim
 ## Directory Structure
 
 ```
-SpellGraphix/
+LivingScroll/
 ├── Assets/                  # Application icons and static resources
 ├── character_sheet/         # Character data model and I/O
 ├── database/                # Persistent data storage

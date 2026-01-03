@@ -3,8 +3,10 @@
 from __future__ import annotations
 
 from typing import List, Mapping, Optional
+from pathlib import Path
 
-from PySide6.QtCore import Qt
+from PySide6.QtCore import Qt, QUrl, Signal
+from PySide6.QtGui import QDesktopServices
 from PySide6.QtWidgets import (
     QHBoxLayout,
     QLabel,
@@ -15,7 +17,8 @@ from PySide6.QtWidgets import (
     QComboBox,
     QPushButton,
     QButtonGroup,
-    QCheckBox
+    QCheckBox,
+    QLineEdit
 )
 
 from services.compendium import Compendium
@@ -27,6 +30,8 @@ from ..widgets import FramelessWindow
 
 class EquipmentWindow(FramelessWindow):
     """Standalone window for browsing Equipment and Magic Items."""
+
+    item_selected = Signal(dict)
 
     _EQUIPMENT_GROUPS = {
         "All": [],
@@ -41,9 +46,10 @@ class EquipmentWindow(FramelessWindow):
         "Common", "Uncommon", "Rare", "Very Rare", "Legendary", "Artifact"
     ]
 
-    def __init__(self, parent: QWidget | None = None) -> None:
+    def __init__(self, parent: QWidget | None = None, selection_mode: bool = False) -> None:
         super().__init__(parent)
-        self.setWindowTitle("Equipment Manager")
+        self._selection_mode = selection_mode
+        self.setWindowTitle("Select Equipment" if selection_mode else "Equipment Manager")
         self.setWindowIcon(get_app_icon())
         self.setAttribute(Qt.WidgetAttribute.WA_DeleteOnClose, True)
         self.resize(1300, 800)
@@ -70,6 +76,21 @@ class EquipmentWindow(FramelessWindow):
         left_layout = QVBoxLayout(left_widget)
         left_layout.setContentsMargins(0, 0, 0, 0)
         left_layout.setSpacing(8)
+
+        # -- Search Bar --
+        self._search_input = QLineEdit()
+        self._search_input.setPlaceholderText("Search items...")
+        self._search_input.setStyleSheet("""
+            QLineEdit {
+                border: 1px solid #5d5d5d;
+                border-radius: 4px;
+                padding: 4px 8px;
+                background-color: #2b2b2b;
+                color: #ffffff;
+            }
+        """)
+        self._search_input.textChanged.connect(self._apply_filters)
+        left_layout.addWidget(self._search_input)
 
         # -- Filter Toolbar --
         filter_widget = QWidget()
@@ -134,14 +155,54 @@ class EquipmentWindow(FramelessWindow):
         right_layout = QVBoxLayout(right_widget)
         right_layout.setContentsMargins(0, 0, 0, 0)
 
+        # Dev mode button
+        self._open_source_btn = QPushButton("Open Source File")
+        self._open_source_btn.setVisible(False)
+        self._open_source_btn.clicked.connect(self._on_open_source_clicked)
+        self._open_source_btn.setStyleSheet("text-align: left; padding: 5px; background-color: #4a4a4a; color: #ffffff; border: none;")
+        right_layout.addWidget(self._open_source_btn)
+
         self._details = QTextBrowser()
         self._details.setOpenExternalLinks(False)
         self._details.setPlaceholderText("Select an item to view details.")
         right_layout.addWidget(self._details)
 
         split.addWidget(right_widget)
-        split.setStretchFactor(0, 2)
-        split.setStretchFactor(1, 1)
+        split.setStretchFactor(0, 1)
+        split.setStretchFactor(1, 0)
+        
+        # Set fixed width for details pane
+        right_widget.setFixedWidth(400)
+
+        # Selector Buttons
+        if self._selection_mode:
+            btn_layout = QHBoxLayout()
+            btn_layout.setContentsMargins(0, 10, 0, 0)
+            btn_layout.addStretch()
+            
+            self._cancel_btn = QPushButton("Cancel")
+            self._cancel_btn.clicked.connect(self.close)
+            self._cancel_btn.setCursor(Qt.CursorShape.PointingHandCursor)
+            self._cancel_btn.setFixedWidth(100)
+            self._cancel_btn.setStyleSheet("""
+                QPushButton { background-color: #4a4a4a; color: white; border-radius: 4px; padding: 6px; }
+                QPushButton:hover { background-color: #5a5a5a; }
+            """)
+            btn_layout.addWidget(self._cancel_btn)
+            
+            self._select_btn = QPushButton("Select")
+            self._select_btn.clicked.connect(self._confirm_selection)
+            self._select_btn.setEnabled(False)
+            self._select_btn.setCursor(Qt.CursorShape.PointingHandCursor)
+            self._select_btn.setFixedWidth(100)
+            self._select_btn.setStyleSheet("""
+                QPushButton { background-color: #27ae60; color: white; border-radius: 4px; padding: 6px; font-weight: bold; }
+                QPushButton:hover { background-color: #2ecc71; }
+                QPushButton:disabled { background-color: #2c3e50; color: #7f8c8d; }
+            """)
+            btn_layout.addWidget(self._select_btn)
+            
+            root.addLayout(btn_layout)
 
         self.setCentralWidget(central)
         self._load_data()
@@ -158,6 +219,28 @@ class EquipmentWindow(FramelessWindow):
     def _on_group_changed(self, group_name: str):
         self._apply_filters()
 
+    def _on_open_source_clicked(self) -> None:
+        item = self._table.get_selected_item()
+        if not item:
+            return
+            
+        path_str = item.get("_meta_source_path")
+        if not path_str:
+            return
+
+        path = Path(path_str)
+        if not path.exists():
+            return
+            
+        url = QUrl.fromLocalFile(str(path.resolve()))
+        QDesktopServices.openUrl(url)
+
+    def _confirm_selection(self) -> None:
+        item = self._table.get_selected_item()
+        if item:
+            self.item_selected.emit(dict(item))
+            self.close()
+
     def _apply_filters(self):
         # Gather active filters
         group = self._group_combo.currentText()
@@ -165,13 +248,17 @@ class EquipmentWindow(FramelessWindow):
         
         active_rarities = []
         for btn in self._rarity_buttons.buttons():
-            if btn.isChecked():
                 active_rarities.append(btn.toolTip().lower())
                 
         require_attunement = self._attunement_check.isChecked()
+        query = self._search_input.text().strip().lower()
 
         filtered = []
         for item in self._items:
+            # Name Filter
+            if query and query not in item.get("name", "").lower():
+                continue
+            
             # Type Filter
             if allowed_types:
                 item_type = str(item.get("type", "")).lower()
@@ -206,10 +293,20 @@ class EquipmentWindow(FramelessWindow):
         self._apply_filters()
 
     def _on_selection_changed(self):
-        item = self._table.selected_item()
+        item = self._table.get_selected_item()
         if not item:
             self._details.clear()
+            self._open_source_btn.setVisible(False)
             return
+            
+        # Update dev button visibility
+        # Update dev button visibility
+        has_source = bool(item.get("_meta_source_path"))
+        self._open_source_btn.setVisible(has_source)
+
+        # Update select button
+        if self._selection_mode and hasattr(self, '_select_btn'):
+            self._select_btn.setEnabled(bool(item))
             
         # Render
         md = render_equipment_stat_block(item)

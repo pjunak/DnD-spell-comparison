@@ -4,8 +4,8 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 PYINSTALLER_BIN="${PYINSTALLER:-pyinstaller}"
 BUILD_DIR="$ROOT_DIR/build"
-FINAL_DIR="$BUILD_DIR/SpellGraphix"
-FINAL_BACKUP="$BUILD_DIR/SpellGraphix.prev"
+FINAL_DIR="$BUILD_DIR/LivingScroll"
+FINAL_BACKUP="$BUILD_DIR/LivingScroll.prev"
 TEMP_DIST="$BUILD_DIR/.pyi-dist"
 TEMP_WORK="$BUILD_DIR/.pyi-work"
 
@@ -57,9 +57,9 @@ log "Running PyInstaller"
   --clean --noconfirm \
   --distpath "$TEMP_DIST" \
   --workpath "$TEMP_WORK" \
-  SpellGraphix.spec
+  LivingScroll.spec
 
-ARTIFACT_SOURCE="$TEMP_DIST/SpellGraphix"
+ARTIFACT_SOURCE="$TEMP_DIST/LivingScroll"
 if [[ ! -e "$ARTIFACT_SOURCE" ]]; then
   echo "PyInstaller output not found at $ARTIFACT_SOURCE" >&2
   exit 1

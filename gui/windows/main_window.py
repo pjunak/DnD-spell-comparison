@@ -1,4 +1,4 @@
-"""Primary application window implementation for SpellGraphix."""
+"""Primary application window implementation for Living Scroll."""
 
 from __future__ import annotations
 

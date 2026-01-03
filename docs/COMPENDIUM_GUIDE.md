@@ -1,6 +1,6 @@
 # Compendium Guide
 
-This document defines the organization, data format, and schema specifications for the SpellGraphix game content compendium.
+This document defines the organization, data format, and schema specifications for the Living Scroll game content compendium.
 
 ---
 
@@ -112,11 +112,11 @@ These fields are available on all entity types:
 
 Spell files define both the mechanical properties and descriptive text.
 
-```yaml
+```md
 ---
 name: Fireball
 type: spell
-level: 3                      # 0 for cantrips
+level: 3
 school: Evocation
 ritual: false
 casting_time: "1 action"
@@ -135,7 +135,7 @@ actions: # Optional: Automation data for the rules engine
     damage:
       - formula: "8d6"
         type: fire
-        scaling: "1d6"        # Additional damage per slot level above base
+        scaling: "1d6"
 ---
 # Fireball
 *Level 3 Evocation (Sorcerer, Wizard)*
