@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Dict, Iterable, List, Sequence
 
-from character_sheet import CharacterSheet, ClassProgression
+from modules.characters.model import CharacterSheet, ClassProgression
 
 from .definitions import CLASS_FEATURE_RULES
 from .models import ClassFeatureRule, CharacterRuleSnapshot, FeatureOptionGroup

@@ -8,7 +8,7 @@ from typing import Dict, Iterable, List, Tuple
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QLabel, QToolButton, QVBoxLayout, QWidget
 
-from character_sheet import ClassProgression
+from modules.characters.model import ClassProgression
 from services.character_rules import CharacterRuleSnapshot
 
 

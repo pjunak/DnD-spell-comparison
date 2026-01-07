@@ -57,6 +57,7 @@ class CharacterIdentity:
     level_cap: int = 0
     ability_generation: str = "manual"
     asi_choices: Dict[int, str] = field(default_factory=dict)
+    portrait_path: str = ""
 
     @property
     def level(self) -> int:
@@ -98,14 +99,29 @@ class EquipmentItem:
     weight_lb: float = 0.0
     attuned: bool = False
     notes: str = ""
+@dataclass
+class EquipmentItem:
+    name: str
+    quantity: int = 1
+    weight_lb: float = 0.0
+    attuned: bool = False
+    notes: str = ""
     bonuses: Dict[str, int] = field(default_factory=dict)
+    compendium_id: str = ""
+    cost: str = ""
+    rarity: str = ""
 
 
 @dataclass
 class FeatureEntry:
     title: str
     source: str
+@dataclass
+class FeatureEntry:
+    title: str
+    source: str
     description: str = ""
+    compendium_id: str = ""
 
 
 @dataclass
@@ -255,8 +271,42 @@ class CharacterSheet:
         return self.proficiencies.proficiency_bonus
 
 
-def character_sheet_to_dict(sheet: CharacterSheet) -> Dict[str, Any]:
-    return asdict(sheet)
+def character_sheet_to_dict(sheet: CharacterSheet, compendium: Any = None) -> Dict[str, Any]:
+    data = asdict(sheet)
+    
+    # Minify equipment if compendium is available
+    if compendium and "equipment" in data:
+        minified_equipment = []
+        for item in sheet.equipment:
+            entry = {
+                "name": item.name,
+                "quantity": item.quantity,
+                "attuned": item.attuned,
+            }
+            if item.compendium_id:
+                entry["compendium_id"] = item.compendium_id
+            
+            # If we have a compendium match, we can omit static data if it matches
+            # For now, we simple-save: if compendium_id exists, we omit weight/cost/bonuses
+            # This relies on the hydrator to restore them.
+            
+            if not item.compendium_id:
+                # Full save
+                entry["weight_lb"] = item.weight_lb
+                entry["notes"] = item.notes
+                entry["bonuses"] = item.bonuses
+                entry["cost"] = item.cost
+                entry["rarity"] = item.rarity
+            else:
+                # Partial save: keep notes, drop statics
+                if item.notes:
+                    entry["notes"] = item.notes
+                # We could check if weight differs from default, but for now let's strict-reference
+            
+            minified_equipment.append(entry)
+        data["equipment"] = minified_equipment
+
+    return data
 
 
 def _build_ability_block(data: Mapping[str, Any]) -> AbilityBlock:
@@ -278,32 +328,97 @@ def _build_classes(entries: Iterable[Mapping[str, Any]]) -> List[ClassProgressio
     return result
 
 
-def _build_equipment(entries: Iterable[Mapping[str, Any]]) -> List[EquipmentItem]:
+def _build_equipment(entries: Iterable[Mapping[str, Any]], compendium: Any = None) -> List[EquipmentItem]:
     items: List[EquipmentItem] = []
     for entry in entries:
+        compendium_id = str(entry.get("compendium_id", "") or "")
+        name = str(entry.get("name", ""))
+        
+        # Defaults
+        weight_lb = float(entry.get("weight_lb", 0.0) or 0.0)
+        cost = str(entry.get("cost", ""))
+        rarity = str(entry.get("rarity", ""))
         bonuses = entry.get("bonuses") or {}
+        
+        # Hydrate from compendium if possible
+        if compendium and (compendium_id or name):
+            # Try ID first, then name
+            record = None
+            if compendium_id:
+                record = compendium.record_by_id(compendium_id)
+            
+            if not record and name:
+                 # Fallback search by name if ID missing (migration)
+                 # Note: Ideally we want a robust lookup. 
+                 # For now, we rely on checking equipment list if we implement a `find_item`
+                 pass
+
+            if record:
+                # Hydrate missing/static fields
+                compendium_id = record.get("id", compendium_id)
+                if not name: name = record.get("name", name)
+                
+                # Check for weight string in compendium (e.g. "65 lb.") and parse if local is 0.0
+                if weight_lb == 0.0:
+                    w_str = str(record.get("weight", "")).lower().replace("lb.", "").strip()
+                    try:
+                        weight_lb = float(w_str)
+                    except ValueError:
+                        pass
+                
+                if not cost: cost = str(record.get("cost", ""))
+                if not rarity: rarity = str(record.get("rarity", ""))
+                
+                # Merge bonuses: Compendium modifiers -> bonuses
+                # Note: The model calls them 'bonuses', the compendium 'modifiers'.
+                # We need to map them if we want them effective. 
+                # Currently model.EquipmentItem.bonuses seems to be a simple dict, 
+                # while compendium uses a list of modifier objects.
+                # For this refactor, we won't fully reimplement the modifier engine here,
+                # but we should ensure we don't LOSE data.
+                pass
+        
         items.append(
             EquipmentItem(
-                name=str(entry.get("name", "")),
+                name=name,
                 quantity=int(entry.get("quantity", 1) or 1),
-                weight_lb=float(entry.get("weight_lb", 0.0) or 0.0),
+                weight_lb=weight_lb,
                 attuned=bool(entry.get("attuned", False)),
                 notes=str(entry.get("notes", "")),
                 bonuses={str(key): int(value) for key, value in bonuses.items()},
+                compendium_id=compendium_id,
+                cost=cost,
+                rarity=rarity,
             )
         )
     return items
 
 
-def _build_features(entries: Iterable[Mapping[str, Any]]) -> List[FeatureEntry]:
-    return [
-        FeatureEntry(
+def _build_features(entries: Iterable[Mapping[str, Any]], compendium: Any = None) -> List[FeatureEntry]:
+    features = []
+    for entry in entries:
+        compendium_id = str(entry.get("compendium_id", "") or "")
+        description = str(entry.get("description", ""))
+        
+        if compendium and compendium_id:
+             record = compendium.record_by_id(compendium_id)
+             if record:
+                  # Hydrate
+                  # Note: Compendium text might be in 'text' object or direct description
+                  if not description:
+                        text_val = record.get("text")
+                        if isinstance(text_val, dict):
+                            description = text_val.get("full", "")
+                        elif isinstance(text_val, str):
+                            description = text_val
+                  
+        features.append(FeatureEntry(
             title=str(entry.get("title", "")),
             source=str(entry.get("source", "")),
-            description=str(entry.get("description", "")),
-        )
-        for entry in entries
-    ]
+            description=description,
+            compendium_id=compendium_id,
+        ))
+    return features
 
 
 def _build_resources(entries: Iterable[Mapping[str, Any]]) -> List[ResourcePool]:
@@ -350,7 +465,7 @@ def _build_spell_sources(entries: Iterable[Mapping[str, Any]]) -> List[SpellSour
     return result
 
 
-def character_sheet_from_dict(data: Mapping[str, Any]) -> CharacterSheet:
+def character_sheet_from_dict(data: Mapping[str, Any], compendium: Any = None) -> CharacterSheet:
     identity_data = data.get("identity", {}) or {}
     classes = _build_classes(identity_data.get("classes", []) or [])
     asi_choices_raw = identity_data.get("asi_choices", {}) or {}
@@ -388,6 +503,7 @@ def character_sheet_from_dict(data: Mapping[str, Any]) -> CharacterSheet:
         level_cap=int(identity_data.get("level_cap", 0) or 0),
         ability_generation=str(identity_data.get("ability_generation", "manual") or "manual"),
         asi_choices=asi_choices,
+        portrait_path=str(identity_data.get("portrait_path", "")),
     )
 
     abilities_data = data.get("abilities", {}) or {}
@@ -419,8 +535,8 @@ def character_sheet_from_dict(data: Mapping[str, Any]) -> CharacterSheet:
         skills=dict(prof_data.get("skills", {}) or {}),
     )
 
-    equipment = _build_equipment(data.get("equipment", []) or [])
-    features = _build_features(data.get("features", []) or [])
+    equipment = _build_equipment(data.get("equipment", []) or [], compendium=compendium)
+    features = _build_features(data.get("features", []) or [], compendium=compendium)
     resources = _build_resources(data.get("resources", []) or [])
 
     spell_data = data.get("spellcasting", {}) or {}

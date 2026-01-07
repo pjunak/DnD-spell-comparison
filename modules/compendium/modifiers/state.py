@@ -5,7 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Callable, Dict, Iterable, List, Tuple
 
-from services.compendium import Compendium
+from modules.compendium.service import Compendium
 
 from .defaults import get_default_modifier_definitions
 

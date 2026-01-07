@@ -13,8 +13,8 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Iterable, Mapping, Tuple
 
-from character_sheet.model import EquipmentItem
-from services.compendium import Compendium
+from modules.characters.model import EquipmentItem
+from modules.compendium.service import Compendium
 
 
 @dataclass(frozen=True)

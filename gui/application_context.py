@@ -5,12 +5,12 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import TYPE_CHECKING, Dict
 
-from character_sheet import CharacterSheet
-from services.character_library import CharacterLibrary
-from services.modifiers import ModifierStateSnapshot
+from modules.characters.model import CharacterSheet
+from modules.characters.services.library import CharacterLibrary
+from modules.compendium.modifiers.state import ModifierStateSnapshot
 
 if TYPE_CHECKING:
-    from services.compendium import Compendium
+    from modules.compendium.service import Compendium
 
 
 @dataclass
@@ -48,7 +48,7 @@ class ApplicationContext:
     def ensure_compendium(self) -> "Compendium":
         """Lazily load and cache the compendium instance."""
         if self._compendium is None:
-            from services.compendium import Compendium
+            from modules.compendium.service import Compendium
             self._compendium = Compendium.load()
         return self._compendium
 

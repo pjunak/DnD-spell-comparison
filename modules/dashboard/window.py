@@ -19,10 +19,10 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
-from ..application_context import ApplicationContext
-from ..dialogs import GlobalSettingsDialog
-from ..resources import get_app_icon
-from ..widgets import FramelessWindow
+from gui.application_context import ApplicationContext
+from gui.dialogs import GlobalSettingsDialog
+from gui.resources import get_app_icon
+from gui.widgets import FramelessWindow
 
 # Window classes are imported lazily in handler methods to improve startup time
 
@@ -207,10 +207,10 @@ class LauncherWindow(FramelessWindow):
         tiles = [
             ("Characters", "", "silhouette", self._open_character_sheet_workspace),
             ("Spell Grapher", "", "graph", self._open_spell_grapher),
-            ("Compendium", "Rules & Classes", "book", self._open_compendium),
-            ("Monster Manual", "", "skull", self._open_monster_manual),
-            ("Equipment", "Items & Magic", "shield", self._open_equipment_manager),
-            ("Spell Browser", "Browse Spells", "scroll", self._open_spell_browser),
+            ("Ruleset", "", "book", self._open_compendium),
+            ("Bestiary", "", "skull", self._open_monster_manual),
+            ("Equipment", "", "shield", self._open_equipment_manager),
+            ("Grimoire", "", "scroll", self._open_spell_browser),
         ]
 
         for title, subtitle_text, icon_kind, handler in tiles:
@@ -236,42 +236,42 @@ class LauncherWindow(FramelessWindow):
 
     def _open_spell_grapher(self) -> None:
         logging.info("Opening Spell Grapher")
-        from .main_window import MainWindow  # Lazy import
+        from modules.spell_grapher.gui.window import MainWindow  # Lazy import
         window = MainWindow(app_context=self._app_context)
         self._register_window(window)
         window.show()
 
     def _open_character_sheet_workspace(self) -> None:
         logging.info("Opening Character Sheet Workspace")
-        from .character_sheet_hub import CharacterSheetHubWindow  # Lazy import
+        from modules.characters.gui.hub import CharacterSheetHubWindow  # Lazy import
         window = CharacterSheetHubWindow(self._app_context, parent=self)
         self._register_window(window)
         window.show()
 
     def _open_compendium(self) -> None:
         logging.info("Opening Compendium")
-        from .compendium_window import CompendiumWindow  # Lazy import
+        from modules.rules.gui.window import CompendiumWindow  # Lazy import
         window = CompendiumWindow(self)
         self._register_window(window)
         window.show()
 
     def _open_monster_manual(self) -> None:
         logging.info("Opening Monster Manual")
-        from .monster_window import MonsterWindow  # Lazy import
+        from modules.bestiary.gui.window import MonsterWindow  # Lazy import
         window = MonsterWindow(self)
         self._register_window(window)
         window.show()
 
     def _open_equipment_manager(self) -> None:
         logging.info("Opening Equipment Manager")
-        from .equipment_window import EquipmentWindow  # Lazy import
+        from modules.equipment.gui.window import EquipmentWindow  # Lazy import
         window = EquipmentWindow(self)
         self._register_window(window)
         window.show()
 
     def _open_spell_browser(self) -> None:
         logging.info("Opening Spell Browser")
-        from .spell_window import SpellWindow  # Lazy import
+        from modules.grimoire.gui.window import SpellWindow  # Lazy import
         window = SpellWindow(self)
         self._register_window(window)
         window.show()

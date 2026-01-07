@@ -21,12 +21,12 @@ from PySide6.QtWidgets import (
     QLineEdit
 )
 
-from services.compendium import Compendium
+from modules.compendium.service import Compendium
 from gui.widgets.compendium_equipment_table import EquipmentTableView
 from gui.utils.compendium_formatting import render_markdown_with_links, as_text, get_summary_md
 from gui.utils.stat_blocks import render_equipment_stat_block
-from ..resources import get_app_icon
-from ..widgets import FramelessWindow
+from gui.resources import get_app_icon
+from gui.widgets import FramelessWindow
 
 class EquipmentWindow(FramelessWindow):
     """Standalone window for browsing Equipment and Magic Items."""
@@ -63,8 +63,8 @@ class EquipmentWindow(FramelessWindow):
         root.setSpacing(10)
 
         # --- Title Bar ---
-        title_label = QLabel("Equipment & Magic Items")
-        title_label.setStyleSheet("font-size: 18px; font-weight: bold; color: #ecf0f1;")
+        title_label = QLabel("Equipment")
+        title_label.setProperty("class", "HeaderLabel")
         self.set_title_bar_center_widget(title_label)
 
         # --- Main Layout ---
@@ -80,15 +80,10 @@ class EquipmentWindow(FramelessWindow):
         # -- Search Bar --
         self._search_input = QLineEdit()
         self._search_input.setPlaceholderText("Search items...")
-        self._search_input.setStyleSheet("""
-            QLineEdit {
-                border: 1px solid #5d5d5d;
-                border-radius: 4px;
-                padding: 4px 8px;
-                background-color: #2b2b2b;
-                color: #ffffff;
-            }
-        """)
+        self._search_input = QLineEdit()
+        self._search_input.setPlaceholderText("Search items...")
+        self._search_input.textChanged.connect(self._apply_filters)
+        left_layout.addWidget(self._search_input)
         self._search_input.textChanged.connect(self._apply_filters)
         left_layout.addWidget(self._search_input)
 
@@ -184,10 +179,8 @@ class EquipmentWindow(FramelessWindow):
             self._cancel_btn.clicked.connect(self.close)
             self._cancel_btn.setCursor(Qt.CursorShape.PointingHandCursor)
             self._cancel_btn.setFixedWidth(100)
-            self._cancel_btn.setStyleSheet("""
-                QPushButton { background-color: #4a4a4a; color: white; border-radius: 4px; padding: 6px; }
-                QPushButton:hover { background-color: #5a5a5a; }
-            """)
+            self._cancel_btn.setFixedWidth(100)
+            # self._cancel_btn inherits default button styles
             btn_layout.addWidget(self._cancel_btn)
             
             self._select_btn = QPushButton("Select")
@@ -195,11 +188,8 @@ class EquipmentWindow(FramelessWindow):
             self._select_btn.setEnabled(False)
             self._select_btn.setCursor(Qt.CursorShape.PointingHandCursor)
             self._select_btn.setFixedWidth(100)
-            self._select_btn.setStyleSheet("""
-                QPushButton { background-color: #27ae60; color: white; border-radius: 4px; padding: 6px; font-weight: bold; }
-                QPushButton:hover { background-color: #2ecc71; }
-                QPushButton:disabled { background-color: #2c3e50; color: #7f8c8d; }
-            """)
+            self._select_btn.setFixedWidth(100)
+            self._select_btn.setProperty("class", "PrimaryButton")
             btn_layout.addWidget(self._select_btn)
             
             root.addLayout(btn_layout)

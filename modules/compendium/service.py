@@ -9,7 +9,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Mapping, Optional, Set
 
-DEFAULT_COMPENDIUM_PATH = Path(__file__).resolve().parents[1] / "database" / "compendium" / "dnd_2024"
+DEFAULT_COMPENDIUM_PATH = Path(__file__).resolve().parents[2] / "database" / "compendium" / "dnd_2024"
 
 # Module-level cache for Compendium instances to avoid redundant disk I/O
 _COMPENDIUM_CACHE: Dict[tuple, "Compendium"] = {}
@@ -51,7 +51,7 @@ class Compendium:
         from services.settings import get_settings
         settings = get_settings()
 
-        base_path = Path(__file__).resolve().parents[1] / "database" / "compendium"
+        base_path = Path(__file__).resolve().parents[2] / "database" / "compendium"
         
         # Use provided ruleset or fall back to settings
         target_ruleset = ruleset or settings.ruleset
@@ -59,7 +59,7 @@ class Compendium:
         
         if not target.exists():
             # Fallback to default path if specific ruleset not found (or if it was a full path passed in legacy code)
-            if Path(ruleset or "").exists():
+            if ruleset and Path(ruleset).exists():
                 target = Path(ruleset)
             else:
                 target = DEFAULT_COMPENDIUM_PATH
@@ -263,10 +263,6 @@ def _load_payload(target: Path, active_modules: Set[str] | None = None) -> Dict[
         return json.loads(target.read_text(encoding="utf-8"))
     if not target.is_dir():
         raise FileNotFoundError(f"Unsupported compendium path: {target}")
-
-    # If metadata.json exists, treat as a single module (legacy/simple mode)
-    if (target / "metadata.json").exists():
-        return _load_dataset_directory(target)
 
     # Otherwise, treat as a container of modules
     combined_payload: Dict[str, Any] = {}
@@ -714,4 +710,46 @@ def _invocation_matches(
     return True
 
 
-__all__ = ["Compendium", "DEFAULT_COMPENDIUM_PATH", "clear_compendium_cache"]
+
+def get_module_metrics(module_path: Path) -> Dict[str, int]:
+    """Analyze a module directory and return counts of its content types."""
+    if not module_path.exists():
+        return {}
+
+    metrics = {}
+    
+    # Classes & Subclasses
+    classes = _collect_class_records(module_path / "classes")
+    if classes:
+        metrics["Classes"] = len(classes)
+        subclasses = sum(len(c.get("subclasses", [])) for c in classes)
+        if subclasses:
+            metrics["Subclasses"] = subclasses
+
+    # Spells
+    spells = _collect_spells(module_path / "spells")
+    if spells:
+        metrics["Spells"] = len(spells)
+
+    # Simple Lists
+    for category_key, display_name in [
+        ("feats", "Feats"),
+        ("backgrounds", "Backgrounds"),
+        ("species", "Species"),
+        ("equipment", "Items"),
+        ("monsters", "Monsters"),
+        ("invocations", "Invocations"),
+    ]:
+        # Special check for invocations as they can be scattered
+        if category_key == "invocations":
+             records = _collect_invocation_records(module_path)
+        else:
+             records = _collect_record_list(module_path / category_key)
+             
+        if records:
+            metrics[display_name] = len(records)
+
+    return metrics
+
+
+__all__ = ["Compendium", "DEFAULT_COMPENDIUM_PATH", "clear_compendium_cache", "get_module_metrics"]

@@ -6,9 +6,9 @@ from dataclasses import dataclass
 from functools import lru_cache
 from typing import Dict, Mapping, Sequence
 
-from character_sheet import ClassProgression
+from modules.characters.model import ClassProgression
 from services.class_options import normalise_class_name, normalise_subclass_name
-from services.compendium import Compendium
+from modules.compendium.service import Compendium
 
 
 @dataclass(frozen=True)

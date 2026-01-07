@@ -7,7 +7,7 @@ from typing import Iterable, Iterator, List
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QAbstractItemView, QTableWidget, QTableWidgetItem, QWidget
 
-from character_sheet import SpellAccessEntry
+from modules.characters.model import SpellAccessEntry
 
 
 def build_spell_source_key(source_type: str | None, source_id: str | None, source_label: str | None) -> str:

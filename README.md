@@ -126,10 +126,10 @@ Both scripts clean PyInstaller’s working directories and move the final artifa
 
 ## Architecture Overview
 
-- **GUI (`gui/`)** – PySide6 widgets, dialogs, and windows.
+- **GUI (`gui/`)** – Core application shell, unified theming (`gui/theme.py`), and shared widgets.
+- **Modules (`modules/`)** – Feature-specific code (Dashboard, Characters, Compendium, etc.) following a modular architecture.
 - **Backend (`backend/`)** – Dice math, probability calculations, and plotting.
-- **Compendium services (`services/compendium.py`)** – Loads the filesystem dataset and exposes query helpers.
-- **Rules/derivation services (`services/`, `character_sheet/`)** – Apply grants/modifiers and compute derived stats.
+- **Services (`services/`)** – Shared business logic and rule derivation.
 
 If you need the historical CLI workflow, refer to commits prior to the GUI-only refactor. All new development happens in the GUI and backend packages described above.
 

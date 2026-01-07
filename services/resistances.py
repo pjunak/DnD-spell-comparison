@@ -15,7 +15,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Iterable, Mapping, Set, Tuple
 
-from services.compendium import Compendium
+from modules.compendium.service import Compendium
 
 
 @dataclass(frozen=True)

@@ -16,7 +16,7 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
-from character_sheet import EquipmentItem
+from modules.characters.model import EquipmentItem
 
 ITEM_SLOT_OPTIONS: List[str] = [
     "Arcane Focus",

@@ -6,7 +6,7 @@ from dataclasses import dataclass
 from functools import lru_cache
 from typing import Any, Dict, List, Mapping, Optional
 
-from .compendium import Compendium
+from modules.compendium.service import Compendium
 
 _DEFAULT_MAX_CHARACTER_LEVEL = 20
 

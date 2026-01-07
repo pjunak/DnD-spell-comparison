@@ -19,7 +19,7 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
-from character_sheet import SpellAccessEntry
+from modules.characters.model import SpellAccessEntry
 
 SPELL_SOURCE_CHOICES = [
     ("Class", "class"),

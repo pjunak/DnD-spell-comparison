@@ -6,7 +6,7 @@ from dataclasses import dataclass
 from enum import Enum
 from typing import Iterable, List, Protocol
 
-from character_sheet import CharacterSheet
+from modules.characters.model import CharacterSheet
 
 
 class RestType(str, Enum):

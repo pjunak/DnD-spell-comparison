@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Iterable
 
-from character_sheet import CharacterSheet
+from modules.characters.model import CharacterSheet
 
 
 def equipment_damage_bonus(sheet: CharacterSheet) -> int:

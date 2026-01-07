@@ -83,6 +83,13 @@ class Settings:
         except Exception:
             return {}
 
+    def get_module_path(self, ruleset: str, module: str) -> Path | None:
+        """Resolve the absolute filesystem path for a module."""
+        path = Path(__file__).resolve().parents[1] / "database" / "compendium" / ruleset / module
+        if path.exists() and path.is_dir():
+            return path
+        return None
+
 _instance = None
 
 def get_settings() -> Settings:

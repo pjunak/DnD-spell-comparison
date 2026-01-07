@@ -1,39 +1,26 @@
 {
-  "id": "59fe63e3-0585-445a-8042-67beadddb3b7",
+  "id": "716c746d-3850-4f2e-85d2-b1b2fbcb2281",
   "sheet": {
     "identity": {
-      "name": "Gram",
+      "name": "Testeral",
       "ancestry": "",
       "ancestry_subtype": "",
-      "background": "Soldier",
+      "background": "",
       "background_choices": {
-        "ability_choices": [
-          "CON",
-          "WIS"
-        ],
+        "ability_choices": [],
         "skill_choices": [],
-        "tool_choices": [
-          "Gaming set"
-        ],
+        "tool_choices": [],
         "language_choices": [],
-        "feat_choice": "Tavern Brawler"
+        "feat_choice": ""
       },
       "player": "",
       "alignment": "",
       "experience": 0,
-      "classes": [
-        {
-          "name": "Wizard",
-          "level": 8,
-          "subclass": "School of Evocation"
-        }
-      ],
-      "level_cap": 8,
-      "ability_generation": "point_buy",
-      "asi_choices": {
-        "4": "asi:INT,CON",
-        "8": "feat:Magic Initiate"
-      }
+      "classes": [],
+      "level_cap": 0,
+      "ability_generation": "manual",
+      "asi_choices": {},
+      "portrait_path": ""
     },
     "abilities": {
       "STR": {
@@ -43,31 +30,31 @@
         "save_bonus": 0
       },
       "DEX": {
-        "score": 11,
+        "score": 10,
         "modifier": null,
         "save_proficient": false,
         "save_bonus": 0
       },
       "CON": {
-        "score": 14,
+        "score": 10,
         "modifier": null,
         "save_proficient": false,
         "save_bonus": 0
       },
       "INT": {
-        "score": 15,
+        "score": 10,
         "modifier": null,
         "save_proficient": false,
         "save_bonus": 0
       },
       "WIS": {
-        "score": 9,
+        "score": 10,
         "modifier": null,
         "save_proficient": false,
         "save_bonus": 0
       },
       "CHA": {
-        "score": 13,
+        "score": 10,
         "modifier": null,
         "save_proficient": false,
         "save_bonus": 0
@@ -77,15 +64,15 @@
       "armor_class": 10,
       "initiative_bonus": 0,
       "speed_ft": 30,
-      "max_hp": 50,
-      "current_hp": 50,
+      "max_hp": 0,
+      "current_hp": 0,
       "temp_hp": 0,
       "hit_dice": "",
       "death_save_successes": 0,
       "death_save_failures": 0
     },
     "proficiencies": {
-      "proficiency_bonus": 3,
+      "proficiency_bonus": 2,
       "armor": [],
       "weapons": [],
       "tools": [],
@@ -97,34 +84,19 @@
     "resources": [],
     "spellcasting": {
       "spellcasting_ability": "INT",
-      "attack_bonus": 6,
-      "save_dc": 14,
+      "attack_bonus": 2,
+      "save_dc": 10,
       "known_spells": [],
       "spell_sources": [],
       "slot_schedule": {
-        "long_rest": {
-          "1": 4,
-          "2": 3,
-          "3": 3,
-          "4": 2
-        },
+        "long_rest": {},
         "short_rest": {}
       },
       "slot_state": {
-        "long_rest": {
-          "1": 4,
-          "2": 3,
-          "3": 3,
-          "4": 2
-        },
+        "long_rest": {},
         "short_rest": {}
       },
-      "spell_slots": {
-        "1": 4,
-        "2": 3,
-        "3": 3,
-        "4": 2
-      },
+      "spell_slots": {},
       "prepared_spells": []
     },
     "feature_options": {},

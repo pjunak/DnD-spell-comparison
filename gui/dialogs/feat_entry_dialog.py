@@ -5,7 +5,7 @@ from __future__ import annotations
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QDialog, QDialogButtonBox, QFormLayout, QLabel, QLineEdit, QPlainTextEdit, QWidget
 
-from character_sheet import FeatureEntry
+from modules.characters.model import FeatureEntry
 
 
 class FeatEntryDialog(QDialog):

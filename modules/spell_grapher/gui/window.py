@@ -26,7 +26,7 @@ from PySide6.QtWidgets import (
     QSizePolicy,
 )
 from spell_graphs import plotting
-from character_sheet import (
+from modules.characters.model import (
     CharacterSheet,
     build_spellcasting_profile,
 )
@@ -37,12 +37,12 @@ from spell_graphs.spells import (
     spell_identity,
     spell_matches_filters,
 )
-from services.compendium import Compendium
-from services.modifiers import ModifierLoadError, ModifierStateService, ModifierStateSnapshot
-from ..application_context import ApplicationContext
-from ..resources import get_app_icon
-from ..widgets import FilterInputWidget, FramelessWindow
-from .graph_window import GraphWindow
+from modules.compendium.service import Compendium
+from modules.compendium.modifiers.state import ModifierLoadError, ModifierStateService, ModifierStateSnapshot
+from gui.application_context import ApplicationContext
+from gui.resources import get_app_icon
+from gui.widgets import FilterInputWidget, FramelessWindow
+from .graph_widget import GraphWindow
 
 
 
@@ -54,15 +54,8 @@ class MainWindow(FramelessWindow):
         """Convert a filesystem compendium spell record into the runtime shape used by the UI."""
 
         record = dict(payload or {})
-        legacy = record.get("_legacy") if isinstance(record.get("_legacy"), dict) else {}
 
         effects: List[dict] = []
-        primary = legacy.get("primary_effect")
-        secondary = legacy.get("secondary_effect")
-        if isinstance(primary, dict):
-            effects.append(dict(primary))
-        if isinstance(secondary, dict):
-            effects.append(dict(secondary))
 
         runtime: dict = {
             "id": record.get("id"),

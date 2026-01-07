@@ -35,7 +35,7 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
-from services.compendium import Compendium
+from modules.compendium.service import Compendium
 from gui.utils.compendium_formatting import (
     slug,
     as_text,
@@ -44,8 +44,8 @@ from gui.utils.compendium_formatting import (
     get_summary_md,
 )
 
-from ..resources import get_app_icon
-from ..widgets import FramelessWindow
+from gui.resources import get_app_icon
+from gui.widgets import FramelessWindow
 
 
 class CompendiumWindow(FramelessWindow):
@@ -63,7 +63,7 @@ class CompendiumWindow(FramelessWindow):
 
     def __init__(self, parent: QWidget | None = None) -> None:
         super().__init__(parent)
-        self.setWindowTitle("Compendium")
+        self.setWindowTitle("Ruleset")
         self.setWindowIcon(get_app_icon())
         self.setAttribute(Qt.WidgetAttribute.WA_DeleteOnClose, True)
         self.resize(1400, 800)

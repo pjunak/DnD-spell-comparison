@@ -22,11 +22,11 @@ from PySide6.QtWidgets import (
     QButtonGroup,
 )
 
-from services.compendium import Compendium
+from modules.compendium.service import Compendium
 from gui.utils.compendium_formatting import display_name, render_markdown_with_links
 from gui.utils.stat_blocks import render_monster_stat_block
-from ..resources import get_app_icon
-from ..widgets import FramelessWindow
+from gui.resources import get_app_icon
+from gui.widgets import FramelessWindow
 
 class MonsterWindow(FramelessWindow):
     """Standalone window for browsing the Monster Manual."""
@@ -48,7 +48,7 @@ class MonsterWindow(FramelessWindow):
 
     def __init__(self, parent: QWidget | None = None) -> None:
         super().__init__(parent)
-        self.setWindowTitle("Monster Manual")
+        self.setWindowTitle("Bestiary")
         self.setWindowIcon(get_app_icon())
         self.setAttribute(Qt.WidgetAttribute.WA_DeleteOnClose, True)
         self.resize(1200, 800)
@@ -63,8 +63,8 @@ class MonsterWindow(FramelessWindow):
         root.setSpacing(10)
 
         # --- Title Bar ---
-        title_label = QLabel("Monster Manual")
-        title_label.setStyleSheet("font-size: 18px; font-weight: bold; color: #ecf0f1;")
+        title_label = QLabel("Bestiary")
+        title_label.setProperty("class", "HeaderLabel")
         self.set_title_bar_center_widget(title_label)
 
         # --- Main Layout ---

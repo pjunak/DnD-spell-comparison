@@ -4,8 +4,8 @@ from __future__ import annotations
 
 from typing import Any, Dict, Iterable, List, Sequence
 
-from character_sheet import CharacterSheet, ClassProgression
-from services.compendium import Compendium
+from modules.characters.model import CharacterSheet, ClassProgression
+from modules.compendium.service import Compendium
 
 from .models import ClassOptionChoice, ClassOptionGroup, ClassOptionSnapshot
 

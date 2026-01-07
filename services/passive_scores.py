@@ -24,7 +24,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Dict
 
-from character_sheet import CharacterSheet
+from modules.characters.model import CharacterSheet
 
 
 _SKILL_TO_ABILITY: Dict[str, str] = {

@@ -9,7 +9,7 @@ from typing import Dict, Optional
 
 import fitz
 
-from character_sheet import ABILITY_NAMES, CharacterSheet, character_sheet_from_dict, character_sheet_to_dict
+from modules.characters.model import ABILITY_NAMES, CharacterSheet, character_sheet_from_dict, character_sheet_to_dict
 
 from .json_adapter import CharacterPackage
 

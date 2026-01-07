@@ -18,9 +18,9 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Iterable, Mapping
 
-from character_sheet.model import EquipmentItem
-from services.compendium import Compendium
-from services.modifier_sources import collect_bonus_bundle, collect_speed_base_ft
+from modules.characters.model import EquipmentItem
+from modules.compendium.service import Compendium
+from modules.compendium.mechanics import collect_bonus_bundle, collect_speed_base_ft
 
 
 @dataclass(frozen=True)

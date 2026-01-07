@@ -16,7 +16,7 @@ from __future__ import annotations
 
 from typing import Dict, Mapping, Tuple
 
-from services.compendium import Compendium
+from modules.compendium.service import Compendium
 
 
 def derive_species_skill_ranks(

@@ -13,9 +13,9 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Dict, Iterable, List, Mapping, Set, Tuple
 
-from character_sheet.model import EquipmentItem
+from modules.characters.model import EquipmentItem
 
-from services.compendium import Compendium
+from modules.compendium.service import Compendium
 
 
 def collect_ac_formula_candidates(

@@ -7,7 +7,7 @@ from typing import Iterable, List
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QAbstractItemView, QTableWidget, QTableWidgetItem, QWidget
 
-from character_sheet import FeatureEntry
+from modules.characters.model import FeatureEntry
 
 
 class FeatsTable(QTableWidget):

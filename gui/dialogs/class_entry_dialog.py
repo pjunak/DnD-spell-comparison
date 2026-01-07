@@ -18,9 +18,9 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
-from character_sheet import ClassProgression
+from modules.characters.model import ClassProgression
 from services.class_options import CLASS_NAME_OPTIONS, subclass_options_for
-from services.compendium import Compendium
+from modules.compendium.service import Compendium
 
 
 def _load_compendium() -> Compendium | None:

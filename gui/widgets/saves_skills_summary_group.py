@@ -6,7 +6,7 @@ from typing import Dict, Iterable, Tuple
 
 from PySide6.QtWidgets import QGridLayout, QGroupBox, QLabel, QWidget
 
-from character_sheet import ABILITY_NAMES, CharacterSheet
+from modules.characters.model import ABILITY_NAMES, CharacterSheet
 
 
 _SKILL_TO_ABILITY: Tuple[Tuple[str, str], ...] = (

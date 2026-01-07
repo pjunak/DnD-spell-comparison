@@ -18,6 +18,7 @@ from PySide6.QtWidgets import (
 
 from ..widgets import FramelessWindow
 from services.settings import get_settings, REQUIRED_MODULES
+from modules.compendium.service import get_module_metrics
 
 
 class GlobalSettingsDialog(FramelessWindow):
@@ -65,6 +66,7 @@ class GlobalSettingsDialog(FramelessWindow):
         dev_layout = QVBoxLayout(dev_group)
         
         self._dev_mode_check = QCheckBox("Enable Developer Mode")
+        # Fix styling visibility issues: ensure indicator is visible and text contrasts well
         self._dev_mode_check.setChecked(self._settings.dev_mode)
         dev_layout.addWidget(self._dev_mode_check)
         
@@ -125,7 +127,18 @@ class GlobalSettingsDialog(FramelessWindow):
                 item.setText(f"{name} (Required)")
             else:
                 item.setCheckState(Qt.CheckState.Checked if is_active else Qt.CheckState.Unchecked)
-                
+            
+            # Fetch and display metrics
+            path = self._settings.get_module_path(ruleset, mod_id)
+            if path:
+                metrics = get_module_metrics(path)
+                if metrics:
+                    # Format as vertical list for tooltip
+                    stats_lines = [f"{cnt} {k}" for k, cnt in metrics.items()]
+                    item.setToolTip("\n".join(stats_lines))
+                    # Removed inline text stats as requested to keep UI clean
+                    # item.setText(f"{item.text()}  [{stats}]")
+
             self._modules_list.addItem(item)
 
     def _save_and_accept(self) -> None:

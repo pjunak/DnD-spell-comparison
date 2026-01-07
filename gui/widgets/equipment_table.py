@@ -6,7 +6,7 @@ from typing import Iterable, Iterator, List
 
 from PySide6.QtWidgets import QAbstractItemView, QTableWidget, QTableWidgetItem, QWidget
 
-from character_sheet.model import EquipmentItem
+from modules.characters.model import EquipmentItem
 
 
 class EquipmentBonusesTable(QTableWidget):

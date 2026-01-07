@@ -8,7 +8,8 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Dict, Iterable, List, Optional
 
-from character_sheet import CharacterSheet, character_sheet_from_dict, character_sheet_to_dict
+from modules.characters.model import CharacterSheet, character_sheet_from_dict, character_sheet_to_dict
+from modules.compendium.service import Compendium
 
 DEFAULT_LIBRARY_PATH = Path(__file__).resolve().parents[1] / "database" / "characters"
 
@@ -37,19 +38,19 @@ class CharacterRecord:
         return ", ".join(f"{entry.name} {entry.level}" for entry in classes)
 
 
-def _serialise_record(record: CharacterRecord) -> dict:
+def _serialise_record(record: CharacterRecord, compendium: Compendium | None = None) -> dict:
     return {
         "id": record.identifier,
-        "sheet": character_sheet_to_dict(record.sheet),
+        "sheet": character_sheet_to_dict(record.sheet, compendium=compendium),
         "modifiers": dict(record.modifiers),
     }
 
 
-def _deserialise_record(payload: dict) -> CharacterRecord:
+def _deserialise_record(payload: dict, compendium: Compendium | None = None) -> CharacterRecord:
     identifier = str(payload.get("id") or uuid.uuid4())
     sheet_payload = payload.get("sheet", {}) or {}
     modifiers_payload = payload.get("modifiers", {}) or {}
-    sheet = character_sheet_from_dict(sheet_payload) if sheet_payload else CharacterSheet()
+    sheet = character_sheet_from_dict(sheet_payload, compendium=compendium) if sheet_payload else CharacterSheet()
     modifiers: Dict[str, bool] = {str(key): bool(value) for key, value in modifiers_payload.items()}
     return CharacterRecord(identifier=identifier, sheet=sheet, modifiers=modifiers)
 
@@ -84,17 +85,6 @@ class CharacterLibrary:
     def load(cls, path: Path | None = None) -> "CharacterLibrary":
         storage_path = Path(path) if path else DEFAULT_LIBRARY_PATH
         
-        # Legacy migration check: if directory doesn't exist but file does
-        legacy_file = storage_path.parent / "characters.json"
-        if not storage_path.exists() and legacy_file.exists() and legacy_file.is_file():
-            with legacy_file.open("r", encoding="utf-8") as handle:
-                payload = json.load(handle)
-            records = [_deserialise_record(entry) for entry in payload.get("characters", []) or []]
-            active_id = payload.get("active_id")
-            # Return instance pointing to new storage path. 
-            # The next save() will write to the directory.
-            return cls(records, active_id=active_id, storage_path=storage_path)
-
         if not storage_path.exists():
             storage_path.mkdir(parents=True, exist_ok=True)
             return cls([], storage_path=storage_path)
@@ -115,6 +105,12 @@ class CharacterLibrary:
             except Exception:
                 pass
 
+        # Try to load compendium once for batch operations
+        try:
+            compendium = Compendium.load()
+        except Exception:
+            compendium = None
+
         # Load characters
         for file_path in storage_path.glob("*.json"):
             if file_path.name == "_meta.json":
@@ -122,7 +118,7 @@ class CharacterLibrary:
             try:
                 with file_path.open("r", encoding="utf-8") as f:
                     data = json.load(f)
-                    records.append(_deserialise_record(data))
+                    records.append(_deserialise_record(data, compendium=compendium))
             except Exception:
                 continue
         
@@ -157,10 +153,15 @@ class CharacterLibrary:
             json.dump(meta, f, ensure_ascii=False, indent=2)
 
         # Save characters
+        try:
+            compendium = Compendium.load()
+        except Exception:
+            compendium = None
+
         current_ids = set()
         for identifier, record in self._records.items():
             current_ids.add(identifier)
-            payload = _serialise_record(record)
+            payload = _serialise_record(record, compendium=compendium)
             file_path = self._storage_path / f"{identifier}.json"
             with file_path.open("w", encoding="utf-8") as f:
                 json.dump(payload, f, ensure_ascii=False, indent=2)

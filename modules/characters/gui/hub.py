@@ -22,20 +22,21 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
-from character_sheet import CharacterSheet
-from services.character_io import (
+from modules.characters.model import CharacterSheet
+from modules.characters.services.io import (
     load_character_package,
     load_character_pdf,
     save_character_package,
     save_character_pdf,
 )
-from services.character_library import CharacterLibrary, CharacterRecord
-from services.modifiers import ModifierLoadError, ModifierStateService, ModifierStateSnapshot
+from modules.characters.services.library import CharacterLibrary, CharacterRecord
+from modules.compendium.modifiers.state import ModifierLoadError, ModifierStateService, ModifierStateSnapshot
 
-from ..application_context import ApplicationContext
-from ..dialogs import SpellcastingSettingsDialog
-from ..resources import PROJECT_ROOT, get_app_icon
-from ..widgets import FramelessWindow
+from gui.application_context import ApplicationContext
+from gui.dialogs import SpellcastingSettingsDialog
+from gui.resources import PROJECT_ROOT, get_app_icon
+from gui.widgets import FramelessWindow
+from .window import CharacterSheetWindow
 
 
 class CharacterSheetHubWindow(FramelessWindow):
@@ -60,26 +61,38 @@ class CharacterSheetHubWindow(FramelessWindow):
         self._initialise_library_state()
 
         central = QWidget(self)
+        # Apply dark theme background to the whole window
+        # Apply dark theme background to the whole window
+        # central.setStyleSheet("background-color: #0f172a; color: #f1f5f9;") 
+        # Inherited from global theme
+
         layout = QVBoxLayout(central)
         layout.setContentsMargins(32, 32, 32, 32)
         layout.setSpacing(20)
 
-        header = QLabel("Manage each adventurer in one place")
-        header.setStyleSheet("font-size: 26px; font-weight: 600;")
+        header = QLabel("Manage your Adventurers")
+        header = QLabel("Manage your Adventurers")
+        header.setProperty("class", "HeaderLabel")
+        # header.setStyleSheet("font-size: 26px; font-weight: 600; color: #f1f5f9;")
+
         layout.addWidget(header)
 
         body = QLabel(
-            "Create new characters, import existing sheets, and switch between them with one click. "
-            "The highlighted tile represents the character shared with other workspaces (spell graphs, etc.)."
+            "Create new characters, import existing sheets, and switch between them. "
+            "Double-click a character to open their sheet."
         )
         body.setWordWrap(True)
-        body.setStyleSheet("font-size: 14px; color: #475569;")
+        body.setWordWrap(True)
+        # body.setStyleSheet("font-size: 14px; color: #94a3b8;")
+
         layout.addWidget(body)
 
         controls = QHBoxLayout()
         controls.setSpacing(12)
         new_button = QPushButton("New Character…")
+        new_button.setProperty("class", "PrimaryButton")
         new_button.clicked.connect(self._create_character)
+
         controls.addWidget(new_button)
 
         import_button = QPushButton("Import Character File…")
@@ -103,9 +116,15 @@ class CharacterSheetHubWindow(FramelessWindow):
 
         self._selection_label = QLabel()
         self._selection_label.setWordWrap(True)
+        self._selection_label.setWordWrap(True)
+        # selection label styling handled by QFrame or generic label style? 
+        # Let's keep a minimal inline style for specific specialized look or move to specialized class?
+        # For now, minimal inline to keep existing look but using theme colors if possible.
+        # But user wants global theme. 
         self._selection_label.setStyleSheet(
-            "font-size: 15px; color: #0f172a; background: #eef2ff; border-radius: 12px; padding: 14px; line-height: 1.6;"
+            "font-size: 14px; background: transparent; border: 1px solid #3e3e42; border-radius: 8px; padding: 12px; line-height: 1.5;"
         )
+
         layout.addWidget(self._selection_label)
 
         close_button = QPushButton("Close Workspace")
@@ -164,6 +183,7 @@ class CharacterSheetHubWindow(FramelessWindow):
         for index, record in enumerate(records):
             tile = _CharacterTile(record, selected=(record.identifier == self._selected_character_id))
             tile.request_select.connect(self._select_character)
+            tile.request_open.connect(self._open_character_sheet)
             tile.request_edit.connect(self._edit_character)
             tile.request_import.connect(self._import_into_character)
             tile.request_export.connect(self._export_character)
@@ -254,6 +274,27 @@ class CharacterSheetHubWindow(FramelessWindow):
         else:
             self._refresh_tiles()
         QMessageBox.information(self, "Character Updated", f"Saved changes to {sheet.identity.name or 'Unnamed Adventurer'}.")
+
+    def _open_character_sheet(self, identifier: str) -> None:
+        record = self._library.get(identifier)
+        if not record:
+            return
+        
+        # Ensure context is active for this character
+        self._set_active_record(identifier)
+        
+        window = CharacterSheetWindow(record, self._app_context, parent=None) # Parent None to be independent window? Or self?
+        # If parent is self, it closes when hub closes. User probably wants separate windows.
+        # But we need to keep a reference so it doesn't get garbage collected.
+        self._register_child_window(window)
+        window.show()
+
+    def _register_child_window(self, window: QWidget) -> None:
+        # Simple tracking to prevent GC
+        if not hasattr(self, "_active_sheet_windows"):
+            self._active_sheet_windows = []
+        self._active_sheet_windows.append(window)
+        window.destroyed.connect(lambda: self._active_sheet_windows.remove(window) if window in self._active_sheet_windows else None)
 
     def _import_new_character(self) -> None:
         self._import_character_from_file(target_record_id=None, create_new=True)
@@ -386,6 +427,7 @@ class _CharacterTile(QFrame):
     """Clickable card summarizing a single character."""
 
     request_select = Signal(str)
+    request_open = Signal(str)
     request_edit = Signal(str)
     request_import = Signal(str)
     request_export = Signal(str)
@@ -397,51 +439,148 @@ class _CharacterTile(QFrame):
         self.setObjectName("CharacterTile")
         self.setCursor(Qt.CursorShape.PointingHandCursor)
         self.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
-        self.setMinimumHeight(160)
-        self.setStyleSheet(
-            "#CharacterTile {"
-            "  background-color: #f8fafc;"
-            "  border: 2px solid transparent;"
-            "  border-radius: 20px;"
-            "  padding: 20px;"
-            "}"
-            "#CharacterTile[isSelected='true'] {"
-            "  border-color: #2563eb;"
-            "  background-color: #dbeafe;"
-            "}"
-        )
+        self.setMinimumHeight(180)
+        
+        # Determine accent color based on class or level
+        # For now, simplistic hashing or default
+        self.setProperty("class", "CharacterTile")
+        self.setProperty("isSelected", bool(selected))
+        
+    def _load_portrait(self, path_str: str) -> None:
+        if not hasattr(self, "_portrait_label"): return
+        if not path_str:
+             self._portrait_label.setText("No Image")
+             return
+             
+        path = Path(path_str)
+        if path.exists():
+            pixmap = QPixmap(str(path))
+            self._portrait_label.setPixmap(pixmap.scaled(self._portrait_label.size(), Qt.AspectRatioMode.KeepAspectRatioByExpanding, Qt.TransformationMode.SmoothTransformation))
+        else:
+            self._portrait_label.setText("Missing")
+
+    def __init__(self, record: CharacterRecord, *, selected: bool = False, parent: QWidget | None = None) -> None:
+        super().__init__(parent)
+        self._record_id = record.identifier
+        self.setObjectName("CharacterTile")
+        self.setProperty("class", "CharacterTile")
+        self.setCursor(Qt.CursorShape.PointingHandCursor)
+        self.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
+        self.setMinimumHeight(180)
+        
         self.setProperty("isSelected", bool(selected))
 
-        layout = QVBoxLayout(self)
-        layout.setContentsMargins(0, 0, 0, 0)
-        layout.setSpacing(10)
+        layout = QHBoxLayout(self) # Changed to HBox to put portrait on left? Or keep VBox and put portrait in header?
+        # User asked "Add space for portrait on both the character sheet selector"
+        # Let's use HBox: Portrait Left, Info Right
+        layout.setContentsMargins(20, 20, 20, 20)
+        layout.setSpacing(16)
+        
+        # Portrait
+        self._portrait_label = QLabel()
+        self._portrait_label.setFixedSize(100, 100)
+        self._portrait_label.setProperty("class", "CharacterPortrait")
+        self._portrait_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self._portrait_label.setScaledContents(False) # We handle scaling manually or use proper branding
+        # Masking strictly requires paint event or complex styling, simple box is safer for now.
+        
+        # Load portrait if exists
+        from PySide6.QtGui import QPixmap 
+        if record.sheet.identity.portrait_path:
+             # Assume relative or absolute. If relative to library?
+             # User said "save all portraits in characters/portraits/".
+             # If path stored is filename, we resolve it.
+             # If path stored is absolute, we use it. 
+             # Let's try to resolve relative to database/characters/portraits if simple filename
+             p_path = Path(record.sheet.identity.portrait_path)
+             if not p_path.is_absolute():
+                 # Try default location: database/characters/portraits/
+                 from modules.characters.services.library import DEFAULT_LIBRARY_PATH
+                 p_path = DEFAULT_LIBRARY_PATH / "portraits" / p_path
+             
+             if p_path.exists():
+                 pix = QPixmap(str(p_path))
+                 self._portrait_label.setPixmap(pix.scaled(self._portrait_label.size(), Qt.AspectRatioMode.KeepAspectRatio, Qt.TransformationMode.SmoothTransformation))
+             else:
+                 self._portrait_label.setText("?")
+        else:
+             self._portrait_label.setText("No Image")
 
+        layout.addWidget(self._portrait_label)
+
+        # Info Column
+        info_col = QWidget()
+        v_layout = QVBoxLayout(info_col)
+        v_layout.setContentsMargins(0,0,0,0)
+        v_layout.setSpacing(4)
+        
+        layout.addWidget(info_col, 1)
+
+        # Header: Name and Level bubble
+        header_layout = QHBoxLayout()
         name_label = QLabel(record.display_name)
-        name_label.setStyleSheet("font-size: 20px; font-weight: 600; color: #0f172a;")
-        layout.addWidget(name_label)
+        # name_label.setStyleSheet("font-size: 18px; font-weight: 700; color: #f1f5f9;") 
+        # Let's use standard font, bold
+        name_label.setStyleSheet("font-size: 18px; font-weight: bold;")
+        header_layout.addWidget(name_label)
+        
+        header_layout.addStretch()
+        
+        level_badge = QLabel(f"Lvl {record.level}")
+        level_badge.setStyleSheet(
+            "background-color: #2b2b2b; color: #cccccc; "
+            "padding: 4px 8px; border-radius: 6px; font-weight: 600; font-size: 12px; border: 1px solid #5d5d5d;"
+        )
+        header_layout.addWidget(level_badge)
+        v_layout.addLayout(header_layout)
 
-        level_label = QLabel(f"Level {record.level}")
-        level_label.setStyleSheet("color: #475569; font-size: 14px;")
-        layout.addWidget(level_label)
+        # Separator (Spacer)
+        # v_layout.addStretch() # No stretch here, content tight
 
-        class_label = QLabel(record.class_summary or "No class levels yet")
-        class_label.setWordWrap(True)
-        class_label.setStyleSheet("color: #334155; font-size: 13px;")
-        layout.addWidget(class_label)
+        # Class / Race Summary
+        class_text = record.class_summary or "Unclassed"
+        ancestry_text = record.sheet.identity.ancestry or "Unknown Origin"
+        summary_label = QLabel(f"{ancestry_text} • {class_text}")
+        summary_label.setWordWrap(True)
+        # summary_label.setStyleSheet("color: #cbd5e1; font-size: 14px;")
+        v_layout.addWidget(summary_label)
+        
+        v_layout.addStretch()
 
+        # Actions Row
         button_row = QHBoxLayout()
         button_row.setSpacing(8)
+        
+        # Inline styling for small transparent buttons can stay or use a class
+        action_style = (
+            "QPushButton {"
+            "  background-color: transparent;"
+            "  color: #999999;"
+            "  border: 1px solid transparent;"
+            "  padding: 4px 8px;"
+            "  border-radius: 4px;"
+            "  font-size: 12px;"
+            "}"
+            "QPushButton:hover {"
+            "  color: #ffffff;"
+            "  background-color: #2d2d30;"
+            "}"
+        )
+
         for text, handler in (
-            ("Import…", self.request_import),
-            ("Export…", self.request_export),
+            ("Export", self.request_export),
             ("Delete", self.request_delete),
         ):
             btn = QPushButton(text)
             btn.setCursor(Qt.CursorShape.PointingHandCursor)
-            btn.clicked.connect(lambda _=False, sig=handler: self._emit_action(sig))
+            btn.setStyleSheet(action_style)
+            # Use a lambda that captures the handler correctly
+            btn.clicked.connect(lambda _, h=handler: self._emit_action(h))
             button_row.addWidget(btn)
+            
         button_row.addStretch()
-        layout.addLayout(button_row)
+        v_layout.addLayout(button_row) # Add to info column
+
 
     def set_selected(self, selected: bool) -> None:
         self.setProperty("isSelected", bool(selected))
@@ -455,12 +594,13 @@ class _CharacterTile(QFrame):
 
     def mouseDoubleClickEvent(self, event) -> None:  # type: ignore[override]
         if event.button() == Qt.MouseButton.LeftButton:
-            # Double click opens the character editor.
+            # Double click opens the character sheet view.
             self.request_select.emit(self._record_id)
-            self.request_edit.emit(self._record_id)
+            self.request_open.emit(self._record_id)
             return
         super().mouseDoubleClickEvent(event)
 
     def _emit_action(self, signal_obj) -> None:
+        # Select first, then act
         self.request_select.emit(self._record_id)
         signal_obj.emit(self._record_id)

@@ -7,7 +7,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Dict, Tuple
 
-from character_sheet import (
+from modules.characters.model import (
     CharacterSheet,
     character_sheet_from_dict,
     character_sheet_to_dict,

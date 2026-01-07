@@ -29,10 +29,16 @@ from PySide6.QtWidgets import (
 	QTabWidget,
 	QToolButton,
 	QVBoxLayout,
+	QVBoxLayout,
 	QWidget,
+    QFileDialog,
 )
+from PySide6.QtGui import QPixmap
+import shutil
+from pathlib import Path
+from modules.characters.services.library import DEFAULT_LIBRARY_PATH
 
-from character_sheet import (
+from modules.characters.model import (
 	ABILITY_NAMES,
 	BackgroundSelection,
 	CharacterSheet,
@@ -40,23 +46,23 @@ from character_sheet import (
 	FeatureEntry,
 	SpellAccessEntry,
 	SpellSourceRecord,
+    EquipmentItem,
 )
-from character_sheet.model import EquipmentItem
 from services.class_options import normalise_class_name, normalise_subclass_name
 from services.character_rules import CharacterRuleSnapshot, CharacterRulesService
 from services.class_options import ClassOptionSnapshot, ClassOptionsService
 from services.armor_class import derive_armor_class
-from services.compendium import Compendium
+from modules.compendium.service import Compendium
 from services.hit_points import derive_max_hp
 from services.initiative import derive_initiative_bonus
-from services.modifiers import ModifierStateSnapshot
+from modules.compendium.modifiers.state import ModifierStateSnapshot
 from services.speed import derive_speed_ft
 from services.passive_scores import derive_passive_scores
 from services.species_grants import apply_species_skill_grants
 from services.senses import derive_senses
 from services.resistances import derive_resistances
 from services.condition_immunities import derive_condition_immunities
-from services.modifier_sources import (
+from modules.compendium.mechanics import (
 	BonusBundle,
 	TraitBundle,
 	collect_ac_formula_candidates,
@@ -386,6 +392,27 @@ class SpellcastingSettingsDialog(QDialog):
 		scroll.setWidget(content)
 		root.addWidget(scroll)
 
+		# --- Portrait Section ---
+		portrait_layout = QHBoxLayout()
+		self._portrait_label = QLabel()
+		self._portrait_label.setFixedSize(100, 100)
+		self._portrait_label.setStyleSheet("background-color: #2d2d30; border: 1px solid #3e3e42; border-radius: 4px;")
+		self._portrait_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+		
+		portrait_btn_layout = QVBoxLayout()
+		portrait_btn = QPushButton("Change Portrait...")
+		portrait_btn.clicked.connect(self._on_select_portrait)
+		portrait_btn_layout.addWidget(portrait_btn)
+		portrait_btn_layout.addStretch()
+
+		portrait_layout.addWidget(self._portrait_label)
+		portrait_layout.addLayout(portrait_btn_layout)
+		portrait_layout.addStretch()
+		layout.addLayout(portrait_layout)
+
+		self._refresh_portrait_preview()
+		# ------------------------
+
 		name = QLabel()
 		name.setStyleSheet("font-weight: 700; font-size: 16px;")
 		self._overview_name_label = name
@@ -488,6 +515,62 @@ class SpellcastingSettingsDialog(QDialog):
 		layout.addStretch()
 
 		self.tabs.addTab(tab, "Overview")
+
+	def _refresh_portrait_preview(self) -> None:
+		path_str = self._sheet.identity.portrait_path
+		if path_str:
+			# Resovle path
+			if Path(path_str).is_absolute():
+				p_path = Path(path_str)
+			else:
+				p_path = DEFAULT_LIBRARY_PATH / "portraits" / path_str
+			
+			if p_path.exists():
+				pix = QPixmap(str(p_path))
+				self._portrait_label.setPixmap(pix.scaled(self._portrait_label.size(), Qt.AspectRatioMode.KeepAspectRatio, Qt.TransformationMode.SmoothTransformation))
+				self._portrait_label.setText("")
+			else:
+				self._portrait_label.setPixmap(QPixmap())
+				self._portrait_label.setText("Missing")
+		else:
+			self._portrait_label.setPixmap(QPixmap())
+			self._portrait_label.setText("No Image")
+
+	def _on_select_portrait(self) -> None:
+		file_path, _ = QFileDialog.getOpenFileName(
+			self, "Select Portrait", "", "Images (*.png *.jpg *.jpeg *.bmp)"
+		)
+		if not file_path:
+			return
+
+		src_path = Path(file_path)
+		char_name = self._sheet.identity.name or "unnamed"
+		
+		# Sanitize filename
+		safe_name = "".join(c for c in char_name if c.isalnum() or c in (' ', '-', '_')).strip()
+		safe_name = safe_name.replace(' ', '_')
+		if not safe_name: safe_name = "character"
+		
+		ext = src_path.suffix.lower()
+		dest_filename = f"{safe_name}{ext}"
+		
+		dest_dir = DEFAULT_LIBRARY_PATH / "portraits"
+		dest_dir.mkdir(parents=True, exist_ok=True)
+		dest_path = dest_dir / dest_filename
+		
+		# Handle collision (append index)
+		counter = 1
+		while dest_path.exists():
+			dest_filename = f"{safe_name}_{counter}{ext}"
+			dest_path = dest_dir / dest_filename
+			counter += 1
+			
+		try:
+			shutil.copy2(src_path, dest_path)
+			self._sheet.identity.portrait_path = dest_filename
+			self._refresh_portrait_preview()
+		except Exception as e:
+			QMessageBox.critical(self, "Error", f"Failed to save portrait: {e}")
 
 	def _on_current_hp_changed(self, value: int) -> None:
 		self._sheet.combat.current_hp = max(0, int(value))

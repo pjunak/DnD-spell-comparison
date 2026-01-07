@@ -6,8 +6,9 @@ import sys
 
 from PySide6.QtWidgets import QApplication
 
-from .resources import get_app_icon, DARK_THEME_STYLESHEET
-from .windows import LauncherWindow
+from .resources import get_app_icon
+from .theme import DARK_THEME_STYLESHEET
+from modules.dashboard.window import LauncherWindow
 from services.logger import setup_logging
 
 import logging

@@ -9,8 +9,8 @@ from __future__ import annotations
 
 from typing import Iterable
 
-from character_sheet.model import ClassProgression
-from services.compendium import Compendium
+from modules.characters.model import ClassProgression
+from modules.compendium.service import Compendium
 
 
 def average_hp_per_level(hit_die: int) -> int:
