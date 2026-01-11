@@ -1,86 +1,38 @@
-*.db
-build/
-# Byte-compiled / optimized / DLL files
+# Python
 __pycache__/
-__pycache__/*
 *.py[cod]
 *$py.class
-*.pyc
-
-# C extensions
 *.so
-
-# virtual enviroment
-*.venv 
-
-# Distribution / packaging
 .Python
+*.log
+
+# Distribution / Packaging
 build/
-develop-eggs/
 dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-pip-wheel-metadata/
-share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+MANIFEST
 
-# PyInstaller
-dist/
-build/
-
-# Virtual environments
+# Virtual Environment
+.venv/
 venv/
 ENV/
 env/
-*.env
-*.venv
 
-# VS Code settings
-.vscode
+# IDE Settings
 .vscode/
-.vscode/settings.json
-.vscode/*
+.idea/
 
-# Jupyter Notebook checkpoints
-.ipynb_checkpoints
+# Living Scroll Build System
+builder/output/
+builder/temp/
+# Do not ignore builder scripts (e.g. build.py)
 
-# Pytest cache
-.cache/
-
-# Coverage results
-htmlcov/
-.coverage
-*.cover
-*.py,cover
-
-# mypy cache
-.mypy_cache/
-.dmypy.json
-
-# Sphinx documentation
-docs/_build/
-
-# PyBuilder
-target/
-# User requested exclusions (testing, data gathering, sources)
-tests/
-sources/
-scripts/*.py
-scripts/legacy_etl/
-.pytest_cache/
-
-# Build artifacts
-spellgraphix.egg-info/
-build/
-dist/
+# PyInstaller
 *.spec
+# We might want to track the main spec file if it is manually maintained
+!LivingScroll.spec
+
+# Legacy / User Exclusions
 TODO.txt

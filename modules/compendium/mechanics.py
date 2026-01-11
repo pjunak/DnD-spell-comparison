@@ -13,7 +13,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Dict, Iterable, List, Mapping, Set, Tuple
 
-from modules.characters.model import EquipmentItem
+from modules.character_sheet.model import EquipmentItem
 
 from modules.compendium.service import Compendium
 

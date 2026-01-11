@@ -9,7 +9,24 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Mapping, Optional, Set
 
-DEFAULT_COMPENDIUM_PATH = Path(__file__).resolve().parents[2] / "database" / "compendium" / "dnd_2024"
+import sys
+from modules.core.services.settings import get_settings
+
+def _get_default_data_path() -> Path:
+    # Use settings logic or replicate it safely
+    # If frozen, use MEIPASS/modules/compendium/data
+    if getattr(sys, "frozen", False):
+         # OneDir: app/LivingScroll.exe vs _internal/modules...
+         # Spec puts data at _internal/modules/compendium/data
+         # sys._MEIPASS points to _internal
+         base = Path(sys._MEIPASS)
+    else:
+         # Dev: modules/compendium/service.py -> up 2 -> modules
+         base = Path(__file__).resolve().parent.parent.parent
+
+    return base / "modules" / "compendium" / "data"
+
+DEFAULT_COMPENDIUM_PATH = _get_default_data_path() / "dnd_2024"
 
 # Module-level cache for Compendium instances to avoid redundant disk I/O
 _COMPENDIUM_CACHE: Dict[tuple, "Compendium"] = {}
@@ -48,14 +65,13 @@ class Compendium:
 
     @classmethod
     def load(cls, ruleset: str | None = None, modules: Iterable[str] | None = None) -> "Compendium":
-        from services.settings import get_settings
         settings = get_settings()
 
-        base_path = Path(__file__).resolve().parents[2] / "database" / "compendium"
-        
         # Use provided ruleset or fall back to settings
         target_ruleset = ruleset or settings.ruleset
-        target = base_path / target_ruleset
+        
+        # Use simple path construction relative to known data root
+        target = _get_default_data_path() / target_ruleset
         
         if not target.exists():
             # Fallback to default path if specific ruleset not found (or if it was a full path passed in legacy code)

@@ -1,0 +1,18 @@
+---
+name: Carrion Crawler Mucus
+type: Poison
+rarity: Rare
+weight: 0
+cost: 200
+tags:
+  - Poison
+  - Consumable
+---
+
+# Carrion Crawler Mucus
+
+*Poison (Contact Poison)*
+
+**Cost:** 200 GP
+
+A creature subjected to Carrion Crawler Mucus must succeed on a DC 13 Constitution saving throw or have the Poisoned condition for 1 minute. The creature also has the Paralyzed condition while Poisoned in this way. The creature repeats the save at the end of each of its turns, ending the effect on itself on a success.

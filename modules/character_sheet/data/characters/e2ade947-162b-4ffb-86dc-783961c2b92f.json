@@ -1,0 +1,133 @@
+{
+  "id": "e2ade947-162b-4ffb-86dc-783961c2b92f",
+  "sheet": {
+    "identity": {
+      "name": "Testaril",
+      "ancestry": "Elf",
+      "ancestry_subtype": "High Elf",
+      "background": "Sailor",
+      "background_choices": {
+        "ability_choices": [],
+        "skill_choices": [],
+        "tool_choices": [
+          "Navigator's tools"
+        ],
+        "language_choices": [],
+        "feat_choice": "Alert"
+      },
+      "player": "",
+      "alignment": "",
+      "experience": 0,
+      "classes": [
+        {
+          "name": "Fighter",
+          "level": 7,
+          "subclass": "Eldritch Knight"
+        }
+      ],
+      "level_cap": 7,
+      "ability_generation": "manual",
+      "asi_choices": {}
+    },
+    "abilities": {
+      "STR": {
+        "score": 15,
+        "modifier": null,
+        "save_proficient": false,
+        "save_bonus": 0
+      },
+      "DEX": {
+        "score": 12,
+        "modifier": null,
+        "save_proficient": false,
+        "save_bonus": 0
+      },
+      "CON": {
+        "score": 20,
+        "modifier": null,
+        "save_proficient": false,
+        "save_bonus": 0
+      },
+      "INT": {
+        "score": 8,
+        "modifier": null,
+        "save_proficient": false,
+        "save_bonus": 0
+      },
+      "WIS": {
+        "score": 13,
+        "modifier": null,
+        "save_proficient": false,
+        "save_bonus": 0
+      },
+      "CHA": {
+        "score": 15,
+        "modifier": null,
+        "save_proficient": false,
+        "save_bonus": 0
+      }
+    },
+    "combat": {
+      "armor_class": 11,
+      "initiative_bonus": 1,
+      "speed_ft": 30,
+      "max_hp": 81,
+      "current_hp": 81,
+      "temp_hp": 0,
+      "hit_dice": "",
+      "death_save_successes": 0,
+      "death_save_failures": 0
+    },
+    "proficiencies": {
+      "proficiency_bonus": 3,
+      "armor": [],
+      "weapons": [],
+      "tools": [],
+      "languages": [],
+      "skills": {}
+    },
+    "equipment": [],
+    "features": [],
+    "resources": [],
+    "spellcasting": {
+      "spellcasting_ability": "INT",
+      "attack_bonus": 2,
+      "save_dc": 10,
+      "known_spells": [],
+      "spell_sources": [],
+      "slot_schedule": {
+        "long_rest": {
+          "1": 3
+        },
+        "short_rest": {}
+      },
+      "slot_state": {
+        "long_rest": {
+          "1": 3
+        },
+        "short_rest": {}
+      },
+      "spell_slots": {
+        "1": 3
+      },
+      "prepared_spells": []
+    },
+    "feature_options": {},
+    "class_options": {},
+    "notes": {}
+  },
+  "modifiers": {
+    "Boon: Blessing of the Archmage": false,
+    "Feat: Elemental Adept": false,
+    "Feat: Resilient (Constitution)": false,
+    "Feat: Spell Sniper": false,
+    "Feat: War Caster": false,
+    "Agonizing Blast": false,
+    "Flame Mastery": false,
+    "Grasp of Hadar": false,
+    "Metamagic: Empowered Spell": false,
+    "Metamagic: Quickened Spell": false,
+    "Repelling Blast": false,
+    "Storm Channeling": false
+  }
+}

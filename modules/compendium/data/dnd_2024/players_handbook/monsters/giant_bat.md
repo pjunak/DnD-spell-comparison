@@ -1,0 +1,31 @@
+---
+name: Giant Bat
+size: Large
+type: Large Beast
+alignment: Unaligned
+ac: '13'
+hp: 42 (5d10 + 15)
+speed: 40 ft.
+stats:
+  str: 17
+  dex: 10
+  con: 16
+  int: 2
+  wis: 7
+  cha: 5
+cr: 2 (XP 450; PB +2)
+traits:
+- name: Bloodied Fury
+  description: The boar has Advantage on melee attack rolls while it is Bloodied.
+actions:
+- name: Gore
+  description: 'Melee Attack Roll: +5, reach 5 ft. Hit: 10 (2d6 + 3) Piercing damage.
+    If the target is a Large or smaller creature and the boar moved 20+ feet straight
+    toward it immediately before the hit, the target takes an extra 7 (2d6) Piercing
+    damage and has the Prone condition.'
+---
+
+# Giant Bat
+
+*Large Beast, Unaligned*
+

@@ -11,13 +11,24 @@ requires-python = ">=3.10"
 # Keep dependencies managed primarily via requirements.txt for this personal project.
 # This list exists so `pip install -e .` works reliably.
 dependencies = [
-  "PySide6>=6.6",
-  "matplotlib",
-  "numpy",
+  "PySide6>=6.10.0",
+  "matplotlib>=3.10.0",
+  "numpy>=2.0.0",
+  "pymupdf>=1.25.0",
+  "PyYAML>=6.0",
+  "requests",
+  "beautifulsoup4",
+  "markdownify",
+]
+
+[project.optional-dependencies]
+build = [
+  "pyinstaller>=6.0",
+  "pyinstaller-hooks-contrib",
 ]
 
 [project.scripts]
-spellgraphix = "gui.app:main"
+livingscroll = "main:main"
 
 [tool.setuptools]
 package-dir = {"" = "."}
@@ -25,16 +36,6 @@ package-dir = {"" = "."}
 [tool.setuptools.packages.find]
 where = ["."]
 include = [
-  "spell_graphs",
-  "spell_graphs.*",
-  "character_sheet",
-  "character_sheet.*",
-  "core",
-  "core.*",
-  "database",
-  "database.*",
-  "gui",
-  "gui.*",
-  "services",
-  "services.*",
+  "modules",
+  "modules.*",
 ]

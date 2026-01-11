@@ -1,6 +1,6 @@
 import unittest
 
-from spell_graphs.dices import combination_distribution
+from modules.core.services.dices import combination_distribution
 
 
 class CombinationDistributionTests(unittest.TestCase):
