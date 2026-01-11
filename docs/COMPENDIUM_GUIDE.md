@@ -33,7 +33,7 @@ The compendium is a filesystem-based database of D&D 2024 game content. All cont
 ## Directory Structure
 
 ```
-database/compendium/dnd_2024/
+modules/compendium/data/dnd_2024/
 ├── players_handbook/           # Core rulebook content
 │   ├── metadata.json           # Module metadata
 │   ├── classes/                # Class definitions

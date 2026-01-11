@@ -8,7 +8,7 @@ except ModuleNotFoundError:
     raise unittest.SkipTest("matplotlib not installed")
 
 
-from spell_graphs import plotting
+from modules.spell_grapher.services import plotting
 
 
 def make_spell(

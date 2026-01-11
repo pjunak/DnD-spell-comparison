@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 import matplotlib.ticker as mtick
 from matplotlib.figure import Figure
 
-from . import calculations
+from modules.core.services import calculations
 
 LEVEL_DEFAULT = 9
 MAX_COMPARE_SPELLS = 9
