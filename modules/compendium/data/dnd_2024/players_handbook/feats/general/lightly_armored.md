@@ -1,8 +1,13 @@
 ---
 name: Lightly Armored
 type: feat
-prerequisite: null
+category: general
+prerequisite: "Level 4+"
 id: feat:lightly-armored
+attribute_increase: ['STR', 'DEX']
+proficiency:
+  armor: ['Light']
+expertise: null
 ---
 
 *Prerequisite: Level 4+*

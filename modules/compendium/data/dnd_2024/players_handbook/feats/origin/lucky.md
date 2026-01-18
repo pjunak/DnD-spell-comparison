@@ -1,8 +1,12 @@
 ---
 name: Lucky
 type: feat
+category: origin
 prerequisite: null
 id: feat:lucky
+attribute_increase: null
+proficiency: null
+expertise: null
 ---
 
 You gain the following benefits.

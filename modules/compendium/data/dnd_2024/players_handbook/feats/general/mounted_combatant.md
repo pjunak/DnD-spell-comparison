@@ -1,8 +1,12 @@
 ---
 name: Mounted Combatant
 type: feat
-prerequisite: null
+category: general
+prerequisite: "Level 4+"
 id: feat:mounted-combatant
+attribute_increase: ['STR', 'DEX', 'WIS']
+proficiency: null
+expertise: null
 ---
 
 *Prerequisite: Level 4+*

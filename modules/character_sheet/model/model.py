@@ -264,6 +264,160 @@ class CharacterSheet:
     def proficiency_bonus(self) -> int:
         return self.proficiencies.proficiency_bonus
 
+    def get_ability_breakdown(self, name: str, compendium: Any = None) -> Dict[str, Any]:
+        """
+        Calculate ability score with breakdown of bonuses.
+        Returns: {
+            'base': int,
+            'asi_bonuses': [{'source': 'Fighter ASI 4', 'value': +2}, ...],
+            'feat_bonuses': [{'source': 'Chef', 'value': +1}, ...],
+            'total': int,
+            'tooltip': str
+        }
+        """
+        import re
+        key = name.upper()
+        base = self.abilities[key].score
+        asi_bonuses = []
+        feat_bonuses = []
+        
+        # Parse ASI/Feat selections from feature_options
+        for opt_key, opt_value in self.feature_options.items():
+            if "_asi_" not in opt_key:
+                continue
+            
+            # Extract level from key (e.g., "wizard_asi_4" -> 4)
+            level_match = re.search(r'_asi_(\d+)$', opt_key)
+            level = int(level_match.group(1)) if level_match else 0
+            
+            if opt_value.startswith("ASI:"):
+                # Parse ASI like "ASI:+2 STR" or "ASI:+1 STR +1 DEX"
+                bonuses = re.findall(r'\+(\d+)\s*(\w{3})', opt_value)
+                for amount, ability in bonuses:
+                    if ability.upper() == key:
+                        asi_bonuses.append({
+                            'source': f'ASI Level {level}',
+                            'value': int(amount)
+                        })
+            else:
+                # It's a feat - check if it grants attribute increase
+                # Look up feat in compendium if provided
+                if compendium:
+                    feat_record = self._find_feat(opt_value, compendium)
+                    if feat_record:
+                        attr_increase = feat_record.get("attribute_increase", [])
+                        if attr_increase and (key in attr_increase or "any" in attr_increase):
+                            # Check if user chose this ability
+                            choice_key = f"{opt_value.lower().replace(' ', '_')}_attribute"
+                            chosen = self.feature_options.get(choice_key, "")
+                            if chosen.upper() == key or not chosen:
+                                feat_bonuses.append({
+                                    'source': opt_value,
+                                    'value': 1
+                                })
+        
+        total = base + sum(b['value'] for b in asi_bonuses) + sum(b['value'] for b in feat_bonuses)
+        
+        # Build tooltip
+        parts = [f"Base: {base}"]
+        for b in asi_bonuses:
+            parts.append(f"{b['source']}: +{b['value']}")
+        for b in feat_bonuses:
+            parts.append(f"{b['source']}: +{b['value']}")
+        parts.append(f"Total: {total}")
+        
+        return {
+            'base': base,
+            'asi_bonuses': asi_bonuses,
+            'feat_bonuses': feat_bonuses,
+            'total': total,
+            'tooltip': '\n'.join(parts)
+        }
+
+    def _find_feat(self, name: str, compendium: Any) -> Optional[Dict]:
+        """Look up a feat by name in the compendium."""
+        try:
+            for feat in compendium.records("feats"):
+                if isinstance(feat, dict) and feat.get("name", "").lower() == name.lower():
+                    return feat
+        except:
+            pass
+        return None
+
+    def get_ac_breakdown(self) -> Dict[str, Any]:
+        """Calculate AC with breakdown."""
+        base = 10
+        dex_mod = self.abilities["DEX"].effective_modifier()
+        armor_bonus = self.combat.armor_class - 10 - dex_mod  # Infer from current AC
+        
+        parts = [f"Base: {base}"]
+        parts.append(f"DEX Modifier: {dex_mod:+d}")
+        if armor_bonus != 0:
+            parts.append(f"Armor/Shield: {armor_bonus:+d}")
+        
+        return {
+            'base': base,
+            'dex_mod': dex_mod,
+            'armor_bonus': armor_bonus,
+            'total': self.combat.armor_class,
+            'tooltip': '\n'.join(parts) + f"\nTotal: {self.combat.armor_class}"
+        }
+
+    def get_hp_breakdown(self) -> Dict[str, Any]:
+        """Calculate HP with breakdown."""
+        con_mod = self.abilities["CON"].effective_modifier()
+        level = self.identity.level or 1
+        con_contribution = con_mod * level
+        
+        # Estimate base HP from hit dice
+        base_hp = self.combat.max_hp - con_contribution
+        
+        parts = [f"Hit Dice: {base_hp}"]
+        parts.append(f"CON Modifier × Level: {con_mod:+d} × {level} = {con_contribution:+d}")
+        
+        return {
+            'base_hp': base_hp,
+            'con_contribution': con_contribution,
+            'total': self.combat.max_hp,
+            'tooltip': '\n'.join(parts) + f"\nTotal: {self.combat.max_hp}"
+        }
+
+    def calculated_proficiency_bonus(self) -> int:
+        """Calculate proficiency bonus from character level."""
+        level = self.identity.level or 1
+        return 2 + (level - 1) // 4
+
+    def get_proficiency_breakdown(self) -> Dict[str, Any]:
+        """Get proficiency bonus with calculation breakdown."""
+        level = self.identity.level or 1
+        bonus = self.calculated_proficiency_bonus()
+        
+        tooltip = f"Level {level}\n2 + (Level - 1) ÷ 4\n= 2 + ({level} - 1) ÷ 4\n= {bonus}"
+        
+        return {
+            'level': level,
+            'total': bonus,
+            'tooltip': tooltip
+        }
+
+    def get_initiative_breakdown(self) -> Dict[str, Any]:
+        """Calculate initiative with breakdown."""
+        dex_mod = self.abilities["DEX"].effective_modifier()
+        other_bonus = self.combat.initiative_bonus - dex_mod if hasattr(self.combat, 'initiative_bonus') else 0
+        total = dex_mod + other_bonus
+        
+        parts = [f"DEX Modifier: {dex_mod:+d}"]
+        if other_bonus != 0:
+            parts.append(f"Other Bonuses: {other_bonus:+d}")
+        parts.append(f"Total: {total:+d}")
+        
+        return {
+            'dex_mod': dex_mod,
+            'other_bonus': other_bonus,
+            'total': total,
+            'tooltip': '\n'.join(parts)
+        }
+
 
 def character_sheet_to_dict(sheet: CharacterSheet, compendium: Any = None) -> Dict[str, Any]:
     data = asdict(sheet)

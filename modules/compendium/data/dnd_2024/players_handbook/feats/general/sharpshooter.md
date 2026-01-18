@@ -1,8 +1,12 @@
 ---
 name: Sharpshooter
 type: feat
-prerequisite: null
+category: general
+prerequisite: "Level 4+, Dexterity 13+"
 id: feat:sharpshooter
+attribute_increase: ['DEX']
+proficiency: null
+expertise: null
 ---
 
 *Prerequisite: Level 4+, Dexterity 13+*

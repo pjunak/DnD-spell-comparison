@@ -1,8 +1,13 @@
 ---
 name: Ability Score Improvement
 type: feat
-prerequisite: null
+category: general
+prerequisite: "Level 4+"
 id: feat:ability-score-improvement
+attribute_increase: ["any"]
+proficiency: null
+expertise: null
+repeatable: true
 ---
 
 *Prerequisite: Level 4+*

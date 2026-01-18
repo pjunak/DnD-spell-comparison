@@ -1,8 +1,12 @@
 ---
 name: Heavy Armor Master
 type: feat
-prerequisite: null
+category: general
+prerequisite: "Level 4+, Heavy Armor Training"
 id: feat:heavy-armor-master
+attribute_increase: ['STR', 'CON']
+proficiency: null
+expertise: null
 ---
 
 *Prerequisite: Level 4+, Heavy Armor Training*

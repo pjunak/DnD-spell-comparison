@@ -1,8 +1,12 @@
 ---
 name: Sentinel
 type: feat
-prerequisite: null
+category: general
+prerequisite: "Level 4+, Strength or Dexterity 13+"
 id: feat:sentinel
+attribute_increase: ['STR', 'DEX']
+proficiency: null
+expertise: null
 ---
 
 *Prerequisite: Level 4+, Strength or Dexterity 13+*

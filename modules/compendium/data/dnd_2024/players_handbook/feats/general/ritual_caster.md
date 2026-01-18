@@ -1,8 +1,12 @@
 ---
 name: Ritual Caster
 type: feat
-prerequisite: null
+category: general
+prerequisite: "Level 4+, Intelligence, Wisdom, or Charisma 13+"
 id: feat:ritual-caster
+attribute_increase: ['INT', 'WIS', 'CHA']
+proficiency: null
+expertise: null
 ---
 
 *Prerequisite: Level 4+, Intelligence, Wisdom, or Charisma 13+*

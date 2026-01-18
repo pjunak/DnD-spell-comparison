@@ -1,8 +1,12 @@
 ---
 name: Interception
 type: feat
+category: fighting_style
 prerequisite: null
 id: feat:interception
+attribute_increase: null
+proficiency: null
+expertise: null
 ---
 
 *Prerequisite: Fighting Style Feature*

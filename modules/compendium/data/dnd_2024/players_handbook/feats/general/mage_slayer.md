@@ -1,8 +1,12 @@
 ---
 name: Mage Slayer
 type: feat
-prerequisite: null
+category: general
+prerequisite: "Level 4+"
 id: feat:mage-slayer
+attribute_increase: ['STR', 'DEX']
+proficiency: null
+expertise: null
 ---
 
 *Prerequisite: Level 4+*

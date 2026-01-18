@@ -27,7 +27,7 @@ from modules.compendium.modifiers.state import ModifierStateSnapshot
 from modules.core.application_context import ApplicationContext
 from modules.core.ui.resources import get_app_icon
 from modules.core.ui.widgets import FramelessWindow
-from modules.core.ui.dialogs import SpellcastingSettingsDialog
+from modules.character_sheet.ui.builder.dialog import CharacterBuilderDialog
 from PySide6.QtWidgets import (
     QDialog,
     QMessageBox,
@@ -169,7 +169,7 @@ class CharacterSheetWindow(FramelessWindow):
              # Fallback
              snapshot = ModifierStateSnapshot([], self._record.modifiers)
 
-        dialog = SpellcastingSettingsDialog(self._sheet, snapshot, self)
+        dialog = CharacterBuilderDialog(self._sheet, snapshot, self)
         if dialog.exec() != QDialog.DialogCode.Accepted:
             return
             

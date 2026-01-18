@@ -1,8 +1,12 @@
 ---
 name: Boon of Fortitude
 type: feat
-prerequisite: null
+category: epic_boon
+prerequisite: "Level 19+"
 id: feat:boon-of-fortitude
+attribute_increase: ['CON']
+proficiency: null
+expertise: null
 ---
 
 *Prerequisite: Level 19+*

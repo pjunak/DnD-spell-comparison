@@ -1,8 +1,13 @@
 ---
 name: Weapon Master
 type: feat
-prerequisite: null
+category: general
+prerequisite: "Level 4+"
 id: feat:weapon-master
+attribute_increase: ['STR', 'DEX']
+proficiency:
+  weapons: ['Martial']
+expertise: null
 ---
 
 *Prerequisite: Level 4+*

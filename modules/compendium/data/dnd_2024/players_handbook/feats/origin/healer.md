@@ -1,8 +1,12 @@
 ---
 name: Healer
 type: feat
+category: origin
 prerequisite: null
 id: feat:healer
+attribute_increase: null
+proficiency: null
+expertise: null
 ---
 
 You gain the following benefits.

@@ -97,7 +97,9 @@ def _advancement_rules() -> Mapping[str, Any]:
 
 def _point_buy_rules() -> Mapping[str, Any]:
     rules = _rules_payload()
-    block = rules.get("character_creation/point_buy") if isinstance(rules, Mapping) else None
+    block = rules.get("character/point_buy") if isinstance(rules, Mapping) else None
+    if not isinstance(block, Mapping):
+        block = rules.get("character_creation/point_buy") if isinstance(rules, Mapping) else None
     if not isinstance(block, Mapping):
         block = rules.get("point_buy") if isinstance(rules, Mapping) else None
     return block if isinstance(block, Mapping) else {}

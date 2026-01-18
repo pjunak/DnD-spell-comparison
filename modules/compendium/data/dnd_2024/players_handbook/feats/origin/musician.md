@@ -1,8 +1,13 @@
 ---
 name: Musician
 type: feat
+category: origin
 prerequisite: null
 id: feat:musician
+attribute_increase: null
+proficiency:
+  tools: ['Musical Instrument (3)']
+expertise: null
 ---
 
 You gain the following benefits.

@@ -1,8 +1,12 @@
 ---
 name: Alert
 type: feat
+category: origin
 prerequisite: null
 id: feat:alert
+attribute_increase: null
+proficiency: null
+expertise: null
 ---
 
 You gain the following benefits.

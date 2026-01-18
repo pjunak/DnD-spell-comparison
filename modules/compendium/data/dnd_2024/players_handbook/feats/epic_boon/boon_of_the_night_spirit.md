@@ -1,8 +1,12 @@
 ---
 name: Boon of the Night Spirit
 type: feat
-prerequisite: null
+category: epic_boon
+prerequisite: "Level 19+"
 id: feat:boon-of-the-night-spirit
+attribute_increase: ['DEX', 'WIS', 'CHA']
+proficiency: null
+expertise: null
 ---
 
 *Prerequisite: Level 19+*

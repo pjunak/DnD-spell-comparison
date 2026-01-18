@@ -1,8 +1,12 @@
 ---
 name: Telekinetic
 type: feat
-prerequisite: null
+category: general
+prerequisite: "Level 4+"
 id: feat:telekinetic
+attribute_increase: ['INT', 'WIS', 'CHA']
+proficiency: null
+expertise: null
 ---
 
 *Prerequisite: Level 4+*

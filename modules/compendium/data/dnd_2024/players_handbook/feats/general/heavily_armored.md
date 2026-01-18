@@ -1,8 +1,13 @@
 ---
 name: Heavily Armored
 type: feat
-prerequisite: null
+category: general
+prerequisite: "Level 4+, Medium Armor Training"
 id: feat:heavily-armored
+attribute_increase: ['STR', 'CON']
+proficiency:
+  armor: ['Heavy']
+expertise: null
 ---
 
 *Prerequisite: Level 4+, Medium Armor Training*

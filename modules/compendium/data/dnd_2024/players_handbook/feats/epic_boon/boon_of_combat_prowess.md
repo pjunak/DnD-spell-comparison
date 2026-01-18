@@ -1,8 +1,12 @@
 ---
 name: Boon of Combat Prowess
 type: feat
-prerequisite: null
+category: epic_boon
+prerequisite: "Level 19+"
 id: feat:boon-of-combat-prowess
+attribute_increase: ['STR', 'DEX']
+proficiency: null
+expertise: null
 ---
 
 *Prerequisite: Level 19+*

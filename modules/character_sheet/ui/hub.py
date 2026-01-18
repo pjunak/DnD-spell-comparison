@@ -33,7 +33,7 @@ from modules.character_sheet.services.library import CharacterLibrary, Character
 from modules.compendium.modifiers.state import ModifierLoadError, ModifierStateService, ModifierStateSnapshot
 
 from modules.core.application_context import ApplicationContext
-from modules.core.ui.dialogs import SpellcastingSettingsDialog
+from modules.character_sheet.ui.builder.dialog import CharacterBuilderDialog
 from modules.core.ui.resources import PROJECT_ROOT, get_app_icon
 from modules.core.ui.widgets import FramelessWindow
 from .window import CharacterSheetWindow
@@ -44,6 +44,7 @@ class CharacterSheetHubWindow(FramelessWindow):
 
     def __init__(self, app_context: ApplicationContext | None = None, parent: QWidget | None = None) -> None:
         super().__init__(parent)
+
         self.setWindowTitle("Character Sheet Workspace")
         self.setWindowIcon(get_app_icon())
         self.setAttribute(Qt.WidgetAttribute.WA_DeleteOnClose, True)
@@ -250,7 +251,7 @@ class CharacterSheetHubWindow(FramelessWindow):
 
     def _create_character(self) -> None:
         snapshot = self._ensure_modifier_snapshot({})
-        dialog = SpellcastingSettingsDialog(CharacterSheet(), snapshot, self)
+        dialog = CharacterBuilderDialog(CharacterSheet(), snapshot, self)
         if dialog.exec() != QDialog.DialogCode.Accepted:
             return
         sheet, modifiers = dialog.get_result()
@@ -263,7 +264,7 @@ class CharacterSheetHubWindow(FramelessWindow):
         if not record:
             return
         snapshot = self._ensure_modifier_snapshot(record.modifiers)
-        dialog = SpellcastingSettingsDialog(record.sheet, snapshot, self)
+        dialog = CharacterBuilderDialog(record.sheet, snapshot, self)
         if dialog.exec() != QDialog.DialogCode.Accepted:
             return
         sheet, modifiers = dialog.get_result()

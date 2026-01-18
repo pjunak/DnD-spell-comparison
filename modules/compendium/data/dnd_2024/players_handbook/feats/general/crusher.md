@@ -1,8 +1,12 @@
 ---
 name: Crusher
 type: feat
-prerequisite: null
+category: general
+prerequisite: "Level 4+"
 id: feat:crusher
+attribute_increase: ["STR", "CON"]
+proficiency: null
+expertise: null
 ---
 
 *Prerequisite: Level 4+*

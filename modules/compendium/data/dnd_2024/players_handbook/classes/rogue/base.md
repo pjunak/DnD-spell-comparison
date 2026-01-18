@@ -35,6 +35,15 @@ progression:
   - Sneak Attack
   - Thieves' Cant
   - Weapon Mastery
+  options:
+  - key: rogue_expertise_1_1
+    type: expertise
+    label: "Expertise (1st skill)"
+    choices: any_proficient_skill
+  - key: rogue_expertise_1_2
+    type: expertise
+    label: "Expertise (2nd skill)"
+    choices: any_proficient_skill
 - level: 2
   features:
   - Cunning Action
@@ -52,6 +61,15 @@ progression:
 - level: 6
   features:
   - Expertise
+  options:
+  - key: rogue_expertise_6_1
+    type: expertise
+    label: "Expertise (3rd skill)"
+    choices: any_proficient_skill
+  - key: rogue_expertise_6_2
+    type: expertise
+    label: "Expertise (4th skill)"
+    choices: any_proficient_skill
 - level: 7
   features:
   - Evasion

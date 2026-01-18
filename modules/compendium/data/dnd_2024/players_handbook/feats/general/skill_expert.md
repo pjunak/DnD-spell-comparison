@@ -1,8 +1,14 @@
 ---
 name: Skill Expert
 type: feat
-prerequisite: null
+category: general
+prerequisite: "Level 4+"
 id: feat:skill-expert
+attribute_increase: ['any']
+proficiency:
+  skills: ['any']
+expertise:
+  skills: ['any']
 ---
 
 *Prerequisite: Level 4+*

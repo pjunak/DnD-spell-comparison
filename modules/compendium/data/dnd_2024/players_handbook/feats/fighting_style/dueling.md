@@ -1,8 +1,12 @@
 ---
 name: Dueling
 type: feat
+category: fighting_style
 prerequisite: null
 id: feat:dueling
+attribute_increase: null
+proficiency: null
+expertise: null
 ---
 
 *Prerequisite: Fighting Style Feature*

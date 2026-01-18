@@ -1,8 +1,12 @@
 ---
 name: Boon of Irresistible Offense
 type: feat
-prerequisite: null
+category: epic_boon
+prerequisite: "Level 19+"
 id: feat:boon-of-irresistible-offense
+attribute_increase: ['STR', 'DEX']
+proficiency: null
+expertise: null
 ---
 
 *Prerequisite: Level 19+*

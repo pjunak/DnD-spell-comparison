@@ -1,8 +1,13 @@
 ---
 name: Elemental Adept
 type: feat
-prerequisite: null
+category: general
+prerequisite: "Level 4+, Spellcasting or Pact Magic Feature"
 id: feat:elemental-adept
+attribute_increase: ['INT', 'WIS', 'CHA']
+proficiency: null
+expertise: null
+repeatable: true
 ---
 
 *Prerequisite: Level 4+, Spellcasting or Pact Magic Feature*

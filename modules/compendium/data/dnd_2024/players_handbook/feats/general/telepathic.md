@@ -1,8 +1,12 @@
 ---
 name: Telepathic
 type: feat
-prerequisite: null
+category: general
+prerequisite: "Level 4+"
 id: feat:telepathic
+attribute_increase: ['INT', 'WIS', 'CHA']
+proficiency: null
+expertise: null
 ---
 
 *Prerequisite: Level 4+*

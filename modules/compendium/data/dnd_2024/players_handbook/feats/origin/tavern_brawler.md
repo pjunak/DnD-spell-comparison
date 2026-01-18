@@ -1,8 +1,12 @@
 ---
 name: Tavern Brawler
 type: feat
+category: origin
 prerequisite: null
 id: feat:tavern-brawler
+attribute_increase: null
+proficiency: null
+expertise: null
 ---
 
 You gain the following benefits.

@@ -1,8 +1,12 @@
 ---
 name: Shadow Touched
 type: feat
-prerequisite: null
+category: general
+prerequisite: "Level 4+"
 id: feat:shadow-touched
+attribute_increase: ['INT', 'WIS', 'CHA']
+proficiency: null
+expertise: null
 ---
 
 *Prerequisite: Level 4+*

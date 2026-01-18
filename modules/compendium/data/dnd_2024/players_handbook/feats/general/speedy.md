@@ -1,8 +1,12 @@
 ---
 name: Speedy
 type: feat
-prerequisite: null
+category: general
+prerequisite: "Level 4+, Dexterity or Constitution 13+"
 id: feat:speedy
+attribute_increase: ['DEX', 'CON']
+proficiency: null
+expertise: null
 ---
 
 *Prerequisite: Level 4+, Dexterity or Constitution 13+*

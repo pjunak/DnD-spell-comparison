@@ -2,7 +2,8 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
-from typing import Any, Dict, List, Set
+from typing import Any, Dict, List, Set, Optional
+import os
 
 from PySide6.QtCore import QSettings
 
@@ -23,6 +24,9 @@ class Settings:
 
     @property
     def ruleset(self) -> str:
+        env = os.environ.get("LIVING_SCROLL_RULESET")
+        if env:
+            return env
         return str(self._settings.value(KEY_RULESET, DEFAULT_RULESET))
 
     @ruleset.setter
@@ -31,6 +35,14 @@ class Settings:
 
     @property
     def active_modules(self) -> Set[str]:
+        # Check env var first
+        env = os.environ.get("LIVING_SCROLL_MODULES")
+        if env:
+            # Comma-separated list
+            modules = set(x.strip() for x in env.split(",") if x.strip())
+            modules.update(REQUIRED_MODULES)
+            return modules
+
         val = self._settings.value(KEY_MODULES)
         modules = set()
         if val is None:

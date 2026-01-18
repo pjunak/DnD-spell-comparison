@@ -1,8 +1,12 @@
 ---
 name: Resilient
 type: feat
-prerequisite: null
+category: general
+prerequisite: "Level 4+"
 id: feat:resilient
+attribute_increase: ['any']
+proficiency: null
+expertise: null
 ---
 
 *Prerequisite: Level 4+*

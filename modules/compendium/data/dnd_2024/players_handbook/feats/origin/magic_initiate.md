@@ -1,8 +1,12 @@
 ---
 name: Magic Initiate
 type: feat
+category: origin
 prerequisite: null
 id: feat:magic-initiate
+attribute_increase: null
+proficiency: null
+expertise: null
 ---
 
 You gain the following benefits.

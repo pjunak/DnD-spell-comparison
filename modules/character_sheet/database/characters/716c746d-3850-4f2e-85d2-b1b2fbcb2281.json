@@ -3,9 +3,9 @@
   "sheet": {
     "identity": {
       "name": "Testeral",
-      "ancestry": "",
-      "ancestry_subtype": "",
-      "background": "",
+      "ancestry": "Human",
+      "ancestry_subtype": "Variant Human",
+      "background": "Acolyte",
       "background_choices": {
         "ability_choices": [],
         "skill_choices": [],
@@ -16,27 +16,33 @@
       "player": "",
       "alignment": "",
       "experience": 0,
-      "classes": [],
+      "classes": [
+        {
+          "name": "Rogue",
+          "level": 1,
+          "subclass": null
+        }
+      ],
       "level_cap": 0,
-      "ability_generation": "manual",
+      "ability_generation": "point_buy",
       "asi_choices": {},
       "portrait_path": "Testeral_1.png"
     },
     "abilities": {
       "STR": {
-        "score": 10,
+        "score": 8,
         "modifier": null,
         "save_proficient": false,
         "save_bonus": 0
       },
       "DEX": {
-        "score": 10,
+        "score": 15,
         "modifier": null,
         "save_proficient": false,
         "save_bonus": 0
       },
       "CON": {
-        "score": 10,
+        "score": 14,
         "modifier": null,
         "save_proficient": false,
         "save_bonus": 0
@@ -54,7 +60,7 @@
         "save_bonus": 0
       },
       "CHA": {
-        "score": 10,
+        "score": 14,
         "modifier": null,
         "save_proficient": false,
         "save_bonus": 0
@@ -75,68 +81,73 @@
       "proficiency_bonus": 2,
       "armor": [],
       "weapons": [],
-      "tools": [],
+      "tools": [
+        "Thieves' Tools"
+      ],
       "languages": [],
-      "skills": {}
+      "skills": {
+        "Insight": 2,
+        "Sleight of Hand": 1,
+        "Intimidation": 2,
+        "Acrobatics": 1,
+        "Deception": 2,
+        "Perception": 2,
+        "Athletics": 2
+      }
     },
     "equipment": [
       {
         "name": "Shovel",
         "quantity": 1,
-        "weight_lb": 0.0,
         "attuned": false,
         "equipped": false,
+        "weight_lb": 0.0,
         "notes": "",
         "bonuses": {},
-        "compendium_id": "",
         "cost": "",
         "rarity": ""
       },
       {
         "name": "Spyglass",
         "quantity": 1,
-        "weight_lb": 0.0,
         "attuned": false,
         "equipped": false,
+        "weight_lb": 0.0,
         "notes": "",
         "bonuses": {},
-        "compendium_id": "",
         "cost": "",
         "rarity": ""
       },
       {
         "name": "Leather Armor",
         "quantity": 1,
-        "weight_lb": 0.0,
         "attuned": false,
-        "equipped": false,
+        "equipped": true,
+        "weight_lb": 0.0,
         "notes": "",
         "bonuses": {},
-        "compendium_id": "",
         "cost": "",
         "rarity": ""
       },
       {
         "name": "Staff of Swarming Insects",
         "quantity": 1,
-        "weight_lb": 0.0,
         "attuned": false,
         "equipped": false,
+        "weight_lb": 0.0,
         "notes": "",
         "bonuses": {},
-        "compendium_id": "",
         "cost": "",
         "rarity": ""
       },
       {
         "name": "Ammunition",
         "quantity": 1,
-        "weight_lb": 0.0,
         "attuned": false,
-        "equipped": false,
+        "equipped": true,
+        "weight_lb": 0.0,
         "notes": "",
         "bonuses": {},
-        "compendium_id": "",
         "cost": "",
         "rarity": ""
       }
@@ -160,9 +171,36 @@
       "spell_slots": {},
       "prepared_spells": []
     },
-    "feature_options": {},
+    "feature_options": {
+      "rogue_subclass": "Arcane Trickster",
+      "rogue_skill_1": "Insight",
+      "rogue_asi_4": "Blind Fighting",
+      "rogue_skill_3": "Sleight of Hand",
+      "rogue_skill_2": "Intimidation",
+      "rogue_asi_7": "Skill Expert",
+      "skill_expert_attribute": "STR",
+      "skill_expert_skill_proficiency": "Acrobatics",
+      "skill_expert_skill_expertise": "Deception",
+      "rogue_expertise_6_1": "Perception",
+      "rogue_expertise_6_2": "Athletics",
+      "rogue_expertise_1_1": "Insight",
+      "rogue_expertise_1_2": "Intimidation"
+    },
     "class_options": {},
     "notes": {}
   },
-  "modifiers": {}
+  "modifiers": {
+    "Boon: Blessing of the Archmage": false,
+    "Feat: Elemental Adept": false,
+    "Feat: Resilient (Constitution)": false,
+    "Feat: Spell Sniper": false,
+    "Feat: War Caster": false,
+    "Agonizing Blast": false,
+    "Flame Mastery": false,
+    "Grasp of Hadar": false,
+    "Metamagic: Empowered Spell": false,
+    "Metamagic: Quickened Spell": false,
+    "Repelling Blast": false,
+    "Storm Channeling": false
+  }
 }

@@ -13,6 +13,7 @@ class FeatureOptionChoice:
     value: str
     label: str
     description: Optional[str] = None
+    enabled: bool = True
 
 
 @dataclass(frozen=True)
@@ -26,6 +27,7 @@ class FeatureOptionGroup:
     choices: List[FeatureOptionChoice] = field(default_factory=list)
     required: bool = False
     default: Optional[str] = None
+    width: Optional[int] = None
 
 
 @dataclass(frozen=True)

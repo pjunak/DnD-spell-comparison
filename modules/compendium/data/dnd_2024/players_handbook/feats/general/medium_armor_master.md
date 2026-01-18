@@ -1,8 +1,12 @@
 ---
 name: Medium Armor Master
 type: feat
-prerequisite: null
+category: general
+prerequisite: "Level 4+, Medium Armor Training"
 id: feat:medium-armor-master
+attribute_increase: ['STR', 'DEX']
+proficiency: null
+expertise: null
 ---
 
 *Prerequisite: Level 4+, Medium Armor Training*

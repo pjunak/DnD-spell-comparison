@@ -1,8 +1,13 @@
 ---
 name: Moderately Armored
 type: feat
-prerequisite: null
+category: general
+prerequisite: "Level 4+, Light Armor Training"
 id: feat:moderately-armored
+attribute_increase: ['STR', 'DEX']
+proficiency:
+  armor: ['Medium', 'Shields']
+expertise: null
 ---
 
 *Prerequisite: Level 4+, Light Armor Training*

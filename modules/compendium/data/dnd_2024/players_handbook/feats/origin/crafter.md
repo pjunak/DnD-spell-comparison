@@ -1,8 +1,13 @@
 ---
 name: Crafter
 type: feat
+category: origin
 prerequisite: null
 id: feat:crafter
+attribute_increase: null
+proficiency:
+  tools: ["Artisan's Tools (3)"]
+expertise: null
 ---
 
 You gain the following benefits.
